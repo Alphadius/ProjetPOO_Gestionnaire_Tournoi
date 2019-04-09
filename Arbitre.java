@@ -14,4 +14,4 @@ public class Arbitre extends Personne {
    */
   public Vector  arbitre;
 
-}
+}est ce bon 
