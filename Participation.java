@@ -11,3 +11,7 @@ public class Participation {
     public Match vailde;
 
 }
+
+public class afficherScore {
+	
+}
