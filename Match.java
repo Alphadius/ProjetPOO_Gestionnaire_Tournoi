@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class Match {
 
-  public score int;
+  int score;
 
-  public date int;
+  int date;
 
     public Vector  myMatch;
     public Vector  myMatch;
