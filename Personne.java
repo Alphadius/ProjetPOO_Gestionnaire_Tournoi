@@ -1,10 +1,10 @@
 public class Personne {
 
-    public Prenom String;
+    String Prenom;
   
-    public Nom String;
+    String Nom;
   
-    public dateNaissance int;
+    int dateNaissance;
   
       
   }
