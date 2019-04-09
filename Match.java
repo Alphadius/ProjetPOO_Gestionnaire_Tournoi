@@ -34,7 +34,8 @@ public class Match {
    */
   public Vector  vailde;
 
-  public void afficherScore() {
+  public void afficherScore(Equipe1, Equipe2) {
+      //
   }
 
   public void afficherDate() {
