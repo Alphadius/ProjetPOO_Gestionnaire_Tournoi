@@ -34,11 +34,12 @@ public class Match {
    */
   public Vector  valide;
 
-  public void afficherScore(Equipe1, Equipe2) {
-      
+  public void afficherScore(String equipe1, String equipe2) {
+    System.out.println(score);
   }
 
-  public void afficherDate() {
+  public void afficherDate(String equipe1, String equipe2) {
+    System.out.println(date);
   }
 
 }
