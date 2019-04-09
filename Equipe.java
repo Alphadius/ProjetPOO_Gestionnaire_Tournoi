@@ -32,7 +32,7 @@ public class Equipe {
   public void changementFormation() {
   }
 
-  public void afficherEquipe() {
+  public void afficherMatchEquipe() {
   }
 
 }
