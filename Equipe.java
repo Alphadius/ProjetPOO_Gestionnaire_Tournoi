@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class Equipe {
 
-  public NomEquipe String;
+  String NomEquipe;
 
-  public NomCoach String;
+  String NomCoach;
 
     /**
    * 
