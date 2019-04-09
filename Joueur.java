@@ -4,7 +4,7 @@ public class Joueur extends Personne {
 
   String Position;
 
-  boolean titulaire;
+  Boolean titulaire;
 
     public Vector  myEquipe;
     public Vector  myStatJoueur;
