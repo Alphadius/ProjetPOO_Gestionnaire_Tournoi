@@ -2,11 +2,11 @@ import java.util.Vector;
 
 public class Competition {
 
-  public NomCompetiton String;
+String NomCompetiton;
 
-  public NombreEquipes int;
+ int NombreEquipes;
 
-  public dateDeDebut int;
+ int dateDeDebut;
 
     public Vector  myMatch;
     public Match 1.n;

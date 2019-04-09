@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class Participation {
 
-  public nbBut int;
+  int nbBut;
 
-  public nbCarton int;
+  int nbCarton;
 
     public Vector  1.1;
     public Joueur xxxxx;
