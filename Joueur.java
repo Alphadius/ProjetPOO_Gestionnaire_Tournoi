@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class Joueur extends Personne {
 
-  public Position String;
+  String Position;
 
-  public titulaire boolean;
+  boolean titulaire;
 
     public Vector  myEquipe;
     public Vector  myStatJoueur;
