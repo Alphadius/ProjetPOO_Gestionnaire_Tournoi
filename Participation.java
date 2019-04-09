@@ -8,6 +8,6 @@ public class Participation {
 
     public Vector  1.1;
     public Joueur xxxxx;
-    public Match vailde;
+    public Match valide;
 
 }

@@ -32,10 +32,10 @@ public class Match {
    * 
    * @element-type Participation
    */
-  public Vector  vailde;
+  public Vector  valide;
 
   public void afficherScore(Equipe1, Equipe2) {
-      //
+      
   }
 
   public void afficherDate() {
