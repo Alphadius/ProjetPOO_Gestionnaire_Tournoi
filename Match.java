@@ -1,4 +1,5 @@
 import java.util.Vector;
+import java.util.Scanner;
 
 public class Match {
 
@@ -36,10 +37,22 @@ public class Match {
 
   public void afficherScore(String equipe1, String equipe2) {
     System.out.println(score);
-  }
+  }*/
 
-  public void afficherDate(String equipe1, String equipe2) {
-    System.out.println(date);
+  public void creationDateDebut() {
+    Scanner jDebut= new Scanner (System.in);
+    Scanner mDebut= new Scanner (System.in);
+    Scanner aDebut= new Scanner (System.in);
+    System.out.println("Veuillez saisir le jour de debut de la competition:");
+    int sjDebut= jDebut.nextInt(); 
+    System.out.println("Veuillez saisir le mois de debut de la competition:");
+    int smDebut= mDebut.nextInt(); 
+    System.out.println("Veuillez saisir l'annee de debut de la competition:");
+    int saDebut= aDebut.nextInt(); 
+    
+    System.out.println("la date du debut de la competition est :" + sjDebut +"/" + smDebut + "/"+ saDebut);
   }
-
+public void afficherDate (String equipe1, String equipe2){
+  
+}
 }
