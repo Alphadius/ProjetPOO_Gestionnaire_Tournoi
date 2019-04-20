@@ -2,9 +2,9 @@ import java.util.Vector;
 
 public class Joueur extends Personne {
 
-  /*String Position;
+  String Position;
 
-  Boolean titulaire;
+  /*Boolean titulaire;
 
     public Vector  myEquipe;
     public Vector  myStatJoueur;
@@ -27,8 +27,12 @@ public class Joueur extends Personne {
 
 
   public Equipe appartient;
-  public void test() {
+  public void afficherStatsJoueur(int idJoueur) {
     System.out.println(Joueur.id);
+    if(this.id == idJoueur) {
+      System.out.println(this.vitesse);
+      //etc etc ?
+    }
   }
 
 }
