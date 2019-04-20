@@ -38,16 +38,29 @@ public class Competition {
       System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
       tab[i] = lire.nextLine();
     }
+    //if nbequipe paire
     int tour = 0;
-    for (int i = 0; i < nbEquipes; i++) {
-      for (int j = 1; j < nbEquipes; j++) {
-        if (i + j < nbEquipes) {
-          String match = tab[i] + " - " + tab[i + j];
-          System.out.println(match);
-          tour++;
-          System.out.println(tour);
+    int nbcombi = ((nbEquipes*nbEquipes)-nbEquipes)/2;
+    String tableautri[] = new String[nbcombi];
+    //diag 1
+    for (int i = 0; i < (nbEquipes/2); i++) {
+        tableautri[i] = tab[i*2] + " - " + tab[(i*2)+1];
+        if((i*2)+2 < 8){
+        tableautri[i+(nbEquipes/2)] = tab[(i*2)+1] + " - " + tab[(i*2)+2];
+      }
+    }
+    //reste
+    int sum = 0;
+    for(int i = 2; i <nbEquipes; i++){
+      for (int j = 0; j < 8 ; j++) {
+        if( i+j < 8){
+          tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
+          sum++;
         }
       }
+    }
+    for (int i = 0; i <  nbcombi; i++) {
+    System.out.println(tableautri[i]);
     }
   }
 }
