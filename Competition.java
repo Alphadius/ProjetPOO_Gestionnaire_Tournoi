@@ -54,7 +54,7 @@ public class Competition {
     for(int i = 2; i < nbEquipes; i++){
       for (int j = 0; j <= nbEquipes; j++) {
         if( i+j < nbEquipes){
-          if((j == (nbEquipes/2) && i+j == nbEquipes-1) || (j == 1 && i+j == nbEquipes-1)){
+          if((j == (nbEquipes/2) && i+j == nbEquipes-1 && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
             tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
             tableautri[nbEquipes + sum] = "pause";
             sum++;
