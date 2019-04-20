@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Participation {
 	int nbEquipes = 16;
-	int nbMatchs = 32;
+	int nbMatchs = 32; 
+	// ^ variables à récup des autres fichiers
  	int nbButs[][] = new int[nbEquipes][nbMatchs]; //tableau contenant le nombre de buts par équipe : nbButs[idEquipe][idMatch]
  	int operationScore = 0;
   
