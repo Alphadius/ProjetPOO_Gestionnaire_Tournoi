@@ -31,8 +31,4 @@ public class Joueur extends Personne {
     System.out.println(Joueur.id);
   }
 
-  public int afficherStatJoueur(int idJoueur) {
-    
-  }
-
 }
