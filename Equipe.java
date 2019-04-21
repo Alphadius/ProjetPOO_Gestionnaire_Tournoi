@@ -2,37 +2,21 @@ import java.util.Vector;
 
 public class Equipe {
 
-  String NomEquipe;
-
-  String NomCoach;
-
-    /**
-   * 
-   * @element-type Match
-   */
-  public Vector  0.n;
-      public Vector  myStatEquipe;
-    public Vector  myJoueur;
-      /**
-   * 
-   * @element-type Joueur
-   */
-  public Vector  appartient;
-    public Vector  myMatch;
-    public Vector  joue;
-    /**
-   * 
-   * @element-type Match
-   */
-  public Vector  participe;
+  String nomEquipe;
+  String nomCoach;
 
   public void afficherStatEquipe() {
+    System.out.println(this.nomEquipe);
+    System.out.println("Coach : " + nomCoach);
+    // Faire pareil pour les autres stats
   }
 
   public void changementFormation() {
+
   }
 
   public void afficherMatchEquipe() {
+
   }
 
 }

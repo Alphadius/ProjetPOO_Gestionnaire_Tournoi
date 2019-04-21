@@ -69,7 +69,7 @@ public class Match {
       if (aBisextil) {
         jourAnnee = 366;
       } else {
-        jourAnnee = 335;
+        jourAnnee = 365;
       }
       if ((mDebut == 1) || (mDebut == 3) || (mDebut == 5) || (mDebut == 7) || (mDebut == 8) || (mDebut == 10)
           || (mDebut == 12)) {
