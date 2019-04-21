@@ -7,7 +7,7 @@ public class Equipe {
 
   public void afficherStatEquipe() {
     System.out.println(this.nomEquipe);
-    System.out.println("Coach : " + nomCoach);
+    System.out.println("Coach : " + this.nomCoach);
     // Faire pareil pour les autres stats
   }
 
