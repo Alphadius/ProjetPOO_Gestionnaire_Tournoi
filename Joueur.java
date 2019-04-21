@@ -2,8 +2,15 @@ import java.util.Vector;
 
 public class Joueur extends Personne {
 
-  String Position;
-
+  String position;
+  String equipe;
+ // public int id;
+  public int vitesse;
+  public int tirs;
+  public int passes;
+  public int dribbles;
+  public int defense;
+  public int physique;
   /*Boolean titulaire;
 
     public Vector  myEquipe;
@@ -15,24 +22,21 @@ public class Joueur extends Personne {
    * @element-type Participation
    
   public Vector  tttt;
-  public Vector  myPersonne;*/
+  public Vector  myPersonne;
+  public Equipe appartient;*/
 
-  public int id;
-  public int vitesse;
-  public int tirs;
-  public int passes;
-  public int dribbles;
-  public int defense;
-  public int physique;
-
-
-  public Equipe appartient;
-  public void afficherStatsJoueur(int idJoueur) {
-    System.out.println(Joueur.id);
-    if(this.id == idJoueur) {
-      System.out.println(this.vitesse);
-      //etc etc ?
-    }
+  public void afficherStats() {
+    System.out.println(this.nom + " " + this.prenom);
+    System.out.println(this.age + "ans");
+    System.out.println("Ne le " + this.dateNaissance);
+    System.out.println("Equipe : " + this.equipe);
+    System.out.println("Position : " + this.position);
+    System.out.println("Vitesse : " + this.vitesse);
+    System.out.println("Tirs : " + this.tirs);
+    System.out.println("Passes : " + this.passes);
+    System.out.println("Dribbles : " + this.dribbles);
+    System.out.println("Defense : " + this.defense);
+    System.out.println("Physique : " + this.physique);
   }
 
 }

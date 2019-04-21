@@ -62,7 +62,7 @@ public class Match {
     int i = tour + jDebut;
     int maxjour = 30;
     int jourAnnee = 365;
-    System.out.println(i);
+  //  System.out.println(i);
     while (i > 0) {
       System.out.println(i);
       boolean aBisextil = (((aDebut % 100 == 0) || (aDebut % 4 == 0)) && (aDebut % 400 != 0));
