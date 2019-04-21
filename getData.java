@@ -10,12 +10,15 @@ public class getData{
 		BufferedReader br = null;
 		String line;
 		try{
+			//va chercher le fichier demandé
 			br = new BufferedReader(new FileReader("sauvegarde.txt"));
 
 			while((line = br.readLine()) != null){
+				//on va choper toute les données ligne par ligne et les transformer en objets
 				System.out.println(line);
 			}
 		}catch(IOException e){
+			//si ya une erreur
 			e.printStackTrace();
 		}
 	}

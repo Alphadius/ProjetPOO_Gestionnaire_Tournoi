@@ -10,9 +10,12 @@ public class writeData{
 		try{
 			writer = new PrintWriter(fileName);
 		}catch(FileNotFoundException e){
+			//sortie erreur
 			e.printStackTrace();
 		}
-			writer.println("Ecrit ce que tu veux");
+		//on va transformer nos objet en fichier txt avec des boucle for ... 
+		//et les mettres en page de manière à etre lisible pour le buffer
+		writer.println("Ecrit ce que tu veux");
 		writer.close();
 	}
 }
