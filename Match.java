@@ -3,17 +3,24 @@ import java.util.Scanner;
 
 public class Match {
 
-  int score;
+  public static int scoreEquipe1;
+  public static int scoreEquipe2;
+  public static String equipe1;
+  public static String equipe2;
 
-  int tour;
+  public static int jDebut = 0;
+  public static int mDebut = 0;
+  public static int aDebut = 0;
+  public static int tour = 0;
 
-  public Vector myMatch;
+  /*public Vector myMatch;
   public Vector myMatch;
   /**
    * 
    * @element-type Equipe
-   */
-  public Vector confronte;public Arbitre 1.1;public Vector 22. n;
+   *
+  public Vector confronte;public Arbitre 1.1;
+  public Vector 22. n;
   public Vector myCompetition;
   public Competition myCompetition;public Vector 1.1;
   public Vector myEquipe;
@@ -21,7 +28,7 @@ public class Match {
   /**
    * 
    * @element-type Equipe
-   */
+   *
   public Vector confronte;
   public Arbitre arbitre;
   public Vector myCompetition;
@@ -29,17 +36,12 @@ public class Match {
   /**
    * 
    * @element-type Participation
-   */
-  public Vector valide;
+   *
+  public Vector valide;*/
 
-  public void afficherScore(String equipe1, String equipe2) {
-    System.out.println(score);
-  }*/
-
-  public static int jDebut = 0;
-  public static int mDebut = 0;
-  public static int aDebut = 0;
-  public static int tour = 0;
+  public void afficherScore() {
+    System.out.println(this.scoreEquipe1 + " - " + this.scoreEquipe2);
+  }
 
   public void creationDateDebut() { // demande a lutilisateur de rentrer la date de debut de la compete
     Scanner reader = new Scanner(System.in);
@@ -97,4 +99,4 @@ public class Match {
     }
     System.out.println("la date du match est :" + jDebut + "/" + mDebut + "/" + aDebut);
   }
-}}
+}

@@ -1,12 +1,16 @@
 import java.util.*;
 
 public class Participation {
-	int nbEquipes = 16;
+	/*int nbEquipes = 16;
 	int nbMatchs = 32; 
 	// ^ variables à récup des autres fichiers
  	int nbButs[][] = new int[nbEquipes][nbMatchs]; //tableau contenant le nombre de buts par équipe : nbButs[idEquipe][idMatch]
- 	int operationScore = 0;
-  
+ 	*/
+  int operationScore = 0;
+
+  // Déplacé dans Match
+
+  /*
 	public void entrerScore() {
     	Scanner reader = new Scanner(System.in);
     
@@ -20,10 +24,10 @@ public class Participation {
       		nbButs[idEquipe][idMatch] = reader.nextInt();
     	}
   	}
-
-  	public void afficherScore(int idEquipe1, int idEquipe2, int idMatch) {
+*/
+  	/*public void afficherScore(int idEquipe1, int idEquipe2, int idMatch) {
   		System.out.println(nbButs[idEquipe1][idMatch] + "-" + nbButs[idEquipe2][idMatch]);
-  	}
+  	}*/
 
   	int nbCarton;
 
