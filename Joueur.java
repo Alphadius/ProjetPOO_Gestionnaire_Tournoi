@@ -4,6 +4,7 @@ public class Joueur extends Personne {
 
   String position;
   String equipe;
+  public boolean titulaire;
   public int numeroJoueur;
   public float vitesse;
   public int tirs;
@@ -12,8 +13,8 @@ public class Joueur extends Personne {
   public int defense;
   public int physique;
   
-  /*Boolean titulaire;
 
+  /*
     public Vector  myEquipe;
     public Vector  myStatJoueur;
     public Vector  myEquipe;
@@ -26,13 +27,14 @@ public class Joueur extends Personne {
   public Vector  myPersonne;
   public Equipe appartient;*/
 
-  public Joueur(String nom, String prenom, int age, String dateNaissance, String position, String equipe, int numeroJoueur, float vitesse, int tirs, int passes, int dribbles, int defense, int physique) {
+  public Joueur(String nom, String prenom, int age, String dateNaissance, String position, String equipe, boolean titulaire, int numeroJoueur, float vitesse, int tirs, int passes, int dribbles, int defense, int physique) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
     this.dateNaissance = dateNaissance;
     this.position = position;
     this.equipe = equipe;
+    this.titulaire = titulaire;
     this.numeroJoueur = numeroJoueur;
     this.vitesse = vitesse;
     this.tirs = tirs;
@@ -49,7 +51,12 @@ public class Joueur extends Personne {
     System.out.println(this.age + " ans");
     System.out.println("Date de naissance : " + this.dateNaissance);
     System.out.println("Equipe : " + this.equipe);
-    System.out.println("N°" + this.numeroJoueur)
+    if(this.titulaire) {
+      System.out.println("Titulaire");
+    } else {
+      System.out.println("Non-titulaire");
+    }
+    System.out.println("N°" + this.numeroJoueur);
     System.out.println("Position : " + this.position);
     System.out.println("Vitesse : " + this.vitesse);
     System.out.println("Tirs : " + this.tirs);
