@@ -18,7 +18,7 @@ public class writeData{
 		while(true){
 		Scanner reader=new Scanner (System.in);//permet decrire le texte que lon veut dans le txt
 		System.out.println ("Que voulez vous ecrire ?");
-		String text=reader.nextLine();
+		String text=reader.nextLine() ;
 		if(text.equals("fini")){
 			break;
 		}
