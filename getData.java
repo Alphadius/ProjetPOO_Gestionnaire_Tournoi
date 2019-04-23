@@ -42,7 +42,7 @@ public class getData{
 						position = Integer.valueOf(line);
 					break;
 					case 4:
-						vitesse =Integer.valueOf(line);
+						vitesse = Integer.valueOf(line);
 					break;
 					case 5:
 						tirs = Integer.valueOf(line);
@@ -80,14 +80,4 @@ public class getData{
 			e.printStackTrace();
 		}
 	}
-	// 	try{
-	// 		//va chercher le fichier demandé
-	// 		br = new BufferedReader(new FileReader("BDD.txt"));
-	// 		while((line = br.readLine()) != null){
-	// 		}
-	// 	}catch(IOException e){
-	// 		//si ya une erreur
-	// 		e.printStackTrace();
-	// 	}
-	// }
 }
