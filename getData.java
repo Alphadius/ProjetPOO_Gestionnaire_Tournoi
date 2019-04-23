@@ -71,7 +71,8 @@ public class getData{
 						}else{titulaire = false;}
 						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
 						joueurs.add(joueur1);
-						joueur1.afficherStats();
+						// joueur1.afficherStats();
+						System.out.println(joueur1);
 					break;
 				}
 				count = (count+1)%13;
