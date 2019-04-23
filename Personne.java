@@ -6,7 +6,7 @@ public class Personne {
 
     int age;
   
-    String dateNaissance;
+    int dateNaissance;
   
       
   }
