@@ -5,74 +5,89 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 public class getData{
-	public static void main(String[] args) {
-
+		public static void main(String[] args) {
+		String nom = "";
+	    String prenom = "";
+	    int dateNaissance = 0;
+	    int position = 0;
+	    boolean titulaire = false;
+	    int numeroJoueur = 0;
+	    int vitesse = 0;
+	    int tirs = 0;
+	    int passes = 0;
+	    int dribbles = 0;
+	    int defense = 0;
+	    int physique = 0;
+	    String equipe = "";
 		BufferedReader br = null;
 		String line;
 		int count = 0;
+		List<Joueur> joueurs = new ArrayList<Joueur>();
 		try{
-			//va chercher le fichier demandé
 			br = new BufferedReader(new FileReader("BDD.txt"));
+
 			while((line = br.readLine()) != null){
 				//on va choper toute les données ligne par ligne et les transformer en objets
-				int a = Integer.valueOf(line);
-				System.out.println(a);
 				switch(count){
 					case 0:
-						Joueur joueur = new Joueur();
-						joueur.nom = line;
-						System.out.println(joueur.nom);
+						nom = line;
 					break;
 					case 1:
-						joueur.prenom = line;
+						prenom = line;
 					break;
 					case 2:
-						joueur.dateNaissance = Integer.valueOf(line);
+						dateNaissance = Integer.valueOf(line);
 					break;
 					case 3:
-						joueur.position = Integer.valueOf(line);
+						position = Integer.valueOf(line);
 					break;
 					case 4:
-						joueur.vitesse =Integer.valueOf(line);
+						vitesse =Integer.valueOf(line);
 					break;
 					case 5:
-					joueur.tirs = Integer.valueOf(line);
+						tirs = Integer.valueOf(line);
 					break;
 					case 6:
-						joueur.passes = Integer.valueOf(line);
+						passes = Integer.valueOf(line);
 					break;
 					case 7:
-						
-						joueur.dribbles = Integer.valueOf(line);
+						dribbles = Integer.valueOf(line);
 					break;
 					case 8:
-						
-						joueur.defense = Integer.valueOf(line);
+						defense = Integer.valueOf(line);
 					break;
 					case 9:
-						
-						joueur.physique = Integer.valueOf(line);
+						physique = Integer.valueOf(line);
 					break;
 					case 10:
-						
-						joueur.equipe = line;
+						equipe = line;
 					break;
 					case 11:
-						
-						joueur.numeroJoueur = Integer.valueOf(line);
+						numeroJoueur = Integer.valueOf(line);
 					break;
 					case 12:
-						if(line.equals("true")){
-							joueur.titulaire = true;
-						}else{joueur.titulaire = false;}
+						if(line.equals("1")){
+							titulaire = true;
+						}else{titulaire = false;}
+						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
+						joueurs.add(joueur1);
+						joueur1.afficherStats();
 					break;
 				}
 				count = (count+1)%13;
-				joueur.afficherstat();
 			}
 		}catch(IOException e){
-			//si ya une erreur
 			e.printStackTrace();
 		}
 	}
+	// 	try{
+	// 		//va chercher le fichier demandé
+	// 		br = new BufferedReader(new FileReader("BDD.txt"));
+	// 		while((line = br.readLine()) != null){
+	// 		}
+	// 	}catch(IOException e){
+	// 		//si ya une erreur
+	// 		e.printStackTrace();
+	// 	}
+	// }
 }

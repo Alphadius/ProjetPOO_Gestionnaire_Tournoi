@@ -41,7 +41,7 @@ public class Joueur extends Personne {
     this.physique = 0;
     this.equipe = "";
   }
-  public Joueur(String nom, String prenom, int age, int dateNaissance, int position, String equipe, boolean titulaire, int numeroJoueur, int vitesse, int tirs, int passes, int dribbles, int defense, int physique) {
+  public Joueur(String nom, String prenom,int dateNaissance, int position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
     this.prenom = prenom;
     this.dateNaissance = dateNaissance;
