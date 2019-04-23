@@ -17,6 +17,7 @@ public class Competition {
   public Vector participe;
 
   public void afficherMatchAll() {
+
   }
 
   public void afficherMatchSpe() {
@@ -29,6 +30,9 @@ public class Competition {
 
       public static void main(String[] args) {
     int nbEquipes = 0;
+
+    list<Match> matchs = new ArrayList<Match>();
+
     Scanner reader = new Scanner(System.in);
     System.out.println("Quel est le nombre d'equipes ?");
     nbEquipes = reader.nextInt();
@@ -55,10 +59,11 @@ public class Competition {
       for (int j = 0; j <= nbEquipes; j++) {
         if( i+j < nbEquipes){
           if((j == (nbEquipes/2) && i+j == nbEquipes-1 && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
+            Match match1 = new Match();
             tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
             tableautri[nbEquipes + sum] = "pause";
             sum++;
-          }else{
+          } else {
             tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
           }
           sum++;

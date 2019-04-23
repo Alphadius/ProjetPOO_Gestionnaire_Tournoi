@@ -21,7 +21,7 @@ public class Equipe {
   }
 
   public void afficherMatchEquipe() {
-
+    
   }
 
 }

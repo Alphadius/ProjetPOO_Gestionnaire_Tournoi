@@ -4,7 +4,6 @@ public class Joueur extends Personne {
 
   public int position;
   public String equipe;
-  public int dateNaissance;
   public boolean titulaire;
   public int numeroJoueur;
   public int vitesse;
