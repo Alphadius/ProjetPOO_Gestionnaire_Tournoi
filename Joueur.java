@@ -68,7 +68,7 @@ public class Joueur extends Personne {
     } else {
       System.out.println("Non-titulaire");
     }
-    System.out.println("N°" + this.numeroJoueur);
+    System.out.println("Numero : " + this.numeroJoueur);
     System.out.println("Position : " + this.position);
     System.out.println("Vitesse : " + this.vitesse);
     System.out.println("Tirs : " + this.tirs);
