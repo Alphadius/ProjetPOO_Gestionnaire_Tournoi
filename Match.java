@@ -8,6 +8,8 @@ public class Match {
   public static String equipe1;
   public static String equipe2;
 
+  public int nbCartons;
+
   public static int jDebut = 0;
   public static int mDebut = 0;
   public static int aDebut = 0;
