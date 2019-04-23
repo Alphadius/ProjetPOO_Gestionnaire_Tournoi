@@ -2,17 +2,17 @@ import java.util.Vector;
 
 public class Joueur extends Personne {
 
-  String position;
-  String equipe;
+  public int position;
+  public String equipe;
+  public int dateNaissance;
   public boolean titulaire;
   public int numeroJoueur;
-  public float vitesse;
+  public int vitesse;
   public int tirs;
   public int passes;
   public int dribbles;
   public int defense;
   public int physique;
-  
 
   /*
     public Vector  myEquipe;
@@ -27,21 +27,20 @@ public class Joueur extends Personne {
   public Vector  myPersonne;
   public Equipe appartient;*/
 
-  public Joueur(String nom, String prenom, int age, String dateNaissance, String position, String equipe, boolean titulaire, int numeroJoueur, float vitesse, int tirs, int passes, int dribbles, int defense, int physique) {
-    this.nom = nom;
-    this.prenom = prenom;
-    this.age = age;
-    this.dateNaissance = dateNaissance;
-    this.position = position;
-    this.equipe = equipe;
-    this.titulaire = titulaire;
-    this.numeroJoueur = numeroJoueur;
-    this.vitesse = vitesse;
-    this.tirs = tirs;
-    this.passes = passes;
-    this.dribbles = dribbles;
-    this.defense = defense;
-    this.physique = physique;
+  public joueur() {
+    this.nom = "";
+    this.prenom = "";
+    this.dateNaissance = 0;
+    this.position = 0;
+    this.titulaire = false;
+    this.numeroJoueur = 0;
+    this.vitesse = 0;
+    this.tirs = 0;
+    this.passes = 0;
+    this.dribbles = 0;
+    this.defense = 0;
+    this.physique = 0;
+    this.equipe = "";
   }
 
   // il faudra créer les joueurs avec une commande du style : Joueur ronaldo = new Joueur("ronaldo", "cristiano", 34, "5 février 1985", .. .. .. ... etc avec les autres stats);
