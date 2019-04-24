@@ -22,6 +22,7 @@ public class getData{
 		BufferedReader br = null;
 		String line;
 		int count = 0;
+		int index = 0;
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		try{
 			br = new BufferedReader(new FileReader("BDD.txt"));
@@ -70,8 +71,10 @@ public class getData{
 							titulaire = true;
 						}else{titulaire = false;}
 						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
+						joueur1.id = index;
+						index++;
 						joueurs.add(joueur1);
-						// System.out.println("\nid : "+joueur1);
+						System.out.println("\nid : "+joueur1.id);
 						// joueur1.afficherStats();
 					break;
 				}
@@ -111,6 +114,7 @@ public class getData{
 		List<Joueur> tempJoueurs = new ArrayList<Joueur>();
 		for(Joueur temp: joueurs){
 			Joueur joueur1 = new Joueur(temp.nom, temp.prenom, temp.dateNaissance, temp.position, temp.vitesse, temp.tirs, temp.passes, temp.dribbles, temp.defense, temp.physique, temp.equipe, temp.numeroJoueur, temp.titulaire);
+			joueur1.id = temp.id;
 			tempJoueurs.add(joueur1);
 		}
 
@@ -133,7 +137,7 @@ public class getData{
 
 		System.out.println("\nTrie par nom:");
 		for(Joueur temp: tempJoueurs){
-			System.out.println("id : " + temp);
+			System.out.println("id : " + joueurs.get(temp.id));
 			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
 		}
 
@@ -142,7 +146,7 @@ public class getData{
 
 		System.out.println("\nTrie par Age:");
 		for(Joueur temp: tempJoueurs){
-			System.out.println("id : " + temp);
+			System.out.println("id : " + joueurs.get(temp.id));
 			System.out.println(2019 - temp.dateNaissance+" "+temp.nom + " " + temp.prenom + " " + temp.equipe);
 		}
 
@@ -152,6 +156,5 @@ public class getData{
 			System.out.println("id : " + temp);
 			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
-
 	}
 }

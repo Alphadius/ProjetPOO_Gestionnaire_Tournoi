@@ -12,6 +12,7 @@ public class Joueur extends Personne {
   public int dribbles;
   public int defense;
   public int physique;
+  public int id;
 
   /*
     public Vector  myEquipe;
@@ -39,6 +40,7 @@ public class Joueur extends Personne {
     this.defense = 0;
     this.physique = 0;
     this.equipe = "";
+    this.id = 0;
   }
   public Joueur(String nom, String prenom,int dateNaissance, int position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
@@ -60,6 +62,7 @@ public class Joueur extends Personne {
 
   public void afficherStats() {
     System.out.println(this.nom + " " + this.prenom);
+    System.out.println("id : "+ this.id);
     System.out.println((2019 - this.dateNaissance) + " ans");
     System.out.println("Date de naissance : " + this.dateNaissance);
     System.out.println("Equipe : " + this.equipe);
