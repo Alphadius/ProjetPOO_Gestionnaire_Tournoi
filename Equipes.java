@@ -12,6 +12,13 @@ public Equipes(String nom){
   this.nomEquipe = nom;
 }
 
+
+public Equipes() {
+  this.nomEquipe = "non attribuer";
+  this.nomCoach = "non attribuer";
+  this.nombreJoueurs = 0;
+  }
+
   public void afficherStatEquipe() {
     System.out.println(this.nomEquipe);
     System.out.println("Coach : " + this.nomCoach);
