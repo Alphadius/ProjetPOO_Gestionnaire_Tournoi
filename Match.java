@@ -5,8 +5,8 @@ public class Match {
 
   public static int scoreEquipe1;
   public static int scoreEquipe2;
-  public static String equipe1;
-  public static String equipe2;
+  public static Equipes equipe1;
+  public static Equipes equipe2;
 
   public static int jDebut = 0;
   public static int mDebut = 0;
