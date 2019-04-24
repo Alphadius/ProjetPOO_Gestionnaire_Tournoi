@@ -98,27 +98,43 @@ public class getData{
 		        return nom1.compareTo(nom2);
 		    } 
 		}
+
+
+		//copy la liste d'origine dans le liste temporaire pour la trier
 		List<Joueur> tempJoueurs = new ArrayList<Joueur>();
 		for(Joueur temp: joueurs){
 			Joueur joueur1 = new Joueur(temp.nom, temp.prenom, temp.dateNaissance, temp.position, temp.vitesse, temp.tirs, temp.passes, temp.dribbles, temp.defense, temp.physique, temp.equipe, temp.numeroJoueur, temp.titulaire);
 			tempJoueurs.add(joueur1);
 		}
+
+
+
+
+		//trier la liste temporaire par prénom de manière alphabétic
 		Collections.sort(tempJoueurs, new TrierParPrenom());
+
 		System.out.println("\nTrie par prenom:");
 		for(Joueur temp: tempJoueurs){
 			System.out.println("id : " + temp);
 			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
-		System.out.println("\nTrie par nom:");
+
+
+
+		//trier la liste temporaire par nom de manière alphabétic
 		Collections.sort(tempJoueurs, new TrierParNom());
+
+		System.out.println("\nTrie par nom:");
 		for(Joueur temp: tempJoueurs){
 			System.out.println("id : " + temp);
 			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
 		}
-		System.out.println("\nPas trie:");
+		//vérifier que la liste d'origine na pas été affecté
+		System.out.println("\nPas de trie:");
 		for(Joueur temp: joueurs){
 			System.out.println("id : " + temp);
 			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
+
 	}
 }
