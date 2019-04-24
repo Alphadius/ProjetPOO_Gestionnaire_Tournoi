@@ -5,8 +5,8 @@ public class Match {
 
   public static int scoreEquipe1;
   public static int scoreEquipe2;
-  public static String equipe1;
-  public static String equipe2;
+  public static Equipes equipe1;
+  public static Equipes equipe2;
 
   public int nbCartons;
 
@@ -14,6 +14,32 @@ public class Match {
   public static int mDebut = 0;
   public static int aDebut = 0;
   public static int tour = 0;
+
+  /*public Vector myMatch;
+  public Vector myMatch;
+  /**
+   * 
+   * @element-type Equipe
+   *
+  public Vector confronte;public Arbitre 1.1;
+  public Vector 22. n;
+  public Vector myCompetition;
+  public Competition myCompetition;public Vector 1.1;
+  public Vector myEquipe;
+  public Vector joue;
+  /**
+   * 
+   * @element-type Equipe
+   *
+  public Vector confronte;
+  public Arbitre arbitre;
+  public Vector myCompetition;
+  public Competition participe;
+  /**
+   * 
+   * @element-type Participation
+   *
+  public Vector valide;*/
 
   public void afficherScore() {
     System.out.println(this.scoreEquipe1 + " - " + this.scoreEquipe2);
