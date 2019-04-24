@@ -71,8 +71,8 @@ public class getData{
 						}else{titulaire = false;}
 						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
 						joueurs.add(joueur1);
-						System.out.println("\nid : "+joueur1);
-						joueur1.afficherStats();
+						// System.out.println("\nid : "+joueur1);
+						// joueur1.afficherStats();
 					break;
 				}
 				count = (count+1)%13;
@@ -84,24 +84,29 @@ public class getData{
 
 
 		///TRIER LES JOUEUR PAR ORDRE ALPHABETIC
-				class Sortbyname implements Comparator<Joueur> { 
-    // Used for sorting in ascending order of 
-    // roll number 
-			
-    public int compare(Joueur a, Joueur b) 
-    { 
-    	String nom1 = a.nom.toUpperCase();
-	      String nom2 = b.nom.toUpperCase();
-        return nom1.compareTo(nom2);
-    } 
-}
-		for(Joueur temp: joueurs){
-			System.out.println(temp.nom);
+		class TrierParNom implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	String nom1 = a.nom.toUpperCase();
+			    String nom2 = b.nom.toUpperCase();
+		        return nom1.compareTo(nom2);
+		    } 
 		}
-		System.out.println("\n");
-		Collections.sort(joueurs, new Sortbyname());
+		class TrierParPrenom implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	String nom1 = a.prenom.toUpperCase();
+			    String nom2 = b.prenom.toUpperCase();
+		        return nom1.compareTo(nom2);
+		    } 
+		}
+		System.out.println("\nTrie par prenom:");
+		Collections.sort(joueurs, new TrierParPrenom());
 		for(Joueur temp: joueurs){
-			System.out.println(temp.nom);
+			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
+		}
+		System.out.println("\nTrie par nom:");
+		Collections.sort(joueurs, new TrierParNom());
+		for(Joueur temp: joueurs){
+			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
 		}
 	}
 }
