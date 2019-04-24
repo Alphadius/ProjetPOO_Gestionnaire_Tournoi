@@ -5,9 +5,12 @@ public class Equipe {
   String nomEquipe;
   String nomCoach;
   int nombreJoueurs;
+  //List<Joueur> JoueursInEquipe = new ArrayList<Joueur>();
 
 
-
+public Equipe(String nom){
+  this.nomEquipe = nom;
+}
 
   public void afficherStatEquipe() {
     System.out.println(this.nomEquipe);
