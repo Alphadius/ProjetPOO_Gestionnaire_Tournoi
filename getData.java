@@ -83,7 +83,7 @@ public class getData{
 
 
 
-		///TRIER LES JOUEUR PAR ORDRE ALPHABETIC
+		///TRIER LES JOUEURS PAR ORDRE ALPHABETIC
 		class TrierParNom implements Comparator<Joueur> { 
 		    public int compare(Joueur a, Joueur b) { 
 		    	String nom1 = a.nom.toUpperCase();
@@ -96,6 +96,13 @@ public class getData{
 		    	String nom1 = a.prenom.toUpperCase();
 			    String nom2 = b.prenom.toUpperCase();
 		        return nom1.compareTo(nom2);
+		    } 
+		}
+		class TrierParAge implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	int nom1 = a.dateNaissance;
+			    int nom2 = b.dateNaissance;
+		        return nom1 - nom2;
 		    } 
 		}
 
@@ -129,6 +136,16 @@ public class getData{
 			System.out.println("id : " + temp);
 			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
 		}
+
+
+		Collections.sort(tempJoueurs, new TrierParAge());
+
+		System.out.println("\nTrie par Age:");
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + temp);
+			System.out.println(2019 - temp.dateNaissance+" "+temp.nom + " " + temp.prenom + " " + temp.equipe);
+		}
+
 		//vérifier que la liste d'origine na pas été affecté
 		System.out.println("\nPas de trie:");
 		for(Joueur temp: joueurs){
