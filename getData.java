@@ -98,15 +98,27 @@ public class getData{
 		        return nom1.compareTo(nom2);
 		    } 
 		}
-		System.out.println("\nTrie par prenom:");
-		Collections.sort(joueurs, new TrierParPrenom());
+		List<Joueur> tempJoueurs = new ArrayList<Joueur>();
 		for(Joueur temp: joueurs){
+			Joueur joueur1 = new Joueur(temp.nom, temp.prenom, temp.dateNaissance, temp.position, temp.vitesse, temp.tirs, temp.passes, temp.dribbles, temp.defense, temp.physique, temp.equipe, temp.numeroJoueur, temp.titulaire);
+			tempJoueurs.add(joueur1);
+		}
+		Collections.sort(tempJoueurs, new TrierParPrenom());
+		System.out.println("\nTrie par prenom:");
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + temp);
 			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
 		System.out.println("\nTrie par nom:");
-		Collections.sort(joueurs, new TrierParNom());
-		for(Joueur temp: joueurs){
+		Collections.sort(tempJoueurs, new TrierParNom());
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + temp);
 			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
+		}
+		System.out.println("\nPas trie:");
+		for(Joueur temp: joueurs){
+			System.out.println("id : " + temp);
+			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
 	}
 }
