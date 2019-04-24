@@ -60,7 +60,7 @@ public class Joueur extends Personne {
 
   public void afficherStats() {
     System.out.println(this.nom + " " + this.prenom);
-    System.out.println(this.age + " ans");
+    System.out.println((2019 - this.dateNaissance) + " ans");
     System.out.println("Date de naissance : " + this.dateNaissance);
     System.out.println("Equipe : " + this.equipe);
     if(this.titulaire) {

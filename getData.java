@@ -80,5 +80,28 @@ public class getData{
 		}catch(IOException e){
 			e.printStackTrace();
 		}
+
+
+
+		///TRIER LES JOUEUR PAR ORDRE ALPHABETIC
+				class Sortbyname implements Comparator<Joueur> { 
+    // Used for sorting in ascending order of 
+    // roll number 
+			
+    public int compare(Joueur a, Joueur b) 
+    { 
+    	String nom1 = a.nom.toUpperCase();
+	      String nom2 = b.nom.toUpperCase();
+        return nom1.compareTo(nom2);
+    } 
+}
+		for(Joueur temp: joueurs){
+			System.out.println(temp.nom);
+		}
+		System.out.println("\n");
+		Collections.sort(joueurs, new Sortbyname());
+		for(Joueur temp: joueurs){
+			System.out.println(temp.nom);
+		}
 	}
 }
