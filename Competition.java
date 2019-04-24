@@ -7,14 +7,13 @@ public class Competition {
   int NombreEquipes;
 
   int dateDeDebut;
-
-  public Vector myMatch;public Match 1. n;public Vector 1. n;
-  public Vector myMatch;
-  /**
-   * 
-   * @element-type Match
-   */
-  public Vector participe;
+  // public Vector myMatch;public Match 1. n;public Vector 1. n;
+  // public Vector myMatch;
+  // /**
+  //  * 
+  //  * @element-type Match
+  //  */
+  // public Vector participe;
 
   public void afficherMatchAll() {
 
@@ -25,13 +24,14 @@ public class Competition {
 
   public void creationEquipe() {
   }
-
-  public void creationCompetition() {
+  
+  // public void creationCompetition() {
 
       public static void main(String[] args) {
+        List<Equipes> equipes = new ArrayList<Equipes>();
     int nbEquipes = 0;
 
-    list<Match> matchs = new ArrayList<Match>();
+    // list<Match> matchs = new ArrayList<Match>();
 
     Scanner reader = new Scanner(System.in);
     System.out.println("Quel est le nombre d'equipes ?");
@@ -40,7 +40,9 @@ public class Competition {
     for (int i = 0; i < nbEquipes; i++) {
       Scanner lire = new Scanner(System.in);
       System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
-      tab[i] = lire.nextLine();
+      // tab[i] = lire.nextLine();
+      Equipes equipe1 = new Equipes(lire.nextLine());
+      equipes.add(equipe1);
     }
     //if nombre equipe paire
     int tour = 0;
@@ -48,9 +50,9 @@ public class Competition {
     String tableautri[] = new String[nbcombi+2];
     //diag 1
     for (int i = 0; i < (nbEquipes/2); i++) {
-        tableautri[i] = tab[i*2] + " - " + tab[(i*2)+1];
+        tableautri[i] = equipes.get(i*2).nomEquipe + " - " + equipes.get((i*2)+1).nomEquipe;
         if((i*2)+2 < nbEquipes){
-        tableautri[i+(nbEquipes/2)] = tab[(i*2)+1] + " - " + tab[(i*2)+2];
+        tableautri[i+(nbEquipes/2)] = equipes.get((i*2)+1).nomEquipe + " - " + equipes.get((i*2)+2).nomEquipe;
       }
     }
     //reste
@@ -58,13 +60,13 @@ public class Competition {
     for(int i = 2; i < nbEquipes; i++){
       for (int j = 0; j <= nbEquipes; j++) {
         if( i+j < nbEquipes){
-          if((j == (nbEquipes/2) && i+j == nbEquipes-1 && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
-            Match match1 = new Match();
-            tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
+          Match match1 = new Match();
+          match1.equipe1 = equipes.get(j);
+          match1.equipe2 = equipes.get(j + i);
+          tableautri[nbEquipes + sum - 1] = match1.equipe1.nomEquipe + " - " + match1.equipe2.nomEquipe;
+          if((j == (nbEquipes/2)&& i+j == nbEquipes-1  && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
             tableautri[nbEquipes + sum] = "pause";
             sum++;
-          } else {
-            tableautri[nbEquipes + sum - 1] = tab[j] + " - " + tab[j + i];
           }
           sum++;
         }
@@ -74,6 +76,4 @@ public class Competition {
     System.out.println(tableautri[i]);
     }
   }
-}
-
 }

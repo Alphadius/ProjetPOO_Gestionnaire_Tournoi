@@ -22,6 +22,7 @@ public class getData{
 		BufferedReader br = null;
 		String line;
 		int count = 0;
+		int index = 0;
 		List<Joueur> joueurs = new ArrayList<Joueur>();
 		try{
 			br = new BufferedReader(new FileReader("BDD.txt"));
@@ -70,15 +71,90 @@ public class getData{
 							titulaire = true;
 						}else{titulaire = false;}
 						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
+						joueur1.id = index;
+						index++;
 						joueurs.add(joueur1);
+						System.out.println("\nid : "+joueur1.id);
 						// joueur1.afficherStats();
-						System.out.println(joueur1);
 					break;
 				}
 				count = (count+1)%13;
 			}
 		}catch(IOException e){
 			e.printStackTrace();
+		}
+
+
+
+		///TRIER LES JOUEURS PAR ORDRE ALPHABETIC
+		class TrierParNom implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	String nom1 = a.nom.toUpperCase();
+			    String nom2 = b.nom.toUpperCase();
+		        return nom1.compareTo(nom2);
+		    } 
+		}
+		class TrierParPrenom implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	String nom1 = a.prenom.toUpperCase();
+			    String nom2 = b.prenom.toUpperCase();
+		        return nom1.compareTo(nom2);
+		    } 
+		}
+		class TrierParAge implements Comparator<Joueur> { 
+		    public int compare(Joueur a, Joueur b) { 
+		    	int nom1 = a.dateNaissance;
+			    int nom2 = b.dateNaissance;
+		        return nom1 - nom2;
+		    } 
+		}
+
+
+		//copy la liste d'origine dans le liste temporaire pour la trier
+		List<Joueur> tempJoueurs = new ArrayList<Joueur>();
+		for(Joueur temp: joueurs){
+			Joueur joueur1 = new Joueur(temp.nom, temp.prenom, temp.dateNaissance, temp.position, temp.vitesse, temp.tirs, temp.passes, temp.dribbles, temp.defense, temp.physique, temp.equipe, temp.numeroJoueur, temp.titulaire);
+			joueur1.id = temp.id;
+			tempJoueurs.add(joueur1);
+		}
+
+
+
+
+		//trier la liste temporaire par prénom de manière alphabétic
+		Collections.sort(tempJoueurs, new TrierParPrenom());
+
+		System.out.println("\nTrie par prenom:");
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + temp);
+			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
+		}
+
+
+
+		//trier la liste temporaire par nom de manière alphabétic
+		Collections.sort(tempJoueurs, new TrierParNom());
+
+		System.out.println("\nTrie par nom:");
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + joueurs.get(temp.id));
+			System.out.println(temp.nom + " " + temp.prenom + " " + temp.equipe);
+		}
+
+
+		Collections.sort(tempJoueurs, new TrierParAge());
+
+		System.out.println("\nTrie par Age:");
+		for(Joueur temp: tempJoueurs){
+			System.out.println("id : " + joueurs.get(temp.id));
+			System.out.println(2019 - temp.dateNaissance+" "+temp.nom + " " + temp.prenom + " " + temp.equipe);
+		}
+
+		//vérifier que la liste d'origine na pas été affecté
+		System.out.println("\nPas de trie:");
+		for(Joueur temp: joueurs){
+			System.out.println("id : " + temp);
+			System.out.println( temp.prenom + " " +temp.nom + " " + temp.equipe);
 		}
 	}
 }
