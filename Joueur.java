@@ -2,7 +2,7 @@ import java.util.Vector;
 
 public class Joueur extends Personne {
 
-  String position;
+  int position;
   String equipe;
   public boolean titulaire;
   public int numeroJoueur;
@@ -12,6 +12,7 @@ public class Joueur extends Personne {
   public int dribbles;
   public int defense;
   public int physique;
+  int dateNaissance;
   
 
   /*
@@ -27,7 +28,7 @@ public class Joueur extends Personne {
   public Vector  myPersonne;
   public Equipe appartient;*/
 
-  public Joueur(String nom, String prenom, int age, String dateNaissance, String position, String equipe, boolean titulaire, int numeroJoueur, float vitesse, int tirs, int passes, int dribbles, int defense, int physique) {
+  public Joueur(String nom, String prenom,int dateNaissance, int position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
