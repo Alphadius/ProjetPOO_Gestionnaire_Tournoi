@@ -13,8 +13,6 @@ public class Joueur extends Personne {
   public int defense;
   public int physique;
   int dateNaissance;
-  
-
   /*
     public Vector  myEquipe;
     public Vector  myStatJoueur;
@@ -47,9 +45,9 @@ public class Joueur extends Personne {
 
   // il faudra créer les joueurs avec une commande du style : Joueur ronaldo = new Joueur("ronaldo", "cristiano", 34, "5 février 1985", .. .. .. ... etc avec les autres stats);
 
-  public void afficherStats() {
+  public void afficherStats(int annee) {
     System.out.println(this.nom + " " + this.prenom);
-    System.out.println(this.age + " ans");
+    System.out.println((annee-this.dateNaissance) + " ans");
     System.out.println("Date de naissance : " + this.dateNaissance);
     System.out.println("Equipe : " + this.equipe);
     if(this.titulaire) {
@@ -57,7 +55,7 @@ public class Joueur extends Personne {
     } else {
       System.out.println("Non-titulaire");
     }
-    System.out.println("N°" + this.numeroJoueur);
+    System.out.println("Numero : " + this.numeroJoueur);
     System.out.println("Position : " + this.position);
     System.out.println("Vitesse : " + this.vitesse);
     System.out.println("Tirs : " + this.tirs);

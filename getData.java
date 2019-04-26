@@ -24,6 +24,8 @@ public class getData{
 		String line;
 		int count = 0;
 		List<Joueur> joueurs = new ArrayList<Joueur>();
+		Calendar c = Calendar.getInstance();
+		int annee = c.get(Calendar.YEAR);
 		try{
 			//va chercher le fichier demandé
 			br = new BufferedReader(new FileReader("BDD.txt"));
@@ -73,7 +75,7 @@ public class getData{
 						}else{titulaire = false;}
 						Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
 						joueurs.add(joueur1);
-						joueur1.afficherStats();
+						joueur1.afficherStats(annee);
 					break;
 				}
 				count = (count+1)%13;
