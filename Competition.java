@@ -2,11 +2,18 @@ import java.util.*;
 
 public class Competition {
 
+  List<Equipes> equipes = new ArrayList<Equipes>();
+  List<Match> matchs = new ArrayList<Match>();
+
   String NomCompetiton;
 
   int NombreEquipes;
 
-  int dateDeDebut;
+  //int dateDeDebut;
+
+  int jDebut = 0;
+  int mDebut = 0;
+  int aDebut = 0;
   // public Vector myMatch;public Match 1. n;public Vector 1. n;
   // public Vector myMatch;
   // /**
@@ -24,17 +31,28 @@ public class Competition {
 
   public void creationEquipe() {
   }
+  //   public void creationDateDebut() { // demande a lutilisateur de rentrer la date de debut de la compete
+
+  // }
   
   // public void creationCompetition() {
+      public void InitCompetition() {
 
-      public static void main(String[] args) {
-        List<Equipes> equipes = new ArrayList<Equipes>();
-        List<Match> matchs = new ArrayList<Match>();
+            Scanner reader = new Scanner(System.in);
+    System.out.println("Veuillez saisir le jour de debut de la competition:");
+    this.jDebut = reader.nextInt();
+    System.out.println("Veuillez saisir le mois de debut de la competition:");
+    this.mDebut = reader.nextInt();
+    System.out.println("Veuillez saisir l'annee de debut de la competition:");
+    this.aDebut = reader.nextInt();
+
+    System.out.println("la date du debut de la competition est :" + this.jDebut + "/" + this.mDebut + "/" + this.aDebut);
+    // System.out.println("le match est a quel tour?");
+    // int tourMatch = reader.nextInt();
+    // afficherDate(tourMatch, this);
     int nbEquipes = 0;
 
     // list<Match> matchs = new ArrayList<Match>();
-
-    Scanner reader = new Scanner(System.in);
     System.out.println("Quel est le nombre d'equipes ?");
     nbEquipes = reader.nextInt();
     String tab[] = new String[nbEquipes];
@@ -93,7 +111,11 @@ public class Competition {
         }
       }
     }
-    for (int i = 0; i <  nbcombi+2; i++) {
+    int odd = 2;
+    if(nbEquipes%2 == 1 || nbEquipes < 5){
+      odd = 1;
+    }
+    for (int i = 0; i <  nbcombi+odd; i++) {
       //transfert dans la liste des matchs toutes les Equipes
     matchs.get(i).equipe1 = tableautri[i][0];
     matchs.get(i).equipe2 = tableautri[i][1];
