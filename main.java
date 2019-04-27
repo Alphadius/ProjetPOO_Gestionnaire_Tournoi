@@ -6,6 +6,6 @@ public class main{
 		Competition comp1 = new Competition();
 		comp1.InitCompetition();
 		// listComp.add(comp1);
-		// new AfficherCompetition(comp1).fenetre.show();
+		new AfficherCompetition(comp1).fenetre.show();
 	}
 }
