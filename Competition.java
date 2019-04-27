@@ -75,7 +75,7 @@ public class Competition {
         tableautri[i][0] = match.equipe1;
         tableautri[i][1] = match.equipe2;
         matchs.add(i,match);
-        System.out.println(i+" : "+tableautri[i][0].nomEquipe + " - " + tableautri[i][1].nomEquipe);
+        // System.out.println(i+" : "+tableautri[i][0].nomEquipe + " - " + tableautri[i][1].nomEquipe);
         if((i*2)+2 < nbEquipes){
           Match match0 = new Match();
           match0.equipe1 = equipes.get((i*2)+1);
@@ -83,7 +83,7 @@ public class Competition {
           matchs.add(match0);
           tableautri[i+(nbEquipes/2)][0] = match0.equipe1;
           tableautri[i+(nbEquipes/2)][1] = match0.equipe2;
-          System.out.println(i+(nbEquipes/2)+" : "+tableautri[i+(nbEquipes/2)][0].nomEquipe + " - "+tableautri[i+(nbEquipes/2)][1].nomEquipe);
+          // System.out.println(i+(nbEquipes/2)+" : "+tableautri[i+(nbEquipes/2)][0].nomEquipe + " - "+tableautri[i+(nbEquipes/2)][1].nomEquipe);
       }
     }
     //reste
@@ -97,7 +97,7 @@ public class Competition {
           matchs.add(match1);
           tableautri[nbEquipes + sum - 1][0] = match1.equipe1;
           tableautri[nbEquipes + sum - 1][1] = match1.equipe2;
-          System.out.println(nbEquipes + sum - 1+" : "+tableautri[nbEquipes + sum - 1][0].nomEquipe + " - " + tableautri[nbEquipes + sum - 1][1].nomEquipe);
+          // System.out.println(nbEquipes + sum - 1+" : "+tableautri[nbEquipes + sum - 1][0].nomEquipe + " - " + tableautri[nbEquipes + sum - 1][1].nomEquipe);
           if((j == (nbEquipes/2)&& i+j == nbEquipes-1  && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
             Match pause = new Match();
           pause.equipe1 = new Equipes();
