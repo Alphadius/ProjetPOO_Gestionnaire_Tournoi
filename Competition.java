@@ -51,7 +51,7 @@ public class Competition {
     // int tourMatch = reader.nextInt();
     // afficherDate(tourMatch, this);
     int nbEquipes = 0;
-
+    int tour = 0;
     // list<Match> matchs = new ArrayList<Match>();
     System.out.println("Quel est le nombre d'equipes ?");
     nbEquipes = reader.nextInt();
@@ -63,28 +63,34 @@ public class Competition {
       Equipes equipe1 = new Equipes(lire.nextLine());
       equipes.add(equipe1);
     }
+    //listmatchsimple
+    // for (int i = 0; i < nbEquipes; i++) {
+    //   for (int j = 1; j < nbEquipes; j++) {
+    //     if (i + j < nbEquipes) {
+    //       System.out.println(equipes.get(i).nomEquipe + " - " + equipes.get(i+j).nomEquipe);
+    //       Match match = new Match(equipes.get(i),equipes.get(i+j));
+    //       matchs.add(match);
+    //       tour++;
+    //     }
+    //   }
+    // }
+    // for(Match temp : matchs){
+    //   System.out.println(temp.equipe1.nomEquipe+ " - " +temp.equipe2.nomEquipe);
+    // }
     //if nombre equipe paire
-    int tour = 0;
     int nbcombi = ((nbEquipes*nbEquipes)-nbEquipes)/2;
-    Equipes tableautri[][] = new Equipes[nbcombi+2][2];
     //diag 1
     for (int i = 0; i < (nbEquipes/2); i++) {
         Match match = new Match();
         match.equipe1 = equipes.get(i*2);
         match.equipe2 = equipes.get((i*2)+1);
-        tableautri[i][0] = match.equipe1;
-        tableautri[i][1] = match.equipe2;
         matchs.add(i,match);
-        // System.out.println(i+" : "+tableautri[i][0].nomEquipe + " - " + tableautri[i][1].nomEquipe);
         if((i*2)+2 < nbEquipes){
           Match match0 = new Match();
           match0.equipe1 = equipes.get((i*2)+1);
           match0.equipe2 = equipes.get((i*2)+2);
           matchs.add(match0);
-          tableautri[i+(nbEquipes/2)][0] = match0.equipe1;
-          tableautri[i+(nbEquipes/2)][1] = match0.equipe2;
-          // System.out.println(i+(nbEquipes/2)+" : "+tableautri[i+(nbEquipes/2)][0].nomEquipe + " - "+tableautri[i+(nbEquipes/2)][1].nomEquipe);
-      }
+        }
     }
     //reste
     int sum = 0;
@@ -95,15 +101,10 @@ public class Competition {
           match1.equipe1 = equipes.get(j);
           match1.equipe2 = equipes.get(j + i);
           matchs.add(match1);
-          tableautri[nbEquipes + sum - 1][0] = match1.equipe1;
-          tableautri[nbEquipes + sum - 1][1] = match1.equipe2;
-          // System.out.println(nbEquipes + sum - 1+" : "+tableautri[nbEquipes + sum - 1][0].nomEquipe + " - " + tableautri[nbEquipes + sum - 1][1].nomEquipe);
           if((j == (nbEquipes/2)&& i+j == nbEquipes-1  && nbEquipes%2 == 0) || (j == 1 && i+j == nbEquipes-1)){
             Match pause = new Match();
           pause.equipe1 = new Equipes();
           pause.equipe2 = new Equipes();
-            tableautri[nbEquipes + sum][0] = pause.equipe1;
-            tableautri[nbEquipes + sum][1] = pause.equipe2;
             matchs.add(pause);
             sum++;
           }
@@ -115,12 +116,9 @@ public class Competition {
     if(nbEquipes%2 == 1 || nbEquipes < 5){
       odd = 1;
     }
-    for (int i = 0; i <  nbcombi+odd; i++) {
-      //transfert dans la liste des matchs toutes les Equipes
-    matchs.get(i).equipe1 = tableautri[i][0];
-    matchs.get(i).equipe2 = tableautri[i][1];
-    System.out.println(i + "** id : " + matchs.get(i));
+    for (int i = 0; i >=  nbcombi+odd; i++) {
     System.out.println(matchs.get(i).equipe1.nomEquipe + " - " + matchs.get(i).equipe2.nomEquipe);
     }
+    
   }
 }

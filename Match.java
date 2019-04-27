@@ -3,12 +3,23 @@ import java.util.Scanner;
 
 public class Match {
 
-  public static int scoreEquipe1;
-  public static int scoreEquipe2;
-  public static Equipes equipe1;
-  public static Equipes equipe2;
-  public static  int tour = 0;
+  int scoreEquipe1;
+  int scoreEquipe2;
+  Equipes equipe1;
+  Equipes equipe2;
+  int tour = 0;
 
+
+
+public Match(){
+  this.equipe1 = null;
+  this.equipe2 = null;
+}
+
+public Match(Equipes equipe1, Equipes equipe2){
+  this.equipe1 = equipe1;
+  this.equipe2 = equipe2;
+}
   /*public Vector myMatch;
   public Vector myMatch;
   /**
