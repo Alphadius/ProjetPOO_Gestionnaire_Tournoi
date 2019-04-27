@@ -10,21 +10,21 @@ public class AfficherCompetition{
 
 
 	public AfficherCompetition(Competition comp) {
+
+
 		compTemp = comp;
 		fenetre = new JFrame(""+compTemp);
 		List<String> nomMatchs = new ArrayList<String>();
     	for(Match temp : comp.matchs){
     		nomMatchs.add(temp.equipe1.nomEquipe+" - "+temp.equipe2.nomEquipe);
     	}
-    	final JLabel label = new JLabel();          
-    label.setHorizontalAlignment(JLabel.CENTER);  
-    label.setSize(400,100);
     	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
 		JComboBox allMatch = new JComboBox(listMatch);
 		allMatch.setBounds(300, 300,100,20); 
 		fenetre.add(allMatch);
-		JButton b=new JButton("Show");
-		b.setBounds(250,200,75,20);
+
+		
+
 		List<String> nomJoueurs = new ArrayList<String>();
     	for(Joueur temp : comp.joueurs){
     		nomJoueurs.add(temp.nom+" "+temp.prenom);
@@ -32,18 +32,60 @@ public class AfficherCompetition{
 	    String[] listNom = nomJoueurs.toArray(new String[nomJoueurs.size()]);
 	    JComboBox cb=new JComboBox(listNom);
 	    cb.setBounds(50, 200,200,20);
-	    b.addActionListener(new ActionListener() {  
-        public void actionPerformed(ActionEvent e) {       
-String data = "<html>"   
-   + comp.joueurs.get(cb.getSelectedIndex()).stat()+"</html>";  
-label.setText(data);  
-} });
-	    fenetre.add(b);  
+
+
+
+		final JLabel label = new JLabel();          
+  		label.setHorizontalAlignment(JLabel.CENTER);  
+    	label.setSize(400,100);
+
+		JButton boutton=new JButton("Show");
+		boutton.setBounds(250,200,75,20);
+		boutton.addActionListener(new ActionListener() {  
+	        public void actionPerformed(ActionEvent e) {       
+				String data = "<html>"   
+				   + comp.joueurs.get(cb.getSelectedIndex()).stat()+"</html>";  
+				label.setText(data);  
+			}
+		});
+	    
+
+	     JTextField jour = new JTextField();
+	     JTextField mois = new JTextField();
+	     JTextField annee = new JTextField();  
+    	jour.setBounds(500,100, 200,30);
+    	mois.setBounds(500,150,200,30);
+    	annee.setBounds(500,200,200,30);
+    	JButton bDate = new JButton("date");
+    	bDate.setBounds(700,200,75,20);
+		bDate.addActionListener(new ActionListener() {  
+	        public void actionPerformed(ActionEvent e) {       
+				String s1=jour.getText();  
+        		String s2=mois.getText();
+        		String s3=annee.getText();  
+        		int a=Integer.parseInt(s1);  
+        		int b=Integer.parseInt(s2); 
+        		int c=Integer.parseInt(s3);
+        		comp.jDebut = a;
+        		comp.mDebut = b;
+        		comp.aDebut = c;
+        		String data = "<html> Date : "   
+				   + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>"; 
+        		label.setText(data);
+			}
+		});
+
+
+	    fenetre.add(boutton);
+	    fenetre.add(bDate);
+	    fenetre.add(jour);
+	    fenetre.add(mois);
+	    fenetre.add(annee);
 	    fenetre.add(cb);
-	    fenetre.add(label);       
-	    fenetre.setLayout(null);    
-	    fenetre.setPreferredSize(new Dimension(1000, 600));   
-	    fenetre.setVisible(true); 
+	    fenetre.add(label);
+	    fenetre.setLayout(null);
+	    fenetre.setPreferredSize(new Dimension(1000, 600));
+	    fenetre.setVisible(true);
 		fenetre.pack();
 	}
 }
