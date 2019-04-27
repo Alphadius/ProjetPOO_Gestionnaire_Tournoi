@@ -66,5 +66,8 @@ public class Joueur extends Personne {
     System.out.println("Defense : " + this.defense);
     System.out.println("Physique : " + this.physique);
   }
-
+  public String stat(){
+    String text = "nom : "+this.nom +"<BR>prenom : "+this.prenom+"<BR> equipe : "+this.equipe+"<BR> num : "+this.numeroJoueur+"<BR> position : "+this.position;
+    return text;
+  }
 }
