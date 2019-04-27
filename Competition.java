@@ -1,9 +1,15 @@
 import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Competition {
 
   List<Equipes> equipes = new ArrayList<Equipes>();
   List<Match> matchs = new ArrayList<Match>();
+  List<Joueur> joueurs = new ArrayList<Joueur>();
 
   String NomCompetiton;
 
@@ -121,4 +127,90 @@ public class Competition {
     }
     
   }
+
+public void getDataJoueurs(){
+
+    String nom = "";
+      String prenom = "";
+      int dateNaissance = 0;
+      int position = 0;
+      boolean titulaire = false;
+      int numeroJoueur = 0;
+      int vitesse = 0;
+      int tirs = 0;
+      int passes = 0;
+      int dribbles = 0;
+      int defense = 0;
+      int physique = 0;
+      String equipe = "";
+    BufferedReader br = null;
+    String line;
+    int count = 0;
+    List<Joueur> joueursTemp = new ArrayList<Joueur>();
+    Calendar c = Calendar.getInstance();
+    int annee = c.get(Calendar.YEAR);
+    try{
+      //va chercher le fichier demandé
+      br = new BufferedReader(new FileReader("BDD.txt"));
+
+      while((line = br.readLine()) != null){
+        //on va choper toute les données ligne par ligne et les transformer en objets
+        switch(count){
+          case 0:
+            nom = line;
+          break;
+          case 1:
+            prenom = line;
+          break;
+          case 2:
+            dateNaissance = Integer.valueOf(line);
+          break;
+          case 3:
+            position = Integer.valueOf(line);
+          break;
+          case 4:
+            vitesse =Integer.valueOf(line);
+          break;
+          case 5:
+            tirs = Integer.valueOf(line);
+          break;
+          case 6:
+            passes = Integer.valueOf(line);
+          break;
+          case 7:
+            dribbles = Integer.valueOf(line);
+          break;
+          case 8:
+            defense = Integer.valueOf(line);
+          break;
+          case 9:
+            physique = Integer.valueOf(line);
+          break;
+          case 10:
+            equipe = line;
+          break;
+          case 11:
+            numeroJoueur = Integer.valueOf(line);
+          break;
+          case 12:
+            if(line.equals("1")){
+              titulaire = true;
+            }else{titulaire = false;}
+            Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense, physique, equipe, numeroJoueur, titulaire);
+            joueursTemp.add(joueur1);
+            // joueur1.afficherStats(annee);
+          break;
+        }
+        count = (count+1)%13;
+      }
+    }catch(IOException e){
+      //si ya une erreur
+      e.printStackTrace();
+    }
+    this.joueurs = joueursTemp;
+    // for(int i = 0; i < 3; i++){
+    //  joueurs.get(i).afficherStats(annee);
+    // }
+  }
+
 }
