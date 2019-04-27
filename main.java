@@ -6,7 +6,7 @@ public class main{
 		Competition comp1 = new Competition();
 		comp1.InitCompetition();
 		comp1.getDataJoueurs();
-		new afficherJoueurs(comp1);       
+		     
 		// listComp.add(comp1);
 		new AfficherCompetition(comp1).fenetre.show();
 	}
