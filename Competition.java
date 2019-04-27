@@ -116,7 +116,7 @@ public class Competition {
     if(nbEquipes%2 == 1 || nbEquipes < 5){
       odd = 1;
     }
-    for (int i = 0; i >=  nbcombi+odd; i++) {
+    for (int i = 0; i <  nbcombi+odd; i++) {
     System.out.println(matchs.get(i).equipe1.nomEquipe + " - " + matchs.get(i).equipe2.nomEquipe);
     }
     
