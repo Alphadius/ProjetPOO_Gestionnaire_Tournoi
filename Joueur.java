@@ -15,18 +15,6 @@ public class Joueur extends Personne {
   public int defense;
   public int physique;
   int dateNaissance;
-  /*
-    public Vector  myEquipe;
-    public Vector  myStatJoueur;
-    public Vector  myEquipe;
-    public Vector  myEquipe;*/
-    /**
-   * 
-   * @element-type Participation
-   
-  public Vector  tttt;
-  public Vector  myPersonne;
-  public Equipe appartient;*/
 
   public Joueur(String nom, String prenom,int dateNaissance, int position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
@@ -45,9 +33,7 @@ public class Joueur extends Personne {
     this.physique = physique;
   }
 
-  // il faudra créer les joueurs avec une commande du style : Joueur ronaldo = new Joueur("ronaldo", "cristiano", 34, "5 février 1985", .. .. .. ... etc avec les autres stats);
-
-  public void afficherStats(int annee) {
+  public void afficherStats(int annee) { // AFFICHAGE DES STATS VERSION CONSOLE
     System.out.println(this.nom + " " + this.prenom);
     System.out.println((annee-this.dateNaissance) + " ans");
     System.out.println("Date de naissance : " + this.dateNaissance);
@@ -66,7 +52,7 @@ public class Joueur extends Personne {
     System.out.println("Defense : " + this.defense);
     System.out.println("Physique : " + this.physique);
   }
-  public String stat(){
+  public String stat(){ // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
     String text = "nom : "+this.nom +"<BR>prenom : "+this.prenom+"<BR> equipe : "+this.equipe+"<BR> num : "+this.numeroJoueur+"<BR> position : "+this.position;
     return text;
   }
