@@ -13,7 +13,7 @@ public class Competition {
 
   String NomCompetiton;
 
-  int NombreEquipes;
+  int nombreEquipes;
 
   //int dateDeDebut;
 
@@ -42,32 +42,30 @@ public class Competition {
   // }
   
   // public void creationCompetition() {
-      public void InitCompetition() {
+      public void initCompetition(int nombreEquipes) {
 
             Scanner reader = new Scanner(System.in);
-    System.out.println("Veuillez saisir le jour de debut de la competition:");
-    this.jDebut = reader.nextInt();
-    System.out.println("Veuillez saisir le mois de debut de la competition:");
-    this.mDebut = reader.nextInt();
-    System.out.println("Veuillez saisir l'annee de debut de la competition:");
-    this.aDebut = reader.nextInt();
+    // System.out.println("Veuillez saisir le jour de debut de la competition:");
+    // this.jDebut = reader.nextInt();
+    // System.out.println("Veuillez saisir le mois de debut de la competition:");
+    // this.mDebut = reader.nextInt();
+    // System.out.println("Veuillez saisir l'annee de debut de la competition:");
+    // this.aDebut = reader.nextInt();
 
-    System.out.println("la date du debut de la competition est :" + this.jDebut + "/" + this.mDebut + "/" + this.aDebut);
-    // System.out.println("le match est a quel tour?");
-    // int tourMatch = reader.nextInt();
-    // afficherDate(tourMatch, this);
-    int nbEquipes = 0;
+    // System.out.println("la date du debut de la competition est :" + this.jDebut + "/" + this.mDebut + "/" + this.aDebut);
+    // // System.out.println("le match est a quel tour?");
+    // // int tourMatch = reader.nextInt();
+    // //afficherDate(tourMatch, this);
+    int nbEquipes = nombreEquipes;
     int tour = 0;
     // list<Match> matchs = new ArrayList<Match>();
-    System.out.println("Quel est le nombre d'equipes ?");
-    nbEquipes = reader.nextInt();
-    String tab[] = new String[nbEquipes];
+    // System.out.println("Quel est le nombre d'equipes ?");
+    // nbEquipes = reader.nextInt();
     for (int i = 0; i < nbEquipes; i++) {
       Scanner lire = new Scanner(System.in);
       System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
-      // tab[i] = lire.nextLine();
       Equipes equipe1 = new Equipes(lire.nextLine());
-      equipes.add(equipe1);
+      this.equipes.add(equipe1);
     }
     //listmatchsimple
     // for (int i = 0; i < nbEquipes; i++) {

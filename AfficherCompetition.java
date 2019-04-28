@@ -12,16 +12,7 @@ public class AfficherCompetition{
 	public AfficherCompetition(Competition comp) {
 
 
-		compTemp = comp;
 		fenetre = new JFrame(""+compTemp);
-		List<String> nomMatchs = new ArrayList<String>();
-    	for(Match temp : comp.matchs){
-    		nomMatchs.add(temp.equipe1.nomEquipe+" - "+temp.equipe2.nomEquipe);
-    	}
-    	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
-		JComboBox allMatch = new JComboBox(listMatch);
-		allMatch.setBounds(300, 300,100,20); 
-		fenetre.add(allMatch);
 
 		
 
@@ -48,9 +39,40 @@ public class AfficherCompetition{
 				label.setText(data);  
 			}
 		});
-	    
 
-	     JTextField jour = new JTextField();
+		JLabel nbEquipeLabel = new JLabel("nbEquipe");
+		nbEquipeLabel.setBounds(20,300,100,50);
+		JTextField nbEquipe = new JTextField();
+		nbEquipe.setBounds(120,300,100,50);
+		JButton boutEquipe = new JButton("entrer");
+		boutEquipe.setBounds(220,300,50,50);
+		boutEquipe.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				nbEquipe.setVisible(false);
+				nbEquipeLabel.setVisible(false);
+				boutEquipe.setVisible(false);
+				comp.nombreEquipes = Integer.parseInt(nbEquipe.getText());
+				comp.initCompetition(comp.nombreEquipes);
+			}
+		});
+		fenetre.add(nbEquipe);
+		fenetre.add(nbEquipeLabel);
+		fenetre.add(boutEquipe);
+
+
+		// List<String> nomMatchs = new ArrayList<String>();
+  //   	for(Match temp : comp.matchs){
+  //   		nomMatchs.add(temp.equipe1.nomEquipe+" - "+temp.equipe2.nomEquipe);
+  //   	}
+  //   	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
+  //   	JList list = new JList(listMatch);  
+  //         list.setBounds(700,300, 100,300);  
+  //         fenetre.add(list);
+
+
+
+
+		JTextField jour = new JTextField();
 	     JTextField mois = new JTextField();
 	     JTextField annee = new JTextField();  
     	jour.setBounds(500,100, 200,30);
@@ -59,19 +81,21 @@ public class AfficherCompetition{
     	JButton bDate = new JButton("date");
     	bDate.setBounds(700,200,75,20);
 		bDate.addActionListener(new ActionListener() {  
-	        public void actionPerformed(ActionEvent e) {       
-				String s1=jour.getText();  
-        		String s2=mois.getText();
-        		String s3=annee.getText();  
-        		int a=Integer.parseInt(s1);  
-        		int b=Integer.parseInt(s2); 
-        		int c=Integer.parseInt(s3);
-        		comp.jDebut = a;
-        		comp.mDebut = b;
-        		comp.aDebut = c;
-        		String data = "<html> Date : "   
-				   + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>"; 
-        		label.setText(data);
+	        public void actionPerformed(ActionEvent e) {    
+		        if(jour.getText() != ""){   
+					String s1=jour.getText();  
+	        		String s2=mois.getText();
+	        		String s3=annee.getText();  
+	        		int a=Integer.parseInt(s1);  
+	        		int b=Integer.parseInt(s2); 
+	        		int c=Integer.parseInt(s3);
+	        		comp.jDebut = a;
+	        		comp.mDebut = b;
+	        		comp.aDebut = c;
+	        		String data = "<html> Date : "   
+					   + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>"; 
+	        		label.setText(data);
+	        	}
 			}
 		});
 
