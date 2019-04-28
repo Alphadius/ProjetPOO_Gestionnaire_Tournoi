@@ -1,11 +1,13 @@
 import java.util.*;
+import javax.swing.*;
 public class main{
 
 	public static void main(String[] args){
 		// List<Competition> listComp = new ArrayList<Competition>();
+		
+		JFrame pageTournoi = new JFrame("tournoi");
 		Competition comp1 = new Competition();
-		comp1.getDataJoueurs();
+		new menu(pageTournoi, comp1);
 		// listComp.add(comp1);
-		new AfficherCompetition(comp1);
 	}
 }

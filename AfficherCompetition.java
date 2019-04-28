@@ -9,12 +9,7 @@ public class AfficherCompetition{
 	JFrame fenetre; Competition compTemp; Match matchTemp; String nomMatch;int init = 0; 
 
 
-	public AfficherCompetition(Competition comp) {
-
-
-		fenetre = new JFrame(""+compTemp);
-
-		
+	public AfficherCompetition(JFrame fenetre,Competition comp) {
 
 		List<String> nomJoueurs = new ArrayList<String>();
     	for(Joueur temp : comp.joueurs){
