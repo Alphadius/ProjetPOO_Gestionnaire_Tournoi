@@ -25,7 +25,7 @@ public class AfficherCompetition{
   		label.setHorizontalAlignment(JLabel.CENTER);  
     	label.setSize(400,100);
 
-		JButton boutton=new JButton("Show");
+		JButton boutton=new JButton("Afficher");
 		boutton.setBounds(250,200,75,20);
 		boutton.addActionListener(new ActionListener() {  
 	        public void actionPerformed(ActionEvent e) {       
@@ -35,7 +35,7 @@ public class AfficherCompetition{
 			}
 		});
 
-		JLabel nbEquipeLabel = new JLabel("nbEquipe");
+		JLabel nbEquipeLabel = new JLabel("<html><br/>Nombre d'équipes : </html>");
 		nbEquipeLabel.setBounds(20,300,100,50);
 		JTextField nbEquipe = new JTextField();
 		nbEquipe.setBounds(120,300,100,50);
