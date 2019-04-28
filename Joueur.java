@@ -53,7 +53,16 @@ public class Joueur extends Personne {
     System.out.println("Physique : " + this.physique);
   }
   public String stat(){ // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
-    String text = "nom : "+this.nom +"<BR>prenom : "+this.prenom+"<BR> equipe : "+this.equipe+"<BR> num : "+this.numeroJoueur+"<BR> position : "+this.position;
+    String text = "Nom : "+this.nom +"<BR>Prenom : "+this.prenom+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position;
     return text;
+  }
+
+  public void modifierStat() {
+    /* Affiche un textfield qui contient toutes les stats du joueur en question
+     Telles qu'elles le sont actuellement
+
+     Et renvoie les résultats du textfield comme nouveaux attributs/stats
+     qui remplaceront alors les anciennes si elles sont correctes (types etc)
+    */
   }
 }

@@ -6,7 +6,7 @@ import javax.swing.SwingUtilities;
 import java.awt.Dimension;
 
 
-public class menu{
+public class menu {
 	public menu(JFrame fenetre,Competition comp){
 
 		int largeurFrame, hauteurFrame, largeurButton, hauteurButton, x, y;
