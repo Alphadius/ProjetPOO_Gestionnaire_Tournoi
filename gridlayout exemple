@@ -1,0 +1,30 @@
+JPanel jp  = new JPanel();
+ jp.setLayout(new GridBagLayout());
+ GridBagConstraints gbc = newGridBagConstraints();
+ gbc.weightx = 1;
+ gbc.weighty = 1;
+ 
+ gbc.gridx = 0;
+ gbc.gridwidth = 2;
+ gbc.gridheight = 2;
+ gbc.gridy = 0;
+ gbc.fill = GridBagConstraints.BOTH;
+ jp.add( new JButton("grid"), gbc);
+ 
+ gbc.gridx = 0;
+ gbc.gridwidth = 1;
+ gbc.gridheight = 1;
+ gbc.gridy = 2;
+ jp.add( new +JButton("bag"), gbc);
+ 
+ gbc.gridx = 1;
+ gbc.gridwidth = 1;
+ gbc.gridheight = 1;
+ gbc.gridy = 2;
+ jp.add(new JButton("lay"), gbc);
+ 
+ gbc.gridx = 2;
+ gbc.gridwidth = 1;
+ gbc.gridheight = 3;
+ gbc.gridy = 0;
+ jp.add(new JButton("out"), gbc);
