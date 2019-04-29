@@ -57,12 +57,13 @@ public class Joueur extends Personne {
     return text;
   }
 
-  public void modifierStat() {
+  public void modifierStats() {
     /* Affiche un textfield qui contient toutes les stats du joueur en question
-     Telles qu'elles le sont actuellement
+    Telles qu'elles le sont actuellement
 
-     Et renvoie les résultats du textfield comme nouveaux attributs/stats
-     qui remplaceront alors les anciennes si elles sont correctes (types etc)
+    Et renvoie les résultats du textfield comme nouveaux attributs/stats
+    qui remplaceront alors les anciennes si elles sont correctes (types etc)
     */
+
   }
 }
