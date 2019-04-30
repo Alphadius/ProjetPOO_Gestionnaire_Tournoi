@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.util.*;
 //import Controller.*;
 import java.awt.event.*;
+import java.awt.Color;
 import javax.swing.SwingUtilities;
 import java.awt.Dimension;
 
@@ -21,6 +22,18 @@ public class AfficherCompetition{
 
 
 
+	    JPanel panel=new JPanel();  
+        panel.setBounds(0,80,1000,1000);    
+        panel.setBackground(Color.gray);  
+        JButton b1=new JButton("Button 1");     
+        b1.setBounds(50,100,80,30);    
+        b1.setBackground(Color.yellow);   
+        JButton b2=new JButton("Button 2");   
+        b2.setBounds(100,100,80,30);    
+        b2.setBackground(Color.green);   
+        panel.add(b1); panel.add(b2);
+
+
 		final JLabel label = new JLabel();          
   		label.setHorizontalAlignment(JLabel.CENTER);  
     	label.setSize(400,100);
@@ -37,7 +50,7 @@ public class AfficherCompetition{
 
 		JLabel nbEquipeLabel = new JLabel("<html><br/>Nombre d'équipes : </html>");
 		nbEquipeLabel.setBounds(20,300,100,50);
-		JTextField nbEquipe = new JTextField();
+		JTextField nbEquipe = new JTextField(20);
 		nbEquipe.setBounds(120,300,100,50);
 		JButton boutEquipe = new JButton("entrer");
 		boutEquipe.setBounds(220,300,50,50);
@@ -50,9 +63,6 @@ public class AfficherCompetition{
 				comp.initCompetition(comp.nombreEquipes);
 			}
 		});
-		fenetre.add(nbEquipe);
-		fenetre.add(nbEquipeLabel);
-		fenetre.add(boutEquipe);
 
 
 		// List<String> nomMatchs = new ArrayList<String>();
@@ -67,9 +77,9 @@ public class AfficherCompetition{
 
 
 
-		JTextField jour = new JTextField();
-	     JTextField mois = new JTextField();
-	     JTextField annee = new JTextField();  
+		JTextField jour = new JTextField(20);
+	     JTextField mois = new JTextField(20);
+	     JTextField annee = new JTextField(20);  
     	jour.setBounds(500,100, 200,30);
     	mois.setBounds(500,150,200,30);
     	annee.setBounds(500,200,200,30);
@@ -94,14 +104,17 @@ public class AfficherCompetition{
 			}
 		});
 
-
-	    fenetre.add(boutton);
-	    fenetre.add(bDate);
-	    fenetre.add(jour);
-	    fenetre.add(mois);
-	    fenetre.add(annee);
-	    fenetre.add(cb);
-	    fenetre.add(label);
+		fenetre.add(panel);
+		panel.add(nbEquipe);
+		panel.add(nbEquipeLabel);
+		panel.add(boutEquipe);
+	    panel.add(boutton);
+	    panel.add(bDate);
+	    panel.add(jour);
+	    panel.add(mois);
+	    panel.add(annee);
+	    panel.add(cb);
+	    panel.add(label);
 	    fenetre.setLayout(null);
 	    fenetre.setPreferredSize(new Dimension(1000, 600));
 	    fenetre.setVisible(true);
