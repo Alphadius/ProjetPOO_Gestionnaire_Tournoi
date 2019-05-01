@@ -11,7 +11,7 @@ public class Competition {
   List<Match> matchs = new ArrayList<Match>();
   List<Joueur> joueurs = new ArrayList<Joueur>();
 
-  String NomCompetiton;
+  private String nomCompetition;
 
   int nombreEquipes;
 
@@ -28,6 +28,17 @@ public class Competition {
   //  */
   // public Vector participe;
 
+  public void putCompName(String nom){
+    
+    nomCompetition = nom;
+    
+  }
+  
+  public String compName(){
+    
+    return nomCompetition;
+    
+  }
   public void afficherMatchAll() {
 
   }

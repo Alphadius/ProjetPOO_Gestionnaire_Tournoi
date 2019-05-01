@@ -4,8 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-public class getData{
-	public static void main(String[] args) {
+public class getDataJoueurs{
 
 		String nom = "";
 	    String prenom = "";
@@ -84,8 +83,7 @@ public class getData{
 			//si ya une erreur
 			e.printStackTrace();
 		}
-		for(int i = 0; i < 3; i++){
-			joueurs.get(i).afficherStats(annee);
-		}
+		// for(int i = 0; i < 3; i++){
+		// 	joueurs.get(i).afficherStats(annee);
+		// }
 	}
-}

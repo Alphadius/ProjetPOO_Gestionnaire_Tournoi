@@ -7,7 +7,7 @@ import javax.swing.SwingUtilities;
 import java.awt.Dimension;
 
 public class AfficherCompetition{
-	JFrame fenetre; Competition compTemp; Match matchTemp; String nomMatch;int init = 0; 
+	JFrame fenetre;Competition compTemp;Match matchTemp;String nomMatch;int init = 0;
 
 
 	public AfficherCompetition(JFrame fenetre,Competition comp) {
@@ -22,22 +22,22 @@ public class AfficherCompetition{
 
 
 
-		JPanel panel=new JPanel();  
-	panel.setBounds(0,80,1000,1000);	
-	panel.setBackground(Color.gray);  
+		JPanel panel=new JPanel();
+	panel.setBounds(0,80,1000,1000);
+	panel.setBackground(Color.gray);
 
 
-		final JLabel label = new JLabel();	  
-  		label.setHorizontalAlignment(JLabel.CENTER);  
+		final JLabel label = new JLabel();
+		label.setHorizontalAlignment(JLabel.CENTER);
 		label.setSize(400,100);
 
 		JButton boutton=new JButton("Afficher");
 		boutton.setBounds(250,200,75,20);
-		boutton.addActionListener(new ActionListener() {  
-		public void actionPerformed(ActionEvent e) {	   
-				String data = "<html>"   
-				   + comp.joueurs.get(cb.getSelectedIndex()).stat()+"</html>";  
-				label.setText(data);  
+		boutton.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {	 
+				String data = "<html>" 
+				 + comp.joueurs.get(cb.getSelectedIndex()).stat()+"</html>";
+				label.setText(data);
 			}
 		});
 
@@ -59,39 +59,38 @@ public class AfficherCompetition{
 
 
 		// List<String> nomMatchs = new ArrayList<String>();
-  //   	for(Match temp : comp.matchs){
-  //   		nomMatchs.add(temp.equipe1.nomEquipe+" - "+temp.equipe2.nomEquipe);
-  //   	}
-  //   	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
-  //   	JList list = new JList(listMatch);  
-  //	 list.setBounds(700,300, 100,300);  
-  //	 fenetre.add(list);
+// 	for(Match temp : comp.matchs){
+// 		nomMatchs.add(temp.equipe1.nomEquipe+" - "+temp.equipe2.nomEquipe);
+// 	}
+// 	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
+// 	JList list = new JList(listMatch);
+//	 list.setBounds(700,300, 100,300);
+//	 fenetre.add(list);
 
 
 
 
 		JTextField jour = new JTextField(20);
-		 JTextField mois = new JTextField(20);
-		 JTextField annee = new JTextField(20);  
+		JTextField mois = new JTextField(20);
+		JTextField annee = new JTextField(20);
 		jour.setBounds(500,100, 200,30);
 		mois.setBounds(500,150,200,30);
 		annee.setBounds(500,200,200,30);
 		JButton bDate = new JButton("date");
 		bDate.setBounds(700,200,75,20);
-		bDate.addActionListener(new ActionListener() {  
+		bDate.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {	
-			if(jour.getText() != ""){   
-					String s1=jour.getText();  
+			if(jour.getText() != ""){ 
+					String s1=jour.getText();
 				String s2=mois.getText();
-				String s3=annee.getText();  
-				int a=Integer.parseInt(s1);  
-				int b=Integer.parseInt(s2); 
+				String s3=annee.getText();
+				int a=Integer.parseInt(s1);
+				int b=Integer.parseInt(s2);
 				int c=Integer.parseInt(s3);
 				comp.jDebut = a;
 				comp.mDebut = b;
 				comp.aDebut = c;
-				String data = "<html> Date : "   
-					   + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>"; 
+				String data = "<html> Date : " + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>";
 				label.setText(data);
 			}
 			}
