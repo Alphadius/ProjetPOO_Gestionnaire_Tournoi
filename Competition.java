@@ -11,7 +11,7 @@ public class Competition {
   List<Match> matchs = new ArrayList<Match>();
   List<Joueur> joueurs = new ArrayList<Joueur>();
 
-  private String nomCompetition;
+  public String nomCompetition;
 
   int nombreEquipes;
 

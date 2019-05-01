@@ -8,12 +8,18 @@ public class ViewCompetition extends JFrame {
 	Container c;
 
 	public JTextField textfieldNomCompetition = new JTextField(20);
+	public JTextField textfieldNbEquipes = new JTextField(20);
+	public JTextField textfieldJour = new JTextField(1);
+	public JTextField textfieldMois = new JTextField(1);
+	public JTextField textfieldAnnee = new JTextField(1);
+	public JLabel labelNomCompetition = new JLabel("test");
 	private JButton creerComp = new JButton("Créer");
 
-	ViewCompetition() {
-		this.setTitle("menu");
+	public ViewCompetition() {
+
+		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(600, 200);
+		this.setSize(1000, 600);
 		c = getContentPane();
 		card = new CardLayout(80, 30);
 		c.setLayout(card);
@@ -23,65 +29,115 @@ public class ViewCompetition extends JFrame {
  		JButton start = new JButton("Nouveau Tournoi");
  		boutonStart.add(start);
  		c.add("menu", boutonStart);
-
- 		JLabel labelGestionCompetition = new JLabel("Gestion de competition");
-
+		
+		//////////////////////////
+ 		// PANEL CREER NOM COMPETITION
  		//////////////////////////
- 		// PANEL CREER COMPETITION
- 		//////////////////////////
-
  		JPanel creerCompetitionPanel = new JPanel(new BorderLayout());
  		creerCompetitionPanel.setLayout(new GridBagLayout());
  		GridBagConstraints gbc = new GridBagConstraints();
- 		// gbc.weightx = 1;
- 		// gbc.weighty = 1;
 
  		// Cellule contenant le LABEL "CRÉER UNE NOUVELLE COMPÉTITION"
  		gbc.gridx = 0;
- 		gbc.gridwidth = 2;
+ 		gbc.gridwidth = 6;
  		gbc.gridheight = 2;
  		gbc.gridy = 0;
  		gbc.fill = GridBagConstraints.BOTH;
- 		creerCompetitionPanel.add(new JLabel("Créer une nouvelle compétition"), gbc);
+ 		creerCompetitionPanel.add(new JLabel("<html><h2>Créer une nouvelle compétition</h2></html>"), gbc);
 
  		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
+		gbc.weightx = 1;
+ 		gbc.weighty = 1;
  		gbc.gridx = 0;
-		gbc.gridwidth = 1;
+		gbc.gridwidth = 6;
 		gbc.gridheight = 1;
 		gbc.gridy = 3;
 		textfieldNomCompetition.setText("Entrer le nom de la compétition");
+		textfieldNomCompetition.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void mouseClicked(MouseEvent e) {
+		    textfieldNomCompetition.setText("");
+		  }
+		});
 		creerCompetitionPanel.add(textfieldNomCompetition, gbc);
- 	
+ 		
+		// Cellule contenant le TEXTFIELD du NOMBRE D'ÉQUIPES
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 6;
+		gbc.gridheight = 1;
+		gbc.gridy = 5;
+		textfieldNbEquipes.setText("Nombre d'équipes");
+		textfieldNbEquipes.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void mouseClicked(MouseEvent e) {
+		    textfieldNbEquipes.setText("");
+		  }
+		});
+		creerCompetitionPanel.add(textfieldNbEquipes, gbc);
+
+		// Cellules DATE
+		// Jour
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.gridy = 7;
+		textfieldJour.setText("Jour");
+		textfieldJour.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void mouseClicked(MouseEvent e) {
+		    textfieldJour.setText("");
+		  }
+		});
+
+		creerCompetitionPanel.add(textfieldJour, gbc);
+		// Mois
+		gbc.gridx = 1;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.gridy = 7;
+		textfieldMois.setText("Mois");
+		textfieldMois.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void mouseClicked(MouseEvent e) {
+		    textfieldMois.setText("");
+		  }
+		});
+		creerCompetitionPanel.add(textfieldMois, gbc);
+		// Année
+		gbc.gridx = 3;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 1;
+		gbc.gridy = 7;
+		textfieldAnnee.setText("Année");
+		textfieldAnnee.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void mouseClicked(MouseEvent e) {
+		    textfieldAnnee.setText("");
+		  }
+		});
+		creerCompetitionPanel.add(textfieldAnnee, gbc);
+
+
+
  		// Cellule contenant le BOUTON VALIDER
 		gbc.gridx = 1;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
-		gbc.gridy = 3;
-		// ACTION LORSQUE LE BOUTON VALIDER (nom de la competition) EST CLIQUÉ
-		// validerNomCompetition.addActionListener(new ActionListener() {
-		// 	public void actionPerformed(ActionEvent e) {
-		// 		// Action à effectuer quand le bouton "Valider" est cliqué, soit :
-		// 		// Créer/modifier l'objet competition avec le nom entré
-				
-		// 		// Puis afficher la carte/page suivante :
-		
-		
-		// 	}
-		// });
+		gbc.gridy = 8;
+
 		creerCompetitionPanel.add(creerComp, gbc);
 
  		c.add("competition", creerCompetitionPanel);
 
-
-
+		//////////////////////////
+ 		// PANEL N°2 : CHOIX ÉQUIPE
+ 		//////////////////////////
  		JPanel choixEquipePanel = new JPanel(new BorderLayout());
  		choixEquipePanel.setLayout(new GridBagLayout());
- 		// frame.setTitle("choixEquipe");
+
+ 		choixEquipePanel.add(labelNomCompetition, gbc);
+
  		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
-
-
-
-
  		c.add("choixEquipe", choixEquipePanel);
 
 
@@ -103,14 +159,34 @@ public class ViewCompetition extends JFrame {
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
+
+	public int getNbEquipes() {
+		return Integer.parseInt(textfieldNbEquipes.getText());
+	}
+
+	public int getJour() {
+		return Integer.parseInt(textfieldJour.getText());
+	}
+
+	public int getMois() {
+		return Integer.parseInt(textfieldMois.getText());
+	}
+
+	public int getAnnee() {
+		return Integer.parseInt(textfieldAnnee.getText());
+	}
+
 	public void addCompEntreeListener(ActionListener listenForvalidButton){
 		
 		creerComp.addActionListener(listenForvalidButton);
-		
+	}
+
+	public void getJLabel(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
+		labelNomCompetition.setText(nomComp);
 	}
 
 	public void goChoixEquipe(){
 			card.show(c, "choixEquipe");
 			System.out.println("choix equipe");
-		}
+	}
 }
