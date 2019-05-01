@@ -13,35 +13,28 @@ public class AfficherCompetition{
 	public AfficherCompetition(JFrame fenetre,Competition comp) {
 
 		List<String> nomJoueurs = new ArrayList<String>();
-    	for(Joueur temp : comp.joueurs){
-    		nomJoueurs.add(temp.nom+" "+temp.prenom);
-    	}
-	    String[] listNom = nomJoueurs.toArray(new String[nomJoueurs.size()]);
-	    JComboBox cb=new JComboBox(listNom);
-	    cb.setBounds(50, 200,200,20);
+		for(Joueur temp : comp.joueurs){
+			nomJoueurs.add(temp.nom+" "+temp.prenom);
+		}
+		String[] listNom = nomJoueurs.toArray(new String[nomJoueurs.size()]);
+		JComboBox cb=new JComboBox(listNom);
+		cb.setBounds(50, 200,200,20);
 
 
 
-	    JPanel panel=new JPanel();  
-        panel.setBounds(0,80,1000,1000);    
-        panel.setBackground(Color.gray);  
-        JButton b1=new JButton("Button 1");     
-        b1.setBounds(50,100,80,30);    
-        b1.setBackground(Color.yellow);   
-        JButton b2=new JButton("Button 2");   
-        b2.setBounds(100,100,80,30);    
-        b2.setBackground(Color.green);   
-        panel.add(b1); panel.add(b2);
+		JPanel panel=new JPanel();  
+	panel.setBounds(0,80,1000,1000);	
+	panel.setBackground(Color.gray);  
 
 
-		final JLabel label = new JLabel();          
+		final JLabel label = new JLabel();	  
   		label.setHorizontalAlignment(JLabel.CENTER);  
-    	label.setSize(400,100);
+		label.setSize(400,100);
 
 		JButton boutton=new JButton("Afficher");
 		boutton.setBounds(250,200,75,20);
 		boutton.addActionListener(new ActionListener() {  
-	        public void actionPerformed(ActionEvent e) {       
+		public void actionPerformed(ActionEvent e) {	   
 				String data = "<html>"   
 				   + comp.joueurs.get(cb.getSelectedIndex()).stat()+"</html>";  
 				label.setText(data);  
@@ -71,36 +64,36 @@ public class AfficherCompetition{
   //   	}
   //   	String[] listMatch = nomMatchs.toArray(new String[nomMatchs.size()]);
   //   	JList list = new JList(listMatch);  
-  //         list.setBounds(700,300, 100,300);  
-  //         fenetre.add(list);
+  //	 list.setBounds(700,300, 100,300);  
+  //	 fenetre.add(list);
 
 
 
 
 		JTextField jour = new JTextField(20);
-	     JTextField mois = new JTextField(20);
-	     JTextField annee = new JTextField(20);  
-    	jour.setBounds(500,100, 200,30);
-    	mois.setBounds(500,150,200,30);
-    	annee.setBounds(500,200,200,30);
-    	JButton bDate = new JButton("date");
-    	bDate.setBounds(700,200,75,20);
+		 JTextField mois = new JTextField(20);
+		 JTextField annee = new JTextField(20);  
+		jour.setBounds(500,100, 200,30);
+		mois.setBounds(500,150,200,30);
+		annee.setBounds(500,200,200,30);
+		JButton bDate = new JButton("date");
+		bDate.setBounds(700,200,75,20);
 		bDate.addActionListener(new ActionListener() {  
-	        public void actionPerformed(ActionEvent e) {    
-		        if(jour.getText() != ""){   
+		public void actionPerformed(ActionEvent e) {	
+			if(jour.getText() != ""){   
 					String s1=jour.getText();  
-	        		String s2=mois.getText();
-	        		String s3=annee.getText();  
-	        		int a=Integer.parseInt(s1);  
-	        		int b=Integer.parseInt(s2); 
-	        		int c=Integer.parseInt(s3);
-	        		comp.jDebut = a;
-	        		comp.mDebut = b;
-	        		comp.aDebut = c;
-	        		String data = "<html> Date : "   
+				String s2=mois.getText();
+				String s3=annee.getText();  
+				int a=Integer.parseInt(s1);  
+				int b=Integer.parseInt(s2); 
+				int c=Integer.parseInt(s3);
+				comp.jDebut = a;
+				comp.mDebut = b;
+				comp.aDebut = c;
+				String data = "<html> Date : "   
 					   + comp.jDebut+"/"+comp.mDebut+"/"+comp.aDebut+"</html>"; 
-	        		label.setText(data);
-	        	}
+				label.setText(data);
+			}
 			}
 		});
 
@@ -108,16 +101,16 @@ public class AfficherCompetition{
 		panel.add(nbEquipe);
 		panel.add(nbEquipeLabel);
 		panel.add(boutEquipe);
-	    panel.add(boutton);
-	    panel.add(bDate);
-	    panel.add(jour);
-	    panel.add(mois);
-	    panel.add(annee);
-	    panel.add(cb);
-	    panel.add(label);
-	    fenetre.setLayout(null);
-	    fenetre.setPreferredSize(new Dimension(1000, 600));
-	    fenetre.setVisible(true);
+		panel.add(boutton);
+		panel.add(bDate);
+		panel.add(jour);
+		panel.add(mois);
+		panel.add(annee);
+		panel.add(cb);
+		panel.add(label);
+		fenetre.setLayout(null);
+		fenetre.setPreferredSize(new Dimension(1000, 600));
+		fenetre.setVisible(true);
 		fenetre.pack();
 	}
 }
