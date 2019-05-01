@@ -33,11 +33,25 @@ public class Competition {
     nomCompetition = nom;
     
   }
-  
   public String compName(){
     
     return nomCompetition;
     
+  }
+  public void putNbEquipe(int nb){
+    nombreEquipes = nb;
+  }
+  public int sendNbEquipe(){
+    return nombreEquipes;
+  }
+  public void putDate(int j, int m, int a){
+    jDebut = j;
+    mDebut = m;
+    aDebut = a;
+  }
+  public String sendDateStart(){
+    String date = "("+jDebut +"/"+mDebut +"/"+aDebut+")";
+    return date;
   }
   public void afficherMatchAll() {
 

@@ -15,15 +15,19 @@ public class ControllerCompetition{
 
 		public void actionPerformed(ActionEvent e){
 			String compName = "";
-
+			int nbEquipe = 0;
 			try{
 				if (theView.getNomCompetition().isEmpty()){
   					throw new Exception("Entrer un nom pour votre competition");
 				}
 				compName = theView.getNomCompetition();
+				nbEquipe = theView.getNbEquipes();
 				theModel.putCompName(compName);
+				theModel.putNbEquipe(nbEquipe);
+				theModel.putDate( theView.getJour(), theView.getMois(), theView.getAnnee());
+				theView.getJLabel("<html> nom Competition : "+theModel.compName() + "<BR> Date début : " + theModel.sendDateStart()+"<BR> NombreEquipe : "+theModel.sendNbEquipe()+"</html>");
 				theView.goChoixEquipe();
-				System.out.println("dans validListener : " + theModel.compName());
+				
 			}catch(Exception erreur){
 				System.out.println(erreur);
 			}
