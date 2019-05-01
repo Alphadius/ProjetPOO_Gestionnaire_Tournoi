@@ -73,6 +73,18 @@ public class ViewCompetition extends JFrame {
  		c.add("competition", creerCompetitionPanel);
 
 
+
+ 		JPanel choixEquipePanel = new JPanel(new BorderLayout());
+ 		choixEquipePanel.setLayout(new GridBagLayout());
+ 		// frame.setTitle("choixEquipe");
+ 		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
+
+
+
+
+ 		c.add("choixEquipe", choixEquipePanel);
+
+
  		// ACTION DU BOUTON START DE LA PREMIERE PAGE
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

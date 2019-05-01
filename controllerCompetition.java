@@ -20,10 +20,10 @@ public class ControllerCompetition{
 				if (theView.getNomCompetition().isEmpty()){
   					throw new Exception("Entrer un nom pour votre competition");
 				}
-				System.out.println("dans validListener");
 				compName = theView.getNomCompetition();
 				theModel.putCompName(compName);
 				theView.goChoixEquipe();
+				System.out.println("dans validListener : " + theModel.compName());
 			}catch(Exception erreur){
 				System.out.println(erreur);
 			}
