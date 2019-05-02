@@ -1,7 +1,7 @@
 public class main{
 	public static void main(String[] args){
-		System.setProperty( "file.encoding", "UTF-8" );
-
+		Competition origin = new Competition();
+		origin.getDataOrigin();
 		ViewCompetition theView = new ViewCompetition();
         
     	Competition theModel = new Competition();

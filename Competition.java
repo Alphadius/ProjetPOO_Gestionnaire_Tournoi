@@ -151,7 +151,7 @@ public class Competition {
     
   }
 
-public void getDataJoueurs(){
+public void getDataOrigin(){
 
     String nom = "";
       String prenom = "";
@@ -176,8 +176,18 @@ public void getDataJoueurs(){
       //va chercher le fichier demandé
       br = new BufferedReader(new FileReader("BDD.txt"));
 
+
+
+      //cherche la liste de toute les équipes dispo dans la bdd et la transformer en objet
+      // for(int i = 0; i < this.nombreEquipes; i++){
+      //   line = br.readLine();
+      //   Equipe equipe1 = new Equipe;
+      //   this.equipes.add(equipe1);
+      // }
+
       while((line = br.readLine()) != null){
         //on va choper toute les données ligne par ligne et les transformer en objets
+
         switch(count){
           case 0:
             nom = line;
@@ -225,6 +235,9 @@ public void getDataJoueurs(){
           break;
         }
         count = (count+1)%13;
+
+
+
       }
     }catch(IOException e){
       //si ya une erreur
