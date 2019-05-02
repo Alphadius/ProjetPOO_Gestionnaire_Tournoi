@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 public class writeData{
 	public static void main(String[] args) {
 
-		String fileName = "sauvegarde.txt";
+		String fileName = "testdestrucs.txt";
 
 		PrintWriter writer = null;
 		try{
