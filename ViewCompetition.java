@@ -12,7 +12,9 @@ public class ViewCompetition extends JFrame {
 	public JTextField textfieldJour = new JTextField(1);
 	public JTextField textfieldMois = new JTextField(1);
 	public JTextField textfieldAnnee = new JTextField(1);
-	public JLabel labelNomCompetition = new JLabel("test");
+	public JLabel labelNomCompetition = new JLabel();
+	public JLabel labelNbEquipes = new JLabel();
+	public JLabel labelDateStart = new JLabel();
 	private JButton creerComp = new JButton("Créer");
 
 	public ViewCompetition() {
@@ -134,7 +136,9 @@ public class ViewCompetition extends JFrame {
  		JPanel choixEquipePanel = new JPanel(new BorderLayout());
  		choixEquipePanel.setLayout(new GridBagLayout());
 
- 		choixEquipePanel.add(labelNomCompetition, gbc);
+ 		//choixEquipePanel.add(labelNomCompetition, gbc);
+ 		choixEquipePanel.add(labelNbEquipes, gbc);
+ 		//choixEquipePanel.add(labelDateStart, gbc);
 
  		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
  		c.add("choixEquipe", choixEquipePanel);
@@ -147,14 +151,12 @@ public class ViewCompetition extends JFrame {
 			}
 		});
 
-		
-
-		//frame.pack();
-
+		//////////////////////////
+ 		// PANEL N°3 : 
+ 		//////////////////////////
 	}
 	
-	// Méthode qui récupère les données du textfield "Nom competition"
-	// Voir comment l'utiliser avec le controlleur (comme dans l'exemple avec la calculette et les "getFirstNumber()" etc.)
+	// Méthodes qui récupèrent les données des textfields
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
@@ -180,8 +182,17 @@ public class ViewCompetition extends JFrame {
 		creerComp.addActionListener(listenForvalidButton);
 	}
 
-	public void getJLabel(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
+	// MÉTHODES SET
+	public void setNomCompetition(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
 		labelNomCompetition.setText(nomComp);
+	}
+
+	public void setNbEquipes(int nbEquipes) {
+		labelNbEquipes.setText(String.valueOf(nbEquipes));
+	}
+
+	public void setDateStart(String dateStart) {
+		labelDateStart.setText(dateStart);
 	}
 
 	public void goChoixEquipe(){

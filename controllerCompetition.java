@@ -25,7 +25,13 @@ public class ControllerCompetition{
 				theModel.putCompName(compName);
 				theModel.putNbEquipe(nbEquipe);
 				theModel.putDate( theView.getJour(), theView.getMois(), theView.getAnnee());
-				theView.getJLabel("<html> nom Competition : "+theModel.compName() + "<BR> Date début : " + theModel.sendDateStart()+"<BR> NombreEquipe : "+theModel.sendNbEquipe()+"</html>");
+				//theView.setNomCompetition("<html> nom Competition : "+theModel.compName() + "<BR> Date début : " + theModel.sendDateStart()+"<BR> NombreEquipe : "+theModel.sendNbEquipe()+"</html>");
+				
+				////**** Séparation des différentes variables/attributs à réutiliser dans la vue
+				theView.setNomCompetition(theModel.compName());
+				theView.setNbEquipes(nbEquipe);
+				theView.setDateStart(theModel.sendDateStart());
+
 				theView.goChoixEquipe();
 				
 			}catch(Exception erreur){
