@@ -29,7 +29,7 @@ public class ControllerCompetition{
 				theView.goChoixEquipe();
 				
 			}catch(Exception erreur){
-				System.out.println(erreur);
+				theView.afficherErreur(erreur);
 			}
 		}
 	}

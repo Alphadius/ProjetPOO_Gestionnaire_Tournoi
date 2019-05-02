@@ -16,7 +16,7 @@ public class ViewCompetition extends JFrame {
 	private JButton creerComp = new JButton("Créer");
 
 	public ViewCompetition() {
-
+		System.setProperty( "file.encoding", "UTF-8" );
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
@@ -188,5 +188,8 @@ public class ViewCompetition extends JFrame {
 	public void goChoixEquipe(){
 			card.show(c, "choixEquipe");
 			System.out.println("choix equipe");
+	}
+	public void afficherErreur(Exception erreur){
+		JOptionPane.showMessageDialog(null,erreur);
 	}
 }
