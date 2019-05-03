@@ -7,6 +7,7 @@ public class ViewCompetition extends JFrame {
 	CardLayout card;
 	Container c;
 
+	// Elements divers de panels
 	public JTextField textfieldNomCompetition = new JTextField(20);
 	public JTextField textfieldNbEquipes = new JTextField(20);
 	public JTextField textfieldJour = new JTextField(1);
@@ -17,6 +18,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	private JButton creerComp = new JButton("Créer");
 
+	//Tableau choixEquipe
 	private String[] tableEquipeTitres = {"Equipes", "Score..."}; // Entête du tableau (je suis pas sûr des titres)
 	private Object[][] tableEquipeData = {
 		{"France", "1-0"} // Contenu du tableau

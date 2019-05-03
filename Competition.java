@@ -36,7 +36,6 @@ public class Competition {
   public String compName(){
     
     return nomCompetition;
-    
   }
   public void putNbEquipe(int nb){
     nombreEquipes = nb;
