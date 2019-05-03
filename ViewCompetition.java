@@ -17,6 +17,12 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	private JButton creerComp = new JButton("Créer");
 
+	private String[] tableEquipeTitres = {"Equipes", "Score..."}; // Entête du tableau (je suis pas sûr des titres)
+	private Object[][] tableEquipeData = {
+		{"France", "1-0"} // Contenu du tableau
+	};
+	private JTable tableEquipe = new JTable(tableEquipeData, tableEquipeTitres); // JTable pour afficher le tableau de valeurs des matchs etc, j'ai pas encore add au panel choixEquipe
+
 	public ViewCompetition() {
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -136,8 +142,25 @@ public class ViewCompetition extends JFrame {
  		JPanel choixEquipePanel = new JPanel(new BorderLayout());
  		choixEquipePanel.setLayout(new GridBagLayout());
 
- 		//choixEquipePanel.add(labelNomCompetition, gbc);
+ 		gbc.weightx = 1;
+ 		gbc.weighty = 1;
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 1;
+		gbc.gridy = 1;
+ 		choixEquipePanel.add(labelNomCompetition, gbc);
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.gridy = 2;
+		// test ImageIcon + resize, rendre plus propre dans le code plus tard
+		ImageIcon drapeauFrance = new ImageIcon(new ImageIcon("images/france.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+ 		choixEquipePanel.add(new JButton(drapeauFrance), gbc);
  		choixEquipePanel.add(labelNbEquipes, gbc);
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 1;
+		gbc.gridy = 3;
  		//choixEquipePanel.add(labelDateStart, gbc);
 
  		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
@@ -154,6 +177,8 @@ public class ViewCompetition extends JFrame {
 		//////////////////////////
  		// PANEL N°3 : 
  		//////////////////////////
+
+
 	}
 	
 	// Méthodes qui récupèrent les données des textfields
@@ -178,7 +203,6 @@ public class ViewCompetition extends JFrame {
 	}
 
 	public void addCompEntreeListener(ActionListener listenForvalidButton){
-		
 		creerComp.addActionListener(listenForvalidButton);
 	}
 
