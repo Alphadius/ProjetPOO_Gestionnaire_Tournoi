@@ -34,7 +34,7 @@ public class ControllerCompetition{
 
 				theView.goChoixEquipe();
 				
-			}catch(Exception erreur){
+			} catch(Exception erreur) {
 				theView.afficherErreur(erreur);
 			}
 		}

@@ -2,6 +2,7 @@ import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.table.TableCellRenderer;
 
 public class ViewCompetition extends JFrame {
 	CardLayout card;
@@ -18,13 +19,18 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	private JButton creerComp = new JButton("Créer");
 
-	//Tableau choixEquipe
-	private String[] tableEquipeTitres = {"Equipes", "Score..."}; // Entête du tableau (je suis pas sûr des titres)
-	private Object[][] tableEquipeData = {
-		{"France", "1-0"} // Contenu du tableau
-	};
-	private JTable tableEquipe = new JTable(tableEquipeData, tableEquipeTitres); // JTable pour afficher le tableau de valeurs des matchs etc, j'ai pas encore add au panel choixEquipe
+	// test bouton dans JTable
+	private JButton boutonDetailsEquipe = new JButton();
 
+	//Tableau choixEquipe
+	Object[][] data = {
+		{"France","Détails France", "Brésil", "Détails Brésil", "7 - 0", "Détails match"},
+	};
+	String columnHeaders[] = {"Équipe 1", "", "Équipe 2", "", "Score", ""};
+	public JTable table = new JTable(data, columnHeaders);
+
+
+//////////
 	public ViewCompetition() {
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -139,32 +145,39 @@ public class ViewCompetition extends JFrame {
  		c.add("competition", creerCompetitionPanel);
 
 		//////////////////////////
- 		// PANEL N°2 : CHOIX ÉQUIPE
+ 		// PANEL N°2 : AFFICHAGE DES MATCHS
  		//////////////////////////
- 		JPanel choixEquipePanel = new JPanel(new BorderLayout());
+ 		JPanel choixEquipePanel = new JPanel(new BorderLayout()); // Panel pour le label
+ 		JPanel choixEquipeTablePanel = new JPanel(new BorderLayout()); // Panel pour le tableau
  		choixEquipePanel.setLayout(new GridBagLayout());
 
- 		gbc.weightx = 1;
- 		gbc.weighty = 1;
+ 		/*gbc.weightx = 1;
+ 		gbc.weighty = 1;*/
  		gbc.gridx = 0;
 		gbc.gridwidth = 2;
-		gbc.gridheight = 1;
-		gbc.gridy = 1;
+		gbc.gridheight = 2;
+		gbc.gridy = 0;
  		choixEquipePanel.add(labelNomCompetition, gbc);
- 		gbc.gridx = 0;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		gbc.gridy = 2;
-		// test ImageIcon + resize, rendre plus propre dans le code plus tard
-		ImageIcon drapeauFrance = new ImageIcon(new ImageIcon("images/france.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
- 		choixEquipePanel.add(new JButton(drapeauFrance), gbc);
- 		choixEquipePanel.add(labelNbEquipes, gbc);
- 		gbc.gridx = 0;
-		gbc.gridwidth = 2;
-		gbc.gridheight = 1;
-		gbc.gridy = 3;
- 		//choixEquipePanel.add(labelDateStart, gbc);
 
+ 		// IMPORTATION DU TABLEAU JTABLE DES EQUIPES
+ 		// Render des boutons cliquables de la table
+ 		table.getColumnModel().getColumn(1).setCellRenderer(new ButtonRenderer());;
+		table.getColumnModel().getColumn(1).setCellEditor(new ButtonEditor(new JTextField()));
+
+		table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());;
+		table.getColumnModel().getColumn(3).setCellEditor(new ButtonEditor(new JTextField()));
+
+		table.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());;
+		table.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JTextField()));
+
+		choixEquipeTablePanel.add(table.getTableHeader(), BorderLayout.NORTH);
+		choixEquipeTablePanel.add(table);
+		////
+		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 2;
+		gbc.gridy = 2;
+		choixEquipePanel.add(choixEquipeTablePanel, gbc);
  		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
  		c.add("choixEquipe", choixEquipePanel);
 
@@ -177,8 +190,15 @@ public class ViewCompetition extends JFrame {
 		});
 
 		//////////////////////////
- 		// PANEL N°3 : 
+ 		// PANEL N°3 : DETAILS DE EQUIPES
  		//////////////////////////
+
+ 		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
+ 		detailsEquipePanel.add(new JLabel("Nom de l'équipe"));
+
+
+ 		c.add("detailsEquipe", detailsEquipePanel);
+
 
 
 	}
@@ -210,7 +230,7 @@ public class ViewCompetition extends JFrame {
 
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
-		labelNomCompetition.setText(nomComp);
+		labelNomCompetition.setText("<html><h2>" + nomComp + "</h2></html>");
 	}
 
 	public void setNbEquipes(int nbEquipes) {
@@ -223,9 +243,76 @@ public class ViewCompetition extends JFrame {
 
 	public void goChoixEquipe(){
 			card.show(c, "choixEquipe");
-			System.out.println("choix equipe");
 	}
 	public void afficherErreur(Exception erreur){
 		JOptionPane.showMessageDialog(null,erreur);
 	}
+
+
+	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
+	//BUTTON RENDERER CLASS
+	class ButtonRenderer extends JButton implements  TableCellRenderer {
+		//CONSTRUCTOR
+		public ButtonRenderer() {
+			//SET BUTTON PROPERTIES
+			setOpaque(true);
+		}
+		@Override
+		public Component getTableCellRendererComponent(JTable table, Object obj, boolean selected, boolean focused, int row, int col) {
+			//SET PASSED OBJECT AS BUTTON TEXT
+			setText((obj==null) ? "":obj.toString());
+			return this;
+		}
+		}
+		//BUTTON EDITOR CLASS
+		class ButtonEditor extends DefaultCellEditor {
+			protected JButton btn;
+			private String lbl;
+			private Boolean clicked;
+			public ButtonEditor(JTextField txt) {
+			super(txt);
+			btn=new JButton();
+			btn.setOpaque(true);
+			//WHEN BUTTON IS CLICKED
+			btn.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					fireEditingStopped();
+				}
+			});
+		}
+		//OVERRIDE A COUPLE OF METHODS
+		@Override
+		public Component getTableCellEditorComponent(JTable table, Object obj, boolean selected, int row, int col) {
+			//SET TEXT TO BUTTON,SET CLICKED TO TRUE,THEN RETURN THE BTN OBJECT
+			lbl=(obj==null) ? "":obj.toString();
+			btn.setText(lbl);
+			clicked=true;
+			return btn;
+		}
+		//IF BUTTON CELL VALUE CHNAGES,IF CLICKED THAT IS
+		@Override
+		public Object getCellEditorValue() {
+			if(clicked) {
+				//SHOW US SOME MESSAGE
+				JOptionPane.showMessageDialog(btn, lbl+" Clicked");
+			}
+		//SET IT TO FALSE NOW THAT ITS CLICKED
+			clicked=false;
+			return new String(lbl);
+		}
+		@Override
+		public boolean stopCellEditing() {
+			//SET CLICKED TO FALSE FIRST
+			clicked=false;
+			return super.stopCellEditing();
+		}
+		@Override
+		protected void fireEditingStopped() {
+			// TODO Auto-generated method stub
+			super.fireEditingStopped();
+		}
+	}
+
+
 }
