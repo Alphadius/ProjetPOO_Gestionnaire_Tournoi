@@ -7,6 +7,7 @@ import javax.swing.table.TableCellRenderer;
 public class ViewCompetition extends JFrame {
 	CardLayout card;
 	Container c;
+	Competition comp;
 
 	// Elements divers de panels
 	public JTextField textfieldNomCompetition = new JTextField(20);
@@ -19,6 +20,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
 	private JButton creerComp = new JButton("Créer");
+	public JButton bouttonretourComp = new JButton("retour");
 
 	// test bouton dans JTable
 	private JButton boutonDetailsEquipe = new JButton();
@@ -192,7 +194,17 @@ public class ViewCompetition extends JFrame {
  		// PANEL N°3 : DETAILS DE EQUIPES
  		//////////////////////////
  		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
+ 		detailsEquipePanel.setLayout(new GridBagLayout());
+		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 2;
+		gbc.gridy = 0;
  		detailsEquipePanel.add(labelnomEquipe);
+ 		gbc.gridx = 1;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.gridy = 8;
+ 		detailsEquipePanel.add(bouttonretourComp);
  		c.add("detailsEquipe", detailsEquipePanel);
 
 
@@ -225,6 +237,12 @@ public class ViewCompetition extends JFrame {
 	public void addCompEntreeListener(ActionListener listenForvalidButton){
 		creerComp.addActionListener(listenForvalidButton);
 	}
+	public void addRetourListener(ActionListener listenForRetourButton){
+		bouttonretourComp.addActionListener(listenForRetourButton);
+	}
+	public void retourComp(){
+		card.show(c, "choixEquipe");
+	}
 
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
@@ -246,14 +264,13 @@ public class ViewCompetition extends JFrame {
 		JOptionPane.showMessageDialog(null,erreur);
 	}
 	public void affichermatch(Competition comp){
-		for(int i = 0; i < getNbEquipes(); i++){
-			System.out.println(getNbEquipes());
+		for(int i = 0; i < comp.matchs.size(); i++){
 			Match tempMatch = new Match();
 			tempMatch = comp.sendMatch(i);
 			data[i][0] = tempMatch.equipe1.nomEquipe;
-			data[i][1] = "Détails "+tempMatch.equipe1.nomEquipe;
+			data[i][1] = tempMatch.equipe1.nomEquipe;
 			data[i][2] = tempMatch.equipe2.nomEquipe;
-			data[i][3] = "Détails "+tempMatch.equipe2.nomEquipe;
+			data[i][3] = tempMatch.equipe2.nomEquipe;
 			data[i][4] = tempMatch.scoreEquipe1 +" - "+tempMatch.scoreEquipe2;
 			data[i][5] = "Détails match";
 		}
@@ -305,7 +322,10 @@ public class ViewCompetition extends JFrame {
 			if(clicked) {
 				//SHOW US SOME MESSAGE
 				//JOptionPane.showMessageDialog(btn, lbl+" Clicked");
-				writeEquipeName(lbl);
+				Equipes equipeTemp = new Equipes();
+				equipeTemp = comp.EquipeDe(lbl);
+				String infoEquipe = "<html>"+equipeTemp.nomEquipe+"<BR>"+equipeTemp.nomCoach+"</html>";
+				writeEquipeName(infoEquipe);
 				card.show(c, "detailsEquipe");
 			}
 		//SET IT TO FALSE NOW THAT ITS CLICKED

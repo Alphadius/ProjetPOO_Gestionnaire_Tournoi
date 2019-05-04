@@ -9,6 +9,7 @@ public class ControllerCompetition{
 		this.theModel = theModel;
 
 		this.theView.addCompEntreeListener(new ValidListener());
+		this.theView.addRetourListener(new RetourListener());
 	}
 
 	class ValidListener implements ActionListener{
@@ -22,6 +23,7 @@ public class ControllerCompetition{
 				}
 				compName = theView.getNomCompetition();
 				nbEquipe = theView.getNbEquipes();
+				theView.comp = theModel;
 				theModel.putCompName(compName);
 				theModel.putNbEquipe(nbEquipe);
 				theModel.putDate( theView.getJour(), theView.getMois(), theView.getAnnee());
@@ -35,6 +37,18 @@ public class ControllerCompetition{
 				theView.affichermatch(theModel);
 				theView.goChoixEquipe();
 				
+			} catch(Exception erreur) {
+				theView.afficherErreur(erreur);
+			}
+		}
+	}
+	class RetourListener implements ActionListener{
+
+		public void actionPerformed(ActionEvent e){
+			String compName = "";
+			int nbEquipe = 0;
+			try{
+				theView.retourComp();
 			} catch(Exception erreur) {
 				theView.afficherErreur(erreur);
 			}
