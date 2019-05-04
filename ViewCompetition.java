@@ -17,6 +17,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
+	public JLabel labelnomEquipe = new JLabel();
 	private JButton creerComp = new JButton("Créer");
 
 	// test bouton dans JTable
@@ -192,11 +193,8 @@ public class ViewCompetition extends JFrame {
 		//////////////////////////
  		// PANEL N°3 : DETAILS DE EQUIPES
  		//////////////////////////
-
  		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
- 		detailsEquipePanel.add(new JLabel("Nom de l'équipe"));
-
-
+ 		detailsEquipePanel.add(labelnomEquipe);
  		c.add("detailsEquipe", detailsEquipePanel);
 
 
@@ -207,7 +205,9 @@ public class ViewCompetition extends JFrame {
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
-
+	public void writeEquipeName(String dutext){
+		labelnomEquipe.setText(dutext) ;
+	}
 	public int getNbEquipes() {
 		return Integer.parseInt(textfieldNbEquipes.getText());
 	}
@@ -296,6 +296,7 @@ public class ViewCompetition extends JFrame {
 			if(clicked) {
 				//SHOW US SOME MESSAGE
 				//JOptionPane.showMessageDialog(btn, lbl+" Clicked");
+				writeEquipeName(lbl);
 				card.show(c, "detailsEquipe");
 			}
 		//SET IT TO FALSE NOW THAT ITS CLICKED
