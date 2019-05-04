@@ -32,6 +32,7 @@ public class ControllerCompetition{
 				theView.setNbEquipes(nbEquipe);
 				theView.setDateStart(theModel.sendDateStart());
 				theModel.CombiMatch(nbEquipe);
+				theView.affichermatch(theModel);
 				theView.goChoixEquipe();
 				
 			} catch(Exception erreur) {

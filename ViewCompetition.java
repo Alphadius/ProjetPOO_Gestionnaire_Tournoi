@@ -24,9 +24,7 @@ public class ViewCompetition extends JFrame {
 	private JButton boutonDetailsEquipe = new JButton();
 
 	//Tableau choixEquipe
-	Object[][] data = {
-		{"France","Détails France", "Brésil", "Détails Brésil", "7 - 0", "Détails match"},
-	};
+	Object[][] data = new Object[30][6];
 	String columnHeaders[] = {"Équipe 1", "", "Équipe 2", "", "Score", ""};
 	public JTable table = new JTable(data, columnHeaders);
 
@@ -247,8 +245,19 @@ public class ViewCompetition extends JFrame {
 	public void afficherErreur(Exception erreur){
 		JOptionPane.showMessageDialog(null,erreur);
 	}
-
-
+	public void affichermatch(Competition comp){
+		for(int i = 0; i < getNbEquipes(); i++){
+			System.out.println(getNbEquipes());
+			Match tempMatch = new Match();
+			tempMatch = comp.sendMatch(i);
+			data[i][0] = tempMatch.equipe1.nomEquipe;
+			data[i][1] = "Détails "+tempMatch.equipe1.nomEquipe;
+			data[i][2] = tempMatch.equipe2.nomEquipe;
+			data[i][3] = "Détails "+tempMatch.equipe2.nomEquipe;
+			data[i][4] = tempMatch.scoreEquipe1 +" - "+tempMatch.scoreEquipe2;
+			data[i][5] = "Détails match";
+		}
+	}
 	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
 	//BUTTON RENDERER CLASS
 	class ButtonRenderer extends JButton implements  TableCellRenderer {

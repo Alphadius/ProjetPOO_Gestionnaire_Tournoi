@@ -43,6 +43,9 @@ public class Competition {
   public int sendNbEquipe(){
     return nombreEquipes;
   }
+  public Match sendMatch(int num){
+    return matchs.get(num);
+  }
   public void putDate(int j, int m, int a){
     jDebut = j;
     mDebut = m;
@@ -108,6 +111,7 @@ public class Competition {
     // }
     //if nombre equipe paire
     int nbcombi = ((nbEquipes*nbEquipes)-nbEquipes)/2;
+    System.out.println("Avec "+nbEquipes+" équipes tu peux faire "+nbcombi+" match : ");
     //diag 1
     for (int i = 0; i < (nbEquipes/2); i++) {
         Match match = new Match();
