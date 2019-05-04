@@ -295,7 +295,8 @@ public class ViewCompetition extends JFrame {
 		public Object getCellEditorValue() {
 			if(clicked) {
 				//SHOW US SOME MESSAGE
-				JOptionPane.showMessageDialog(btn, lbl+" Clicked");
+				//JOptionPane.showMessageDialog(btn, lbl+" Clicked");
+				card.show(c, "detailsEquipe");
 			}
 		//SET IT TO FALSE NOW THAT ITS CLICKED
 			clicked=false;
