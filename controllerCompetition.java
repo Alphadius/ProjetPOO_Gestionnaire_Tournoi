@@ -31,7 +31,7 @@ public class ControllerCompetition{
 				theView.setNomCompetition(theModel.compName());
 				theView.setNbEquipes(nbEquipe);
 				theView.setDateStart(theModel.sendDateStart());
-
+				theModel.CombiMatch(nbEquipe);
 				theView.goChoixEquipe();
 				
 			} catch(Exception erreur) {

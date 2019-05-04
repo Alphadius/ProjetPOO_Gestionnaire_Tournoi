@@ -53,7 +53,7 @@ public class AfficherCompetition{
 				nbEquipeLabel.setVisible(false);
 				boutEquipe.setVisible(false);
 				comp.nombreEquipes = Integer.parseInt(nbEquipe.getText());
-				comp.initCompetition(comp.nombreEquipes);
+				comp.CombiMatch(comp.nombreEquipes);
 			}
 		});
 

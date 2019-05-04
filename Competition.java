@@ -66,9 +66,9 @@ public class Competition {
   // }
   
   // public void creationCompetition() {
-      public void initCompetition(int nombreEquipes) {
+      public void CombiMatch(int nbEquipes) {
 
-            Scanner reader = new Scanner(System.in);
+            // Scanner reader = new Scanner(System.in);
     // System.out.println("Veuillez saisir le jour de debut de la competition:");
     // this.jDebut = reader.nextInt();
     // System.out.println("Veuillez saisir le mois de debut de la competition:");
@@ -80,17 +80,18 @@ public class Competition {
     // // System.out.println("le match est a quel tour?");
     // // int tourMatch = reader.nextInt();
     // //afficherDate(tourMatch, this);
-    int nbEquipes = nombreEquipes;
-    int tour = 0;
-    // list<Match> matchs = new ArrayList<Match>();
+    // int nbEquipes = nombreEquipes;
+    // int tour = 0;
+    // // list<Match> matchs = new ArrayList<Match>();
     // System.out.println("Quel est le nombre d'equipes ?");
     // nbEquipes = reader.nextInt();
-    for (int i = 0; i < nbEquipes; i++) {
-      Scanner lire = new Scanner(System.in);
-      System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
-      Equipes equipe1 = new Equipes(lire.nextLine());
-      this.equipes.add(equipe1);
-    }
+    // for (int i = 0; i < nbEquipes; i++) {
+    //   Scanner lire = new Scanner(System.in);
+    //   System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
+    //   Equipes equipe1 = new Equipes(lire.nextLine());
+    //   this.equipes.add(equipe1);
+    //   System.out.println(this.equipes.get(16+i).nomEquipe);
+    // }
     //listmatchsimple
     // for (int i = 0; i < nbEquipes; i++) {
     //   for (int j = 1; j < nbEquipes; j++) {
@@ -150,7 +151,12 @@ public class Competition {
     
   }
 
-public void getDataOrigin(){
+
+
+
+
+
+public void getDataJoueur(String file){
 
     String nom = "";
       String prenom = "";
@@ -173,12 +179,12 @@ public void getDataOrigin(){
     int annee = c.get(Calendar.YEAR);
     try{
       //va chercher le fichier demandé
-      br = new BufferedReader(new FileReader("BDD.txt"));
+      br = new BufferedReader(new FileReader(file+".txt"));
 
 
 
       //cherche la liste de toute les équipes dispo dans la bdd et la transformer en objet
-      // for(int i = 0; i < this.nombreEquipes; i++){
+      // for(int i = 0; i < nbEquipe; i++){
       //   line = br.readLine();
       //   Equipe equipe1 = new Equipe;
       //   this.equipes.add(equipe1);
@@ -248,4 +254,32 @@ public void getDataOrigin(){
     // }
   }
 
+
+
+
+  public void getDataEquipe(String file, int nb){
+    BufferedReader br = null;
+    String line;
+    int count = 0;
+    List<Equipe> equipeTemp = new ArrayList<Equipe>();
+    try{
+      //va chercher le fichier demandé
+      br = new BufferedReader(new FileReader(file+".txt"));
+
+      //cherche la liste de toute les équipes dispo dans la bdd et la transformer en objet
+      for(int i = 0; i < nb; i++){
+        line = br.readLine();
+        Equipes equipe1 = new Equipes();
+        equipe1.nomEquipe = line;
+        this.equipes.add(equipe1);
+        System.out.println(equipe1.nomEquipe+""+i);
+      }
+    }catch(IOException e){
+      //si ya une erreur
+      e.printStackTrace();
+    }
+    // for(int i = 0; i < 3; i++){
+    //  joueurs.get(i).afficherStats(annee);
+    // }
+  }
 }

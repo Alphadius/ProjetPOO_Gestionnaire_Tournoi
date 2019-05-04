@@ -1,11 +1,11 @@
-import java.util.Vector;
+import java.util.*;
 
 public class Equipes {
 
   String nomEquipe;
   String nomCoach;
   int nombreJoueurs;
-  //List<Joueur> JoueursInEquipe = new ArrayList<Joueur>();
+  List<Joueur> JoueursInEquipe = new ArrayList<Joueur>();
 
 
 public Equipes(String nom){
