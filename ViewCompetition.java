@@ -150,6 +150,7 @@ public class ViewCompetition extends JFrame {
  		//////////////////////////
  		JPanel choixEquipePanel = new JPanel(new BorderLayout()); // Panel pour le label
  		JPanel choixEquipeTablePanel = new JPanel(new BorderLayout()); // Panel pour le tableau
+ 		//JScrollPane scroll = new JScrollPane();
  		choixEquipePanel.setLayout(new GridBagLayout());
 
  		/*gbc.weightx = 1;
@@ -171,14 +172,12 @@ public class ViewCompetition extends JFrame {
 		table.getColumnModel().getColumn(5).setCellRenderer(new ButtonRenderer());;
 		table.getColumnModel().getColumn(5).setCellEditor(new ButtonEditor(new JTextField()));
 
-		choixEquipeTablePanel.add(table.getTableHeader(), BorderLayout.NORTH);
-		choixEquipeTablePanel.add(table);
 		////
 		gbc.gridx = 0;
 		gbc.gridwidth = 2;
 		gbc.gridheight = 2;
 		gbc.gridy = 2;
-		choixEquipePanel.add(choixEquipeTablePanel, gbc);
+		choixEquipePanel.add(new JScrollPane(table), gbc);
  		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
  		c.add("choixEquipe", choixEquipePanel);
 
@@ -215,8 +214,8 @@ public class ViewCompetition extends JFrame {
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
-	public void writeEquipeName(String dutext){
-		labelnomEquipe.setText(dutext) ;
+	public void writeEquipeName(String nomEquipe){
+		labelnomEquipe.setText(nomEquipe) ;
 	}
 	public int getNbEquipes() {
 		return Integer.parseInt(textfieldNbEquipes.getText());
@@ -321,7 +320,6 @@ public class ViewCompetition extends JFrame {
 		public Object getCellEditorValue() {
 			if(clicked) {
 				//SHOW US SOME MESSAGE
-				//JOptionPane.showMessageDialog(btn, lbl+" Clicked");
 				Equipes equipeTemp = new Equipes();
 				equipeTemp = comp.EquipeDe(lbl);
 				String infoEquipe = "<html>"+equipeTemp.nomEquipe+"<BR>"+equipeTemp.nomCoach+"</html>";
