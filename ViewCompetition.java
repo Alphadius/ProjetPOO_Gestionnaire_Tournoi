@@ -26,8 +26,8 @@ public class ViewCompetition extends JFrame {
 	private JButton boutonDetailsEquipe = new JButton();
 
 	//Tableau choixEquipe
-	Object[][] data = new Object[30][6];
-	String columnHeaders[] = {"Équipe 1", "", "Équipe 2", "", "Score", ""};
+	Object[][] data = new Object[120][6];
+	String columnHeaders[] = {"Équipe 1", "détails", "Équipe 2", "détails", "Score", "détails"};
 	public JTable table = new JTable(data, columnHeaders);
 
 
