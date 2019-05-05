@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
+import java.io.*;
 
 public class ViewCompetition extends JFrame {
 	CardLayout card;
@@ -28,8 +29,8 @@ public class ViewCompetition extends JFrame {
 	private JButton boutonDetailsEquipe = new JButton();
 
 	//Tableau choixEquipe
-	Object[][] data = new Object[120][6];
-	String columnHeaders[] = {"Équipe 1", "détails", "Équipe 2", "détails", "Score", "détails"};
+	Object[][] data = new Object[120][7];
+	String columnHeaders[] = {"Équipe 1", "détails", "Équipe 2", "détails", "Score", "Modifier", "index"};
 	public JTable table = new JTable(data, columnHeaders);
 
 	//////////
@@ -303,8 +304,10 @@ public class ViewCompetition extends JFrame {
 			data[i][2] = tempMatch.equipe2.nomEquipe;
 			data[i][3] = tempMatch.equipe2.nomEquipe;
 			data[i][4] = tempMatch.scoreEquipe1 + " - " + tempMatch.scoreEquipe2;
-			data[i][5] = "Détails match";
+			tempMatch.tour = i+1;
+			data[i][5] = i;
 		}
+
 	}
 	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
 	//BUTTON RENDERER CLASS
@@ -352,12 +355,20 @@ public class ViewCompetition extends JFrame {
 		public Object getCellEditorValue() {
 			if(clicked) {
 				//CLIC SUR DETAILS
-				Equipes equipeTemp = new Equipes();
-				equipeTemp = comp.EquipeDe(lbl);
-				String infoEquipe = "<html><h2>"+equipeTemp.nomEquipe+"</h2><p>Coach : "+equipeTemp.nomCoach+"</p><p>"+equipeTemp.nombreJoueurs+" joueurs</p><p>"+equipeTemp.points+" points</p></html>";
-				// Afficher combobox boxEquipe
-				writeEquipeName(infoEquipe);
-				card.show(c, "detailsEquipe");
+				if(lbl.matches(".*\\d.*")){
+					Match matchTemp = new Match();
+					matchTemp = comp.matchs.get( Integer.parseInt(lbl));
+					String infoMatch = matchTemp.equipe1.nomEquipe +" "+matchTemp.equipe2.nomEquipe +" "+matchTemp.afficherDate(comp)+ "("+matchTemp.scoreEquipe1+"-"+matchTemp.scoreEquipe2+")";
+					writeEquipeName(infoMatch);
+					card.show(c, "detailsEquipe");
+				}else{
+					Equipes equipeTemp = new Equipes();
+					equipeTemp = comp.EquipeDe(lbl);
+					String infoEquipe = "<html><h2>"+equipeTemp.nomEquipe+"</h2><p>Coach : "+equipeTemp.nomCoach+"</p><p>"+equipeTemp.nombreJoueurs+" joueurs</p><p>"+equipeTemp.points+" points</p></html>";
+					// Afficher combobox boxEquipe
+					writeEquipeName(infoEquipe);
+					card.show(c, "detailsEquipe");
+				}
 			}
 		//SET IT TO FALSE NOW THAT ITS CLICKED
 			clicked=false;
