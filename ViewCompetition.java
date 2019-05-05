@@ -22,7 +22,7 @@ public class ViewCompetition extends JFrame {
 	private JButton creerComp = new JButton("Créer");
 	public JComboBox boxEquipe = new JComboBox();
 	public JButton buttonAfficherStats = new JButton("Afficher statistiques");
-	public JButton bouttonretourComp = new JButton("retour");
+	public JButton buttonRetourComp = new JButton("Retour");
 
 	// test bouton dans JTable
 	private JButton boutonDetailsEquipe = new JButton();
@@ -195,24 +195,39 @@ public class ViewCompetition extends JFrame {
  		//////////////////////////
  		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
  		detailsEquipePanel.setLayout(new GridBagLayout());
-		gbc.gridx = 0;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
+
+ 		// gbc.weightx = 1;
+ 		// gbc.weighty = 1;
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 2;
 		gbc.gridy = 0;
- 		detailsEquipePanel.add(labelnomEquipe);
- 		gbc.gridx = 1;
-		gbc.gridwidth = 1;
+ 		detailsEquipePanel.add(labelnomEquipe, gbc);
+ 		gbc.gridx = 0;
+		gbc.gridwidth = 2;
 		gbc.gridheight = 1;
-		gbc.gridy = 5;
-		detailsEquipePanel.add(boxEquipe);
+		gbc.gridy = 6;
+		detailsEquipePanel.add(boxEquipe, gbc);
+		gbc.gridx = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 1;
+		gbc.gridy = 7;
+		detailsEquipePanel.add(buttonAfficherStats, gbc);
+		gbc.gridx = 3;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 1;
+		gbc.gridy = 7;
+		detailsEquipePanel.add(buttonRetourComp, gbc);
+		buttonRetourComp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(c, "choixEquipe");
+			}
+		});
 		buttonAfficherStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//nomJoueur.afficherStats();
 			}
 		});
-		detailsEquipePanel.add(buttonAfficherStats);
-
- 		detailsEquipePanel.add(bouttonretourComp);
  		c.add("detailsEquipe", detailsEquipePanel);
 
  		//////////////////////////
@@ -223,7 +238,7 @@ public class ViewCompetition extends JFrame {
  		detailsMatchPanel.add(new JLabel(/*getNomEquipe1() + */" - "/* + getNomEquipe2()*/));
  		detailsMatchPanel.add(new JLabel(/*afficherScore()*/));
  		detailsMatchPanel.add(new JLabel(/*afficherDate()*/));
- 		detailsMatchPanel.add(bouttonretourComp);
+ 		//detailsMatchPanel.add(buttonRetourComp);
  		c.add("detailsMatch", detailsMatchPanel);
 	}
 	
@@ -254,7 +269,7 @@ public class ViewCompetition extends JFrame {
 		creerComp.addActionListener(listenForvalidButton);
 	}
 	public void addRetourListener(ActionListener listenForRetourButton){
-		bouttonretourComp.addActionListener(listenForRetourButton);
+		//buttonRetourComp.addActionListener(listenForRetourButton);
 	}
 	public void retourComp(){
 		card.show(c, "choixEquipe");
