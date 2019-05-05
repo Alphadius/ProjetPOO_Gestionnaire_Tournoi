@@ -5,6 +5,7 @@ public class Equipes {
   String nomEquipe;
   String nomCoach;
   int nombreJoueurs;
+  int points;
   List<Joueur> JoueursInEquipe = new ArrayList<Joueur>();
 
 

@@ -20,6 +20,8 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
 	private JButton creerComp = new JButton("Créer");
+	public JComboBox boxEquipe = new JComboBox();
+	public JButton buttonAfficherStats = new JButton("Afficher statistiques");
 	public JButton bouttonretourComp = new JButton("retour");
 
 	// test bouton dans JTable
@@ -30,8 +32,7 @@ public class ViewCompetition extends JFrame {
 	String columnHeaders[] = {"Équipe 1", "détails", "Équipe 2", "détails", "Score", "détails"};
 	public JTable table = new JTable(data, columnHeaders);
 
-
-//////////
+	//////////
 	public ViewCompetition() {
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -190,24 +191,40 @@ public class ViewCompetition extends JFrame {
 		});
 
 		//////////////////////////
- 		// PANEL N°3 : DETAILS DE EQUIPES
+ 		// PANEL N°3 : DETAILS EQUIPE
  		//////////////////////////
  		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
  		detailsEquipePanel.setLayout(new GridBagLayout());
 		gbc.gridx = 0;
-		gbc.gridwidth = 2;
-		gbc.gridheight = 2;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
 		gbc.gridy = 0;
  		detailsEquipePanel.add(labelnomEquipe);
  		gbc.gridx = 1;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
-		gbc.gridy = 8;
+		gbc.gridy = 5;
+		detailsEquipePanel.add(boxEquipe);
+		buttonAfficherStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//nomJoueur.afficherStats();
+			}
+		});
+		detailsEquipePanel.add(buttonAfficherStats);
+
  		detailsEquipePanel.add(bouttonretourComp);
  		c.add("detailsEquipe", detailsEquipePanel);
 
-
-
+ 		//////////////////////////
+ 		// PANEL N°4 : DETAILS MATCH
+ 		//////////////////////////
+ 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
+ 		//afficher le nom de l'équipe 1 du match en question
+ 		detailsMatchPanel.add(new JLabel(/*getNomEquipe1() + */" - "/* + getNomEquipe2()*/));
+ 		detailsMatchPanel.add(new JLabel(/*afficherScore()*/));
+ 		detailsMatchPanel.add(new JLabel(/*afficherDate()*/));
+ 		detailsMatchPanel.add(bouttonretourComp);
+ 		c.add("detailsMatch", detailsMatchPanel);
 	}
 	
 	// Méthodes qui récupèrent les données des textfields
@@ -270,7 +287,7 @@ public class ViewCompetition extends JFrame {
 			data[i][1] = tempMatch.equipe1.nomEquipe;
 			data[i][2] = tempMatch.equipe2.nomEquipe;
 			data[i][3] = tempMatch.equipe2.nomEquipe;
-			data[i][4] = tempMatch.scoreEquipe1 +" - "+tempMatch.scoreEquipe2;
+			data[i][4] = tempMatch.scoreEquipe1 + " - " + tempMatch.scoreEquipe2;
 			data[i][5] = "Détails match";
 		}
 	}
@@ -315,14 +332,15 @@ public class ViewCompetition extends JFrame {
 			clicked=true;
 			return btn;
 		}
-		//IF BUTTON CELL VALUE CHNAGES,IF CLICKED THAT IS
+		//IF BUTTON CELL VALUE CHANGES,IF CLICKED THAT IS
 		@Override
 		public Object getCellEditorValue() {
 			if(clicked) {
-				//SHOW US SOME MESSAGE
+				//CLIC SUR DETAILS
 				Equipes equipeTemp = new Equipes();
 				equipeTemp = comp.EquipeDe(lbl);
-				String infoEquipe = "<html>"+equipeTemp.nomEquipe+"<BR>"+equipeTemp.nomCoach+"</html>";
+				String infoEquipe = "<html><h2>"+equipeTemp.nomEquipe+"</h2><p>Coach : "+equipeTemp.nomCoach+"</p><p>"+equipeTemp.nombreJoueurs+" joueurs</p><p>"+equipeTemp.points+" points</p></html>";
+				// Afficher combobox boxEquipe
 				writeEquipeName(infoEquipe);
 				card.show(c, "detailsEquipe");
 			}
@@ -342,6 +360,4 @@ public class ViewCompetition extends JFrame {
 			super.fireEditingStopped();
 		}
 	}
-
-
 }
