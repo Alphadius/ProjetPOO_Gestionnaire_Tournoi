@@ -60,7 +60,6 @@ public Match(Equipes equipe1, Equipes equipe2){
     int jourAnnee = 365;
   //  System.out.println(i);
     while (i > 0) {
-      System.out.println(i);
       boolean aBisextil = (((anneeTemp % 100 == 0) || (anneeTemp % 4 == 0)) && (anneeTemp % 400 != 0));
       if (aBisextil) {
         jourAnnee = 366;
@@ -79,9 +78,9 @@ public Match(Equipes equipe1, Equipes equipe2){
       if (i > jourAnnee) {
         i -= jourAnnee;
         anneeTemp++;
-        System.out.println("annee " + anneeTemp + " " + i + "-" + jourAnnee + "c'est une annee" + aBisextil);
+        //System.out.println("annee " + anneeTemp + " " + i + "-" + jourAnnee + "c'est une annee" + aBisextil);
       } else if (i > maxjour) {
-        System.out.println("mois " + moisTemp + " : " + i + " " + maxjour);
+        //System.out.println("mois " + moisTemp + " : " + i + " " + maxjour);
         i -= maxjour;
         moisTemp = ((moisTemp) % 12) + 1;
         if (moisTemp == 1) {
@@ -89,11 +88,11 @@ public Match(Equipes equipe1, Equipes equipe2){
         }
       } else {
         jourTemp = i;
-        System.out.println("jour " + jourTemp + " : " + i);
+        //System.out.println("jour " + jourTemp + " : " + i);
         i -= i;
       }
     }
-    System.out.println("la date du match est :" + jourTemp + "/" + moisTemp + "/" + anneeTemp);
+    //System.out.println("la date du match est :" + jourTemp + "/" + moisTemp + "/" + anneeTemp);
     return (jourTemp + "/" + moisTemp + "/" + anneeTemp);
   }
 }

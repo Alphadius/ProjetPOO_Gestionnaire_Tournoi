@@ -120,7 +120,7 @@ public class Competition {
     // }
     //if nombre equipe paire
     int nbcombi = ((nbEquipes*nbEquipes)-nbEquipes)/2;
-    System.out.println("Avec "+nbEquipes+" équipes tu peux faire "+nbcombi+" match : ");
+    System.out.println("Avec "+nbEquipes+" équipes tu peux faire "+nbcombi+" match ");
     //diag 1
     for (int i = 0; i < (nbEquipes/2); i++) {
         Match match = new Match();
@@ -159,7 +159,7 @@ public class Competition {
       odd = 1;
     }
     for (int i = 0; i <  nbcombi+odd; i++) {
-    System.out.println(matchs.get(i).equipe1.nomEquipe + " - " + matchs.get(i).equipe2.nomEquipe);
+    // System.out.println(matchs.get(i).equipe1.nomEquipe + " - " + matchs.get(i).equipe2.nomEquipe);
     }
     
   }
@@ -285,7 +285,7 @@ public void getDataJoueur(String file){
         Equipes equipe1 = new Equipes();
         equipe1.nomEquipe = line;
         this.equipes.add(equipe1);
-        System.out.println(equipe1.nomEquipe+""+i);
+        // System.out.println(equipe1.nomEquipe+""+i);
       }
     }catch(IOException e){
       //si ya une erreur

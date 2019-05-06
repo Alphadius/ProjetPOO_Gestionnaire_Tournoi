@@ -3,7 +3,6 @@ public class main{
 		Competition origin = new Competition();
 		origin.getDataJoueur("BDD");
 		origin.getDataEquipe("BDDEquipe",16);
-		System.out.println(origin.equipes.get(0).nomEquipe);
 		ViewCompetition theView = new ViewCompetition(origin);
         
     	Competition theModel = new Competition();
