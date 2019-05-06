@@ -17,6 +17,8 @@ public class ViewCompetition extends JFrame {
 	public JTextField textfieldJour = new JTextField(1);
 	public JTextField textfieldMois = new JTextField(1);
 	public JTextField textfieldAnnee = new JTextField(1);
+	public JTextField txtModifierScore = new JTextField(3);
+	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
@@ -195,10 +197,37 @@ public class ViewCompetition extends JFrame {
 		//////////////////////////
 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
 		// afficher le nom de l'équipe 1 du match en question
-		detailsMatchPanel.add(new JLabel(/* getNomEquipe1() + */" - "/* + getNomEquipe2() */));
-		detailsMatchPanel.add(new JLabel(/* afficherScore() */));
-		detailsMatchPanel.add(new JLabel(/* afficherDate() */));
-		// detailsMatchPanel.add(buttonRetourListMatch);
+		detailsMatchPanel.setLayout(new GridBagLayout());
+
+		// gbc.weightx = 1;
+		// gbc.weighty = 1;
+		gbc(0, 2, 2, 0);
+		gbc.ipady = 0;
+		detailsMatchPanel.add(labelnomEquipe, gbc);
+		gbc(0, 2, 1, 6);
+		// String[] listJParEquipe = new String[23];
+		// for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
+		// 	String tempNom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).nom;
+		// 	String tempPrenom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).prenom;
+		// 	listJParEquipe[i] = tempNom + " " + tempPrenom;
+		// }
+		boxEquipe=new JComboBox(listJParEquipe);
+		detailsMatchPanel.add(txtModifierScore, gbc);
+		gbc(0, 2, 1, 7);
+		detailsMatchPanel.add(btnModifierScore, gbc);
+		gbc(3, 2, 1, 7);
+		detailsMatchPanel.add(buttonRetourListMatch, gbc);
+		buttonRetourListMatch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(c, "listMatch");
+			}
+		});
+		buttonAfficherStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// nomJoueur.afficherStats();
+			}
+		});
+		
 		c.add("detailsMatch", detailsMatchPanel);
 	}
 
@@ -400,7 +429,11 @@ public class ViewCompetition extends JFrame {
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
 							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp) + "</p></html>";
 					writeEquipeName(infoMatch);
-					card.show(c, "detailsEquipe");
+					/// ADD textfield et bouton valider
+					//txtModifierScore.setPreferredSize(new Dimension(50,10));
+					//c.add("detailsEquipe", txtModifierScore);
+					//buttonAfficherStats.setText("Modifier score");
+					card.show(c, "detailsMatch");
 				} else {
 					Equipes equipeTemp = new Equipes();
 					equipeTemp = comp.equipeDe(lbl);
@@ -412,21 +445,20 @@ public class ViewCompetition extends JFrame {
 					card.show(c, "detailsEquipe");
 				}
 			}
-			// SET IT TO FALSE NOW THAT ITS CLICKED
+			// Retour à false sur clic
 			clicked = false;
 			return new String(lbl);
 		}
 
 		@Override
 		public boolean stopCellEditing() {
-			// SET CLICKED TO FALSE FIRST
+			// Mettre Clicked sur false en premier
 			clicked = false;
 			return super.stopCellEditing();
 		}
 
 		@Override
 		protected void fireEditingStopped() {
-			// TODO Auto-generated method stub
 			super.fireEditingStopped();
 		}
 	}
