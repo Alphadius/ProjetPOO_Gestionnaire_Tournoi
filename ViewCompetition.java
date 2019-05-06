@@ -156,6 +156,7 @@ public class ViewCompetition extends JFrame {
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(c, "competition");
+				creerComp.requestFocus();
 			}
 		});
 
@@ -358,6 +359,7 @@ public class ViewCompetition extends JFrame {
 
 	public void goChoixEquipe() {
 		card.show(c, "choixEquipe");
+		choixEquipeButton.requestFocus();
 	}
 
 	public void goListMatch() {
