@@ -23,6 +23,9 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
+	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
+	public JLabel stat = new JLabel();
+	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
 	private JButton creerComp = new JButton("Créer");
 	public JButton choixEquipeButton = new JButton("valider");
@@ -157,42 +160,6 @@ public class ViewCompetition extends JFrame {
 		});
 
 		//////////////////////////
-		// PANEL N°3 : DETAILS EQUIPE
-		//////////////////////////
-		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
-		detailsEquipePanel.setLayout(new GridBagLayout());
-
-		// gbc.weightx = 1;
-		// gbc.weighty = 1;
-		gbc(0, 2, 2, 0);
-		gbc.ipady = 0;
-		detailsEquipePanel.add(labelnomEquipe, gbc);
-		gbc(0, 2, 1, 6);
-		String[] listJParEquipe = new String[23];
-		for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
-			String tempNom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).nom;
-			String tempPrenom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).prenom;
-			listJParEquipe[i] = tempNom + " " + tempPrenom;
-		}
-		boxEquipe=new JComboBox(listJParEquipe);
-		detailsEquipePanel.add(boxEquipe, gbc);
-		gbc(0, 2, 1, 7);
-		detailsEquipePanel.add(buttonAfficherStats, gbc);
-		gbc(3, 2, 1, 7);
-		detailsEquipePanel.add(buttonRetourListMatch, gbc);
-		buttonRetourListMatch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				card.show(c, "listMatch");
-			}
-		});
-		buttonAfficherStats.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// nomJoueur.afficherStats();
-			}
-		});
-		c.add("detailsEquipe", detailsEquipePanel);
-
-		//////////////////////////
 		// PANEL N°4 : DETAILS MATCH
 		//////////////////////////
 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
@@ -224,7 +191,11 @@ public class ViewCompetition extends JFrame {
 		});
 		buttonAfficherStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// nomJoueur.afficherStats();
+				Joueur temp = new Joueur();
+				temp = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(boxEquipe.getSelectedIndex());
+				stat.setText("<html>"+temp.stat()+"</html>");
+				gbc(4,1,3,1);
+				detailsEquipePanel.add(stat, gbc);
 			}
 		});
 		
@@ -244,9 +215,53 @@ public class ViewCompetition extends JFrame {
 		return textfieldNomCompetition.getText();
 	}
 
-	public void writeEquipeName(String nomEquipe) {
+
+
+
+	//////////////////////////
+	// PANEL N°3 : DETAILS EQUIPE
+	//////////////////////////
+
+	public void AfficherDetailEquipe(String nomEquipe) {
+		
+
+		detailsEquipePanel.setLayout(new GridBagLayout());
 		labelnomEquipe.setText(nomEquipe);
+		// gbc.weightx = 1;
+		// gbc.weighty = 1;
+		gbc(0, 2, 2, 0);
+		gbc.ipady = 0;
+		detailsEquipePanel.add(labelnomEquipe, gbc);
+		gbc(0, 2, 1, 6);
+
+		for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
+			String tempNom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).nom;
+			String tempPrenom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).prenom;
+			listJParEquipe[i] = tempNom + " " + tempPrenom;
+		}
+		boxEquipe=new JComboBox(listJParEquipe);
+		detailsEquipePanel.add(boxEquipe, gbc);
+		gbc(0, 2, 1, 7);
+		detailsEquipePanel.add(buttonAfficherStats, gbc);
+		gbc(3, 2, 1, 7);
+		detailsEquipePanel.add(buttonRetourListMatch, gbc);
+		buttonRetourListMatch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(c, "listMatch");
+			}
+		});
+		buttonAfficherStats.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// nomJoueur.afficherStats();
+			}
+		});
+		c.add("detailsEquipe", detailsEquipePanel);
+		// boxEquipe=new JComboBox(listJParEquipe);
 	}
+
+
+
+
 
 	public int getNbEquipes() {
 		int machin = 0;
@@ -428,7 +443,9 @@ public class ViewCompetition extends JFrame {
 					String infoMatch = "<html><h1>" + matchTemp.equipe1.nomEquipe + " - " + matchTemp.equipe2.nomEquipe
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
 							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp) + "</p></html>";
-					writeEquipeName(infoMatch);
+					// AfficherDetailMatch(infoMatch);
+
+
 					/// ADD textfield et bouton valider
 					//txtModifierScore.setPreferredSize(new Dimension(50,10));
 					//c.add("detailsEquipe", txtModifierScore);
@@ -441,7 +458,7 @@ public class ViewCompetition extends JFrame {
 							+ "</p><p>" + equipeTemp.nombreJoueurs + " joueurs</p><p>" + equipeTemp.points
 							+ " points</p></html>";
 					// Afficher combobox boxEquipe
-					writeEquipeName(infoEquipe);
+					AfficherDetailEquipe(equipeTemp.nomEquipe);
 					card.show(c, "detailsEquipe");
 				}
 			}
