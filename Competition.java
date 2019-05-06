@@ -45,7 +45,7 @@ public class Competition {
   }
 
   public void trierParEquipe() {
-    for (int i = 0; i < this.equipes.size(); i++) {
+    for (int i = 0; i < this.joueurs.size(); i++) {
       Equipes EquipeTemp = new Equipes();
       Joueur JoueurTemp = new Joueur();
       JoueurTemp = this.joueurs.get(i);

@@ -7,7 +7,7 @@ public class main{
         
     	Competition theModel = new Competition();
 		theModel.getDataJoueur("BDD");
-		theModel.getDataEquipe("BDDEquipe",16);
+		// theModel.getDataEquipe("BDDEquipe",16);
 		theModel.trierParEquipe();
 		System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
 		ViewCompetition theView = new ViewCompetition(origin, theModel);

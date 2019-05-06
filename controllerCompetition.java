@@ -46,9 +46,10 @@ public class ControllerCompetition{
 	}
 	class choixEquipeListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-			System.out.println(theModel.equipes.get(1).nomEquipe);
 			theModel.CombiMatch(theView.getNbEquipes());
 			theView.sendMatch(theModel);
+			theModel.trierParEquipe();
+			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
 			theView.goListMatch();
 		}
 	}
