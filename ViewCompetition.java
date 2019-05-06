@@ -64,19 +64,14 @@ public class ViewCompetition extends JFrame {
  		creerCompetitionPanel.add(new JLabel("<html><h2>Créer une nouvelle compétition</h2></html>"), gbc);
 
  		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
+
 		gbc.weightx = 1;
  		gbc.weighty = 1;
  		gbc.gridx = 0;
 		gbc.gridwidth = 6;
 		gbc.gridheight = 1;
 		gbc.gridy = 3;
-		textfieldNomCompetition.setText("Entrer le nom de la compétition");
-		textfieldNomCompetition.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void mouseClicked(MouseEvent e) {
-		    textfieldNomCompetition.setText("");
-		  }
-		});
+		focusTextfielMenu(textfieldNomCompetition, "Entrer le nom de la compétition");
 		creerCompetitionPanel.add(textfieldNomCompetition, gbc);
  		
 		// Cellule contenant le TEXTFIELD du NOMBRE D'ÉQUIPES
@@ -84,13 +79,7 @@ public class ViewCompetition extends JFrame {
 		gbc.gridwidth = 6;
 		gbc.gridheight = 1;
 		gbc.gridy = 5;
-		textfieldNbEquipes.setText("Nombre d'équipes");
-		textfieldNbEquipes.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void mouseClicked(MouseEvent e) {
-		    textfieldNbEquipes.setText("");
-		  }
-		});
+		focusTextfielMenu(textfieldNbEquipes, "Nombre d'équipes");
 		creerCompetitionPanel.add(textfieldNbEquipes, gbc);
 
 		// Cellules DATE
@@ -99,40 +88,21 @@ public class ViewCompetition extends JFrame {
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		gbc.gridy = 7;
-		textfieldJour.setText("Jour");
-		textfieldJour.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void mouseClicked(MouseEvent e) {
-		    textfieldJour.setText("");
-		  }
-		});
-
+		focusTextfielMenu(textfieldJour, "Jour");
 		creerCompetitionPanel.add(textfieldJour, gbc);
 		// Mois
 		gbc.gridx = 1;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		gbc.gridy = 7;
-		textfieldMois.setText("Mois");
-		textfieldMois.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void mouseClicked(MouseEvent e) {
-		    textfieldMois.setText("");
-		  }
-		});
+		focusTextfielMenu(textfieldMois, "Mois");
 		creerCompetitionPanel.add(textfieldMois, gbc);
 		// Année
 		gbc.gridx = 3;
 		gbc.gridwidth = 2;
 		gbc.gridheight = 1;
 		gbc.gridy = 7;
-		textfieldAnnee.setText("Année");
-		textfieldAnnee.addMouseListener(new MouseAdapter() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void mouseClicked(MouseEvent e) {
-		    textfieldAnnee.setText("");
-		  }
-		});
+		focusTextfielMenu(textfieldAnnee, "Année");
 		creerCompetitionPanel.add(textfieldAnnee, gbc);
 
 
@@ -261,7 +231,22 @@ public class ViewCompetition extends JFrame {
 	public int getMois() {
 		return Integer.parseInt(textfieldMois.getText());
 	}
-
+	public void focusTextfielMenu(JTextField text, String info){
+		text.setText(info);
+		text.addFocusListener(new FocusListener() { // Efface le contenu quand on clique sur le textfield
+		  @Override
+		  public void focusGained(FocusEvent arg0) {
+		  	if(text.getText().equals(info)){
+		    	text.setText("");
+			}
+		  }
+		  public void focusLost(FocusEvent arg0){
+		  	 if(text.getText().equals("")){
+		  		text.setText(info);
+		  	}
+		  }
+		});
+	}
 	public int getAnnee() {
 		return Integer.parseInt(textfieldAnnee.getText());
 	}
