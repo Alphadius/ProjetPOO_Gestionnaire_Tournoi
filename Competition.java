@@ -33,10 +33,10 @@ public class Competition {
     nomCompetition = nom;
     
   }
-  public Equipes EquipeDe(String nomEquipe){
+  public Equipes equipeDe(String nomEquipe){
     Equipes truc = new Equipes();
     for(int i = 0; i < this.equipes.size(); i++){
-      if(nomEquipe == this.equipes.get(i).nomEquipe){
+      if(nomEquipe.equals(this.equipes.get(i).nomEquipe)){
         truc = this.equipes.get(i);
       }
     }

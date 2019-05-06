@@ -3,13 +3,16 @@ import java.awt.event.ActionListener;
 public class ControllerCompetition{
 	private ViewCompetition theView;
 	private Competition theModel;
+	private Competition origin;
 
-	public ControllerCompetition(ViewCompetition theView, Competition theModel){
+	public ControllerCompetition(ViewCompetition theView, Competition theModel,Competition origin){
 		this.theView = theView;
 		this.theModel = theModel;
+		this.origin = origin;
 
 		this.theView.addCompEntreeListener(new ValidListener());
 		this.theView.addRetourListener(new RetourListener());
+		this.theView.addchoixEquipeListener(new choixEquipeListener());
 	}
 
 	class ValidListener implements ActionListener{
@@ -24,6 +27,7 @@ public class ControllerCompetition{
 				compName = theView.getNomCompetition();
 				nbEquipe = theView.getNbEquipes();
 				theView.comp = theModel;
+				theView.origin = origin;
 				theModel.putCompName(compName);
 				theModel.putNbEquipe(nbEquipe);
 				theModel.putDate( theView.getJour(), theView.getMois(), theView.getAnnee());
@@ -33,13 +37,19 @@ public class ControllerCompetition{
 				theView.setNomCompetition(theModel.compName());
 				theView.setNbEquipes(nbEquipe);
 				theView.setDateStart(theModel.sendDateStart());
-				theModel.CombiMatch(nbEquipe);
-				theView.affichermatch(theModel);
 				theView.goChoixEquipe();
 				
 			} catch(Exception erreur) {
 				theView.afficherErreur(erreur);
 			}
+		}
+	}
+	class choixEquipeListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			System.out.println(theModel.equipes.get(1).nomEquipe);
+			theModel.CombiMatch(theView.getNbEquipes());
+			theView.sendMatch(theModel);
+			theView.goListMatch();
 		}
 	}
 	class RetourListener implements ActionListener{
@@ -48,7 +58,7 @@ public class ControllerCompetition{
 			String compName = "";
 			int nbEquipe = 0;
 			try{
-				theView.retourComp();
+				theView.retourListMatch();
 			} catch(Exception erreur) {
 				theView.afficherErreur(erreur);
 			}
