@@ -49,9 +49,7 @@ public class Competition {
       Equipes EquipeTemp = new Equipes();
       Joueur JoueurTemp = new Joueur();
       JoueurTemp = this.joueurs.get(i);
-      System.out.println("1/ "+JoueurTemp.nom);
       EquipeTemp = equipeDe(JoueurTemp.equipe);
-      System.out.println("2/ "+EquipeTemp.nomEquipe);
       EquipeTemp.JoueursInEquipe.add(JoueurTemp);
     }
   }

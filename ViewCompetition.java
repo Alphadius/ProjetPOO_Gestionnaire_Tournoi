@@ -38,7 +38,7 @@ public class ViewCompetition extends JFrame {
 	public JTable table = new JTable(data, columnHeaders);
 
 	//////////
-	public ViewCompetition(Competition origin) {
+	public ViewCompetition(Competition origin, Competition comp) {
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
@@ -166,9 +166,13 @@ public class ViewCompetition extends JFrame {
 		gbc.ipady = 0;
 		detailsEquipePanel.add(labelnomEquipe, gbc);
 		gbc(0, 2, 1, 6);
-		// for(int i= 0; i< equipeDe(labelnomEquipe.getText().JoueursInEquipe.size()); i++){
-
-		// }
+		String[] listJParEquipe = new String[23];
+		for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
+			String tempNom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).nom;
+			String tempPrenom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).prenom;
+			listJParEquipe[i] = tempNom + " " + tempPrenom;
+		}
+		boxEquipe=new JComboBox(listJParEquipe);
 		detailsEquipePanel.add(boxEquipe, gbc);
 		gbc(0, 2, 1, 7);
 		detailsEquipePanel.add(buttonAfficherStats, gbc);
