@@ -378,7 +378,7 @@ public class ViewCompetition extends JFrame {
 				if(lbl.matches(".*\\d.*")){
 					Match matchTemp = new Match();
 					matchTemp = comp.matchs.get( Integer.parseInt(lbl));
-					String infoMatch = matchTemp.equipe1.nomEquipe +" "+matchTemp.equipe2.nomEquipe +" "+matchTemp.afficherDate(comp)+ "("+matchTemp.scoreEquipe1+"-"+matchTemp.scoreEquipe2+")";
+					String infoMatch = "<html><h1>"+matchTemp.equipe1.nomEquipe +" - "+matchTemp.equipe2.nomEquipe +"</h1><h2>Score : "+matchTemp.scoreEquipe1+" - "+matchTemp.scoreEquipe2+"</h2><p><strong>Date : </strong>"+matchTemp.afficherDate(comp)+"</p></html>";
 					writeEquipeName(infoMatch);
 					card.show(c, "detailsEquipe");
 				}else{
