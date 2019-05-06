@@ -32,6 +32,22 @@ public class Joueur extends Personne {
     this.defense = defense;
     this.physique = physique;
   }
+  public Joueur() {
+    this.nom = "";
+    this.prenom = "";
+    this.age = 0;
+    this.dateNaissance = 0;
+    this.position = 0;
+    this.equipe = "";
+    this.titulaire = false;
+    this.numeroJoueur = 0;
+    this.vitesse = 0;
+    this.tirs = 0;
+    this.passes = 0;
+    this.dribbles = 0;
+    this.defense = 0;
+    this.physique = 0;
+  }
 
   public void afficherStats(int annee) { // AFFICHAGE DES STATS VERSION CONSOLE
     System.out.println(this.nom + " " + this.prenom);

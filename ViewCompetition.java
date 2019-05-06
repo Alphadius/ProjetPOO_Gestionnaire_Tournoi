@@ -32,9 +32,9 @@ public class ViewCompetition extends JFrame {
 	// test bouton dans JTable
 	private JButton boutonDetailsEquipe = new JButton();
 
-	//Tableau Match
+	// Tableau Match
 	Object[][] data = new Object[120][7];
-	String columnHeaders[] = {"Équipe 1", "détails", "Équipe 2", "détails", "Score", "Date", "Modifier"};
+	String columnHeaders[] = { "Équipe 1", "détails", "Équipe 2", "détails", "Score", "Date", "Modifier" };
 	public JTable table = new JTable(data, columnHeaders);
 
 	//////////
@@ -48,110 +48,106 @@ public class ViewCompetition extends JFrame {
 
 		// PANEL DE LA PAGE INITIALE "NOUVEAU TOURNOI"
 		JPanel boutonStart = new JPanel();
- 		JButton start = new JButton("Nouveau Tournoi");
- 		boutonStart.add(start);
- 		c.add("menu", boutonStart);
-		
+		JButton start = new JButton("Nouveau Tournoi");
+		boutonStart.add(start);
+		c.add("menu", boutonStart);
+
 		//////////////////////////
- 		// PANEL CREER NOM COMPETITION
- 		//////////////////////////
- 		JPanel creerCompetitionPanel = new JPanel(new BorderLayout());
- 		creerCompetitionPanel.setLayout(new GridBagLayout());
+		// PANEL CREER NOM COMPETITION
+		//////////////////////////
+		JPanel creerCompetitionPanel = new JPanel(new BorderLayout());
+		creerCompetitionPanel.setLayout(new GridBagLayout());
 
- 		// Cellule contenant le LABEL "CRÉER UNE NOUVELLE COMPÉTITION"
- 		gbc(0,6,2,0);
- 		gbc.fill = GridBagConstraints.BOTH;
- 		creerCompetitionPanel.add(new JLabel("<html><h2>Créer une nouvelle compétition</h2></html>"), gbc);
+		// Cellule contenant le LABEL "CRÉER UNE NOUVELLE COMPÉTITION"
+		gbc(0, 6, 2, 0);
+		gbc.fill = GridBagConstraints.BOTH;
+		creerCompetitionPanel.add(new JLabel("<html><h2>Créer une nouvelle compétition</h2></html>"), gbc);
 
- 		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
+		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
 
 		gbc.weightx = 1;
- 		gbc.weighty = 1;
- 		gbc(0,6,1,3);
+		gbc.weighty = 1;
+		gbc(0, 6, 1, 3);
 		focusTextfielMenu(textfieldNomCompetition, "Entrer le nom de la compétition");
 		creerCompetitionPanel.add(textfieldNomCompetition, gbc);
- 		
+
 		// Cellule contenant le TEXTFIELD du NOMBRE D'ÉQUIPES
-		gbc(0,6,1,5);
+		gbc(0, 6, 1, 5);
 		focusTextfielMenu(textfieldNbEquipes, "Nombre d'équipes");
 		creerCompetitionPanel.add(textfieldNbEquipes, gbc);
 
 		// Cellules DATE
 		// Jour
-		gbc(0,1,1,7);
+		gbc(0, 1, 1, 7);
 		focusTextfielMenu(textfieldJour, "Jour");
 		creerCompetitionPanel.add(textfieldJour, gbc);
 		// Mois
-		gbc(1,1,1,7);
+		gbc(1, 1, 1, 7);
 		focusTextfielMenu(textfieldMois, "Mois");
 		creerCompetitionPanel.add(textfieldMois, gbc);
 		// Année
-		gbc(3,2,1,7);
+		gbc(3, 2, 1, 7);
 		focusTextfielMenu(textfieldAnnee, "Année");
 		creerCompetitionPanel.add(textfieldAnnee, gbc);
 
-
-
- 		// Cellule contenant le BOUTON VALIDER
- 		gbc(1,1,1,8);
+		// Cellule contenant le BOUTON VALIDER
+		gbc(1, 1, 1, 8);
 
 		creerCompetitionPanel.add(creerComp, gbc);
 
- 		c.add("competition", creerCompetitionPanel);
+		c.add("competition", creerCompetitionPanel);
 
-
-
-
-
- 		//CHOIX DES EQUIPES
- 		JPanel choixEquipePanel = new JPanel(new BorderLayout());
- 		choixEquipePanel.setLayout(new GridBagLayout());
- 		for(int i = 0; i < 16; i++){
- 			int a = i%4;
- 			int b = i/4;
- 			JButton buttonTemp = new JButton(origin.equipes.get(i).nomEquipe);
- 			gbc(a,1,1,b);
- 			onClickDrapeau(buttonTemp, buttonTemp.getText());
- 			choixEquipePanel.add(buttonTemp, gbc);
- 		}
-		gbc(4,1,1,3);
+		// CHOIX DES EQUIPES
+		JPanel choixEquipePanel = new JPanel(new BorderLayout());
+		choixEquipePanel.setLayout(new GridBagLayout());
+		for (int i = 0; i < 16; i++) {
+			int a = i % 4;
+			int b = i / 4;
+			JButton buttonTemp = new JButton(origin.equipes.get(i).nomEquipe);
+			gbc(a, 1, 1, b);
+			onClickDrapeau(buttonTemp, buttonTemp.getText());
+			choixEquipePanel.add(buttonTemp, gbc);
+		}
+		gbc(4, 1, 1, 3);
 		choixEquipePanel.add(choixEquipeButton);
 
-		c.add("choixEquipe",choixEquipePanel);
-
+		c.add("choixEquipe", choixEquipePanel);
 
 		//////////////////////////
- 		// PANEL N°2 : AFFICHAGE DES MATCHS
- 		//////////////////////////
- 		JPanel listMatchPanel = new JPanel(new BorderLayout()); // Panel pour le label
- 		JPanel listMatchTablePanel = new JPanel(new BorderLayout()); // Panel pour le tableau
- 		//JScrollPane scroll = new JScrollPane();
- 		listMatchPanel.setLayout(new GridBagLayout());
+		// PANEL N°2 : AFFICHAGE DES MATCHS
+		//////////////////////////
+		JPanel listMatchPanel = new JPanel(new BorderLayout()); // Panel pour le label
+		JPanel listMatchTablePanel = new JPanel(new BorderLayout()); // Panel pour le tableau
+		// JScrollPane scroll = new JScrollPane();
+		listMatchPanel.setLayout(new GridBagLayout());
 
- 		/*gbc.weightx = 1;
- 		gbc.weighty = 1;*/
- 		gbc(0,2,2,0);
- 		listMatchPanel.add(labelNomCompetition, gbc);
+		/*
+		 * gbc.weightx = 1; gbc.weighty = 1;
+		 */
+		gbc(0, 2, 2, 0);
+		listMatchPanel.add(labelNomCompetition, gbc);
 
- 		// IMPORTATION DU TABLEAU JTABLE DES EQUIPES
- 		// Render des boutons cliquables de la table
- 		table.getColumnModel().getColumn(1).setCellRenderer(new ButtonRenderer());;
+		// IMPORTATION DU TABLEAU JTABLE DES EQUIPES
+		// Render des boutons cliquables de la table
+		table.getColumnModel().getColumn(1).setCellRenderer(new ButtonRenderer());
+		;
 		table.getColumnModel().getColumn(1).setCellEditor(new ButtonEditor(new JTextField()));
 
-		table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());;
+		table.getColumnModel().getColumn(3).setCellRenderer(new ButtonRenderer());
+		;
 		table.getColumnModel().getColumn(3).setCellEditor(new ButtonEditor(new JTextField()));
 
-		table.getColumnModel().getColumn(6).setCellRenderer(new ButtonRenderer());;
+		table.getColumnModel().getColumn(6).setCellRenderer(new ButtonRenderer());
+		;
 		table.getColumnModel().getColumn(6).setCellEditor(new ButtonEditor(new JTextField()));
 
 		////
-		gbc(0,2,2,2);
+		gbc(0, 2, 2, 2);
 		listMatchPanel.add(new JScrollPane(table), gbc);
- 		//REMPLIR LE CHOIX DES EQUIPES INTERFACE
- 		c.add("listMatch", listMatchPanel);
+		// REMPLIR LE CHOIX DES EQUIPES INTERFACE
+		c.add("listMatch", listMatchPanel);
 
-
- 		// ACTION DU BOUTON START DE LA PREMIERE PAGE
+		// ACTION DU BOUTON START DE LA PREMIERE PAGE
 		start.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(c, "competition");
@@ -159,21 +155,24 @@ public class ViewCompetition extends JFrame {
 		});
 
 		//////////////////////////
- 		// PANEL N°3 : DETAILS EQUIPE
- 		//////////////////////////
- 		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
- 		detailsEquipePanel.setLayout(new GridBagLayout());
+		// PANEL N°3 : DETAILS EQUIPE
+		//////////////////////////
+		JPanel detailsEquipePanel = new JPanel(new BorderLayout());
+		detailsEquipePanel.setLayout(new GridBagLayout());
 
- 		// gbc.weightx = 1;
- 		// gbc.weighty = 1;
- 		gbc(0,2,2,0);
- 		gbc.ipady = 0;
- 		detailsEquipePanel.add(labelnomEquipe, gbc);
- 		gbc(0,2,1,6);
+		// gbc.weightx = 1;
+		// gbc.weighty = 1;
+		gbc(0, 2, 2, 0);
+		gbc.ipady = 0;
+		detailsEquipePanel.add(labelnomEquipe, gbc);
+		gbc(0, 2, 1, 6);
+		// for(int i= 0; i< equipeDe(labelnomEquipe.getText().JoueursInEquipe.size()); i++){
+
+		// }
 		detailsEquipePanel.add(boxEquipe, gbc);
-		gbc(0,2,1,7);
+		gbc(0, 2, 1, 7);
 		detailsEquipePanel.add(buttonAfficherStats, gbc);
-		gbc(3,2,1,7);
+		gbc(3, 2, 1, 7);
 		detailsEquipePanel.add(buttonRetourListMatch, gbc);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -182,46 +181,45 @@ public class ViewCompetition extends JFrame {
 		});
 		buttonAfficherStats.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//nomJoueur.afficherStats();
+				// nomJoueur.afficherStats();
 			}
 		});
- 		c.add("detailsEquipe", detailsEquipePanel);
+		c.add("detailsEquipe", detailsEquipePanel);
 
- 		//////////////////////////
- 		// PANEL N°4 : DETAILS MATCH
- 		//////////////////////////
- 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
- 		//afficher le nom de l'équipe 1 du match en question
- 		detailsMatchPanel.add(new JLabel(/*getNomEquipe1() + */" - "/* + getNomEquipe2()*/));
- 		detailsMatchPanel.add(new JLabel(/*afficherScore()*/));
- 		detailsMatchPanel.add(new JLabel(/*afficherDate()*/));
- 		//detailsMatchPanel.add(buttonRetourListMatch);
- 		c.add("detailsMatch", detailsMatchPanel);
+		//////////////////////////
+		// PANEL N°4 : DETAILS MATCH
+		//////////////////////////
+		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
+		// afficher le nom de l'équipe 1 du match en question
+		detailsMatchPanel.add(new JLabel(/* getNomEquipe1() + */" - "/* + getNomEquipe2() */));
+		detailsMatchPanel.add(new JLabel(/* afficherScore() */));
+		detailsMatchPanel.add(new JLabel(/* afficherDate() */));
+		// detailsMatchPanel.add(buttonRetourListMatch);
+		c.add("detailsMatch", detailsMatchPanel);
 	}
 
-
-	//placement
-	public void gbc(int x, int w, int h, int y){
+	// placement
+	public void gbc(int x, int w, int h, int y) {
 		gbc.gridx = x;
 		gbc.gridwidth = w;
 		gbc.gridheight = h;
 		gbc.gridy = y;
 	}
 
-
-
 	// Méthodes qui récupèrent les données des textfields
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
-	public void writeEquipeName(String nomEquipe){
-		labelnomEquipe.setText(nomEquipe) ;
+
+	public void writeEquipeName(String nomEquipe) {
+		labelnomEquipe.setText(nomEquipe);
 	}
+
 	public int getNbEquipes() {
 		int machin = 0;
-		if(textfieldNbEquipes.getText().equals("")){
+		if (textfieldNbEquipes.getText().equals("")) {
 			machin = 0;
-		}else{
+		} else {
 			machin = Integer.parseInt(textfieldNbEquipes.getText());
 		}
 		return machin;
@@ -230,69 +228,77 @@ public class ViewCompetition extends JFrame {
 	public int getJour() {
 		return Integer.parseInt(textfieldJour.getText());
 	}
-	public void onClickDrapeau(JButton bouton, String nomPays){
+
+	public void onClickDrapeau(JButton bouton, String nomPays) {
 		bouton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Color actualcolor = bouton.getBackground();
-				if(actualcolor.equals(Color.GREEN)){
+				if (actualcolor.equals(Color.GREEN)) {
 					countFlag--;
-					for(int i = 0; i < comp.equipes.size(); i++){
-						if(comp.equipes.get(i).nomEquipe == bouton.getText()){
+					for (int i = 0; i < comp.equipes.size(); i++) {
+						if (comp.equipes.get(i).nomEquipe == bouton.getText()) {
 							comp.equipes.remove(i);
 						}
 					}
 					bouton.setBackground(new JButton().getBackground());
 					bouton.setOpaque(true);
-				}else{
+				} else {
 					countFlag++;
 					comp.equipes.add(origin.equipeDe(bouton.getText()));
 					bouton.setBackground(Color.GREEN);
 				}
-				if(countFlag == comp.sendNbEquipe()){
-					JOptionPane.showMessageDialog(null,"Vous avez selectionné "+comp.sendNbEquipe()+" Equipes");
+				if (countFlag == comp.sendNbEquipe()) {
+					JOptionPane.showMessageDialog(null, "Vous avez selectionné " + comp.sendNbEquipe() + " Equipes");
 				}
 			}
 		});
 	}
+
 	public int getMois() {
 		return Integer.parseInt(textfieldMois.getText());
 	}
-	public void focusTextfielMenu(JTextField text, String info){
+
+	public void focusTextfielMenu(JTextField text, String info) {
 		text.setText(info);
 		text.addFocusListener(new FocusListener() { // Efface le contenu quand on clique sur le textfield
-		  @Override
-		  public void focusGained(FocusEvent arg0) {
-		  	if(text.getText().equals(info)){
-		    	text.setText("");
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				if (text.getText().equals(info)) {
+					text.setText("");
+				}
 			}
-		  }
-		  public void focusLost(FocusEvent arg0){
-		  	 if(text.getText().equals("")){
-		  		text.setText(info);
-		  	}
-		  }
+
+			public void focusLost(FocusEvent arg0) {
+				if (text.getText().equals("")) {
+					text.setText(info);
+				}
+			}
 		});
 	}
+
 	public int getAnnee() {
 		return Integer.parseInt(textfieldAnnee.getText());
 	}
 
-	public void addCompEntreeListener(ActionListener listenForvalidButton){
+	public void addCompEntreeListener(ActionListener listenForvalidButton) {
 		creerComp.addActionListener(listenForvalidButton);
 	}
-	public void addchoixEquipeListener(ActionListener listenForchoixEquipe){
-			choixEquipeButton.addActionListener(listenForchoixEquipe);
+
+	public void addchoixEquipeListener(ActionListener listenForchoixEquipe) {
+		choixEquipeButton.addActionListener(listenForchoixEquipe);
 	}
-	
-	public void addRetourListener(ActionListener listenForRetourButton){
-		//buttonRetourListMatch.addActionListener(listenForRetourButton);
+
+	public void addRetourListener(ActionListener listenForRetourButton) {
+		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
-	public void retourListMatch(){
+
+	public void retourListMatch() {
 		card.show(c, "listMatch");
 	}
 
 	// MÉTHODES SET
-	public void setNomCompetition(String nomComp) { //Renommer ; permet de récupérer le nom de la competition depuis la class etc.
+	public void setNomCompetition(String nomComp) { // Renommer ; permet de récupérer le nom de la competition depuis la
+													// class etc.
 		labelNomCompetition.setText("<html><h2>" + nomComp + "</h2></html>");
 	}
 
@@ -304,17 +310,20 @@ public class ViewCompetition extends JFrame {
 		labelDateStart.setText(dateStart);
 	}
 
-	public void goChoixEquipe(){
+	public void goChoixEquipe() {
 		card.show(c, "choixEquipe");
 	}
-	public void goListMatch(){
+
+	public void goListMatch() {
 		card.show(c, "listMatch");
 	}
-	public void afficherErreur(Exception erreur){
-		JOptionPane.showMessageDialog(null,erreur);
+
+	public void afficherErreur(Exception erreur) {
+		JOptionPane.showMessageDialog(null, erreur);
 	}
-	public void sendMatch(Competition comp){
-		for(int i = 0; i < comp.matchs.size(); i++){
+
+	public void sendMatch(Competition comp) {
+		for (int i = 0; i < comp.matchs.size(); i++) {
 			Match tempMatch = new Match();
 			tempMatch = comp.sendMatch(i);
 			data[i][0] = tempMatch.equipe1.nomEquipe;
@@ -327,31 +336,36 @@ public class ViewCompetition extends JFrame {
 			data[i][6] = i;
 		}
 	}
+
 	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
-	//BUTTON RENDERER CLASS
-	class ButtonRenderer extends JButton implements  TableCellRenderer {
-		//CONSTRUCTOR
+	// BUTTON RENDERER CLASS
+	class ButtonRenderer extends JButton implements TableCellRenderer {
+		// CONSTRUCTOR
 		public ButtonRenderer() {
-			//SET BUTTON PROPERTIES
+			// SET BUTTON PROPERTIES
 			setOpaque(true);
 		}
+
 		@Override
-		public Component getTableCellRendererComponent(JTable table, Object obj, boolean selected, boolean focused, int row, int col) {
-			//SET PASSED OBJECT AS BUTTON TEXT
-			setText((obj==null) ? "":obj.toString());
+		public Component getTableCellRendererComponent(JTable table, Object obj, boolean selected, boolean focused,
+				int row, int col) {
+			// SET PASSED OBJECT AS BUTTON TEXT
+			setText((obj == null) ? "" : obj.toString());
 			return this;
 		}
 	}
-		//BUTTON EDITOR CLASS
+
+	// BUTTON EDITOR CLASS
 	class ButtonEditor extends DefaultCellEditor {
 		protected JButton btn;
 		private String lbl;
 		private Boolean clicked;
+
 		public ButtonEditor(JTextField txt) {
 			super(txt);
-			btn=new JButton();
+			btn = new JButton();
 			btn.setOpaque(true);
-			//WHEN BUTTON IS CLICKED
+			// WHEN BUTTON IS CLICKED
 			btn.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
@@ -360,47 +374,52 @@ public class ViewCompetition extends JFrame {
 			});
 		}
 
-		//OVERRIDE A COUPLE OF METHODS
+		// OVERRIDE A COUPLE OF METHODS
 		@Override
 		public Component getTableCellEditorComponent(JTable table, Object obj, boolean selected, int row, int col) {
-			//SET TEXT TO BUTTON,SET CLICKED TO TRUE,THEN RETURN THE BTN OBJECT
-			lbl=(obj==null) ? "":obj.toString();
+			// SET TEXT TO BUTTON,SET CLICKED TO TRUE,THEN RETURN THE BTN OBJECT
+			lbl = (obj == null) ? "" : obj.toString();
 			btn.setText(lbl);
-			clicked=true;
+			clicked = true;
 			return btn;
 		}
 
-		//IF BUTTON CELL VALUE CHANGES,IF CLICKED THAT IS
+		// IF BUTTON CELL VALUE CHANGES,IF CLICKED THAT IS
 		@Override
 		public Object getCellEditorValue() {
-			if(clicked) {
-				//CLIC SUR DETAILS
-				if(lbl.matches(".*\\d.*")){
+			if (clicked) {
+				// CLIC SUR DETAILS
+				if (lbl.matches(".*\\d.*")) {
 					Match matchTemp = new Match();
-					matchTemp = comp.matchs.get( Integer.parseInt(lbl));
-					String infoMatch = "<html><h1>"+matchTemp.equipe1.nomEquipe +" - "+matchTemp.equipe2.nomEquipe +"</h1><h2>Score : "+matchTemp.scoreEquipe1+" - "+matchTemp.scoreEquipe2+"</h2><p><strong>Date : </strong>"+matchTemp.afficherDate(comp)+"</p></html>";
+					matchTemp = comp.matchs.get(Integer.parseInt(lbl));
+					String infoMatch = "<html><h1>" + matchTemp.equipe1.nomEquipe + " - " + matchTemp.equipe2.nomEquipe
+							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
+							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp) + "</p></html>";
 					writeEquipeName(infoMatch);
 					card.show(c, "detailsEquipe");
-				}else{
+				} else {
 					Equipes equipeTemp = new Equipes();
 					equipeTemp = comp.equipeDe(lbl);
-					String infoEquipe = "<html><h2>"+equipeTemp.nomEquipe+"</h2><p>Coach : "+equipeTemp.nomCoach+"</p><p>"+equipeTemp.nombreJoueurs+" joueurs</p><p>"+equipeTemp.points+" points</p></html>";
+					String infoEquipe = "<html><h2>" + equipeTemp.nomEquipe + "</h2><p>Coach : " + equipeTemp.nomCoach
+							+ "</p><p>" + equipeTemp.nombreJoueurs + " joueurs</p><p>" + equipeTemp.points
+							+ " points</p></html>";
 					// Afficher combobox boxEquipe
 					writeEquipeName(infoEquipe);
 					card.show(c, "detailsEquipe");
 				}
 			}
-			//SET IT TO FALSE NOW THAT ITS CLICKED
-			clicked=false;
+			// SET IT TO FALSE NOW THAT ITS CLICKED
+			clicked = false;
 			return new String(lbl);
 		}
 
 		@Override
 		public boolean stopCellEditing() {
-			//SET CLICKED TO FALSE FIRST
-			clicked=false;
+			// SET CLICKED TO FALSE FIRST
+			clicked = false;
 			return super.stopCellEditing();
 		}
+
 		@Override
 		protected void fireEditingStopped() {
 			// TODO Auto-generated method stub
