@@ -38,7 +38,7 @@ public class ViewCompetition extends JFrame {
 	public JTable table = new JTable(data, columnHeaders);
 
 	//////////
-	public ViewCompetition() {
+	public ViewCompetition(Competition origin) {
 		this.setTitle("Gestionnaire de competition");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
@@ -106,72 +106,14 @@ public class ViewCompetition extends JFrame {
  		//CHOIX DES EQUIPES
  		JPanel choixEquipePanel = new JPanel(new BorderLayout());
  		choixEquipePanel.setLayout(new GridBagLayout());
-
- 		JButton france = new JButton("France");
- 		gbc(0,1,1,0);
- 		onClickDrapeau(france, france.getText());
- 		choixEquipePanel.add(france, gbc);
-		JButton argentine = new JButton("Argentine");
-		gbc(1,1,1,0);
-		onClickDrapeau(argentine, argentine.getText());
-		choixEquipePanel.add(argentine, gbc);
-		JButton uruguay = new JButton("Uruguay");
-		gbc(2,1,1,0);
-		onClickDrapeau(uruguay, uruguay.getText());
-		choixEquipePanel.add(uruguay, gbc);
-		JButton portugal = new JButton("Portugal");
-		gbc(3,1,1,0);
-		onClickDrapeau(portugal, portugal.getText());
-		choixEquipePanel.add(portugal, gbc);
-		JButton espagne = new JButton("Espagne");
-		gbc(0,1,1,1);
-		onClickDrapeau(espagne, espagne.getText());
-		choixEquipePanel.add(espagne, gbc);
-		JButton russie = new JButton("Russie");
-		gbc(1,1,1,1);
-		onClickDrapeau(russie, russie.getText());
-		choixEquipePanel.add(russie, gbc);
-		JButton croatie = new JButton("Croatie");
-		gbc(2,1,1,1);
-		onClickDrapeau(croatie, croatie.getText());
-		choixEquipePanel.add(croatie, gbc);
-		JButton danemark = new JButton("Danemark");
-		gbc(3,1,1,1);
-		onClickDrapeau(danemark, danemark.getText());
-		choixEquipePanel.add(danemark, gbc);
-		JButton bresil = new JButton("Bresil");
-		gbc(0,1,1,2);
-		onClickDrapeau(bresil, bresil.getText());
-		choixEquipePanel.add(bresil, gbc);
-		JButton mexique = new JButton("Mexique");
-		gbc(1,1,1,2);
-		onClickDrapeau(mexique, mexique.getText());
-		choixEquipePanel.add(mexique, gbc);
-		JButton belgique = new JButton("Belgique");
-		gbc(2,1,1,2);
-		onClickDrapeau(belgique, belgique.getText());
-		choixEquipePanel.add(belgique, gbc);
-		JButton japon = new JButton("Japon");
-		gbc(3,1,1,2);
-		onClickDrapeau(japon, japon.getText());
-		choixEquipePanel.add(japon, gbc);
-		JButton suede = new JButton("Suede");
-		gbc(0,1,1,3);
-		onClickDrapeau(suede, suede.getText());
-		choixEquipePanel.add(suede, gbc);
-		JButton suisse = new JButton("Suisse");
-		gbc(1,1,1,3);
-		onClickDrapeau(suisse, suisse.getText());
-		choixEquipePanel.add(suisse, gbc);
-		JButton colombie = new JButton("Colombie");
-		gbc(2,1,1,3);
-		onClickDrapeau(colombie, colombie.getText());
-		choixEquipePanel.add(colombie, gbc);
-		JButton angleterre = new JButton("Angleterre");
-		gbc(3,1,1,3);
-		onClickDrapeau(angleterre, angleterre.getText());
-		choixEquipePanel.add(angleterre, gbc);
-		
+ 		for(int i = 0; i < 16; i++){
+ 			int a = i%4;
+ 			int b = i/4;
+ 			JButton buttonTemp = new JButton(origin.equipes.get(i).nomEquipe);
+ 			gbc(a,1,1,b);
+ 			onClickDrapeau(buttonTemp, buttonTemp.getText());
+ 			choixEquipePanel.add(buttonTemp, gbc);
+ 		}
 		gbc(4,1,1,3);
 		choixEquipePanel.add(choixEquipeButton);
 
@@ -385,13 +327,6 @@ public class ViewCompetition extends JFrame {
 			data[i][6] = i;
 		}
 	}
-
-
-
-
-
-
-
 	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
 	//BUTTON RENDERER CLASS
 	class ButtonRenderer extends JButton implements  TableCellRenderer {
@@ -407,9 +342,6 @@ public class ViewCompetition extends JFrame {
 			return this;
 		}
 	}
-
-
-
 		//BUTTON EDITOR CLASS
 	class ButtonEditor extends DefaultCellEditor {
 		protected JButton btn;
@@ -475,7 +407,4 @@ public class ViewCompetition extends JFrame {
 			super.fireEditingStopped();
 		}
 	}
-
-
-
 }
