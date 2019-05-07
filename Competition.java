@@ -70,7 +70,6 @@ public class Competition {
       }
       return result;
     }
-}
   public Equipes equipeDe(String nomEquipe) {
     Equipes truc = new Equipes();
     for (int i = 0; i < this.equipes.size(); i++) {
