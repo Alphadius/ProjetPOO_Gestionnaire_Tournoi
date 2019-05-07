@@ -35,7 +35,42 @@ public class Competition {
     nomCompetition = nom;
 
   }
-
+  class Sortbypoints implements Comparator<Equipes> { 
+      // Used for sorting in ascending order of 
+      // roll number 
+        
+      public int compare(Joueur a, Joueur b) { 
+        int point1 = a.points;
+          String point2 = b.points;
+          return point1 - point2;
+      }
+    }
+  public String[] triEquipeParPoint(){
+    Equipes equipeTemp = new Equipes();
+    Match matchTemp = new Match();
+    List<Equipes> tempEquipes = new ArrayList<Equipes>();
+    String result[] = new String[comp.equipes.size()];
+    tempEquipes = comp.equipes;
+    int sum[] = new int[comp.equipes.size()];
+    for(int i = 0; i < comp.equipes.size(); i++){
+      equipeTemp = comp.equipes.get(i);
+      for(int j = 0; j < comp.matchs.size(); j++){
+        matchTemp = comp.matchs.get(j);
+        if(equipeTemp == matchTemp.equipe1){
+          sum[i] += matchTemp.equipe1.score;
+        }else if(equipeTemp == matchTemp.equipe2){
+          sum[i] += matchTemp.equipe2.score;
+        }
+      }
+      equipeTemp.points = sum[i];
+    } 
+      Collections.sort(tempEquipes, new sortbyscore());
+      for(int i = 0; i < tempEquipes.size(); i++){
+        result[i] = tempEquipes.get(i);
+      }
+      return result;
+    }
+}
   public Equipes equipeDe(String nomEquipe) {
     Equipes truc = new Equipes();
     for (int i = 0; i < this.equipes.size(); i++) {
