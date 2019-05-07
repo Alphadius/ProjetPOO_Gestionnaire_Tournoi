@@ -17,12 +17,14 @@ public class ViewCompetition extends JFrame {
 	public JTextField textfieldJour = new JTextField(1);
 	public JTextField textfieldMois = new JTextField(1);
 	public JTextField textfieldAnnee = new JTextField(1);
-	public JTextField txtModifierScore = new JTextField(3);
+	public JTextField txtModifierScore1 = new JTextField(3);
+	public JTextField txtModifierScore2 = new JTextField(3);
 	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
+	public JLabel labelStatsMatch = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
 	public JLabel stat = new JLabel();
 	public String[] listJParEquipe = new String[23];
@@ -164,27 +166,35 @@ public class ViewCompetition extends JFrame {
 		// PANEL N°4 : DETAILS MATCH
 		//////////////////////////
 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
+		JButton buttonRetourListMatchB = new JButton("Retour");
 		// afficher le nom de l'équipe 1 du match en question
 		detailsMatchPanel.setLayout(new GridBagLayout());
+		JLabel labelNomMatch = new JLabel();
+		focusTextfielMenu(txtModifierScore1, "Score équipe 1");
+		focusTextfielMenu(txtModifierScore2, "Score équipe 2");
 
 		// gbc.weightx = 1;
 		// gbc.weighty = 1;
-		gbc(0, 2, 2, 0);
+		gbc(0, 1, 2, 0);
 		gbc.ipady = 0;
-		detailsMatchPanel.add(labelnomEquipe, gbc);
-		gbc(0, 2, 1, 6);
-		// String[] listJParEquipe = new String[23];
-		// for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
-		// 	String tempNom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).nom;
-		// 	String tempPrenom = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(i).prenom;
-		// 	listJParEquipe[i] = tempNom + " " + tempPrenom;
-		// }
-		detailsMatchPanel.add(txtModifierScore, gbc);
-		gbc(0, 2, 1, 7);
+		detailsMatchPanel.add(labelStatsMatch, gbc);
+		gbc(1, 1, 1, 6);
+		detailsMatchPanel.add(txtModifierScore1, gbc);
+		gbc(2, 1, 1, 6);
+		detailsMatchPanel.add(new JLabel("<html><center> - </center></html>"), gbc);
+		gbc(3, 1, 1, 6);
+		detailsMatchPanel.add(txtModifierScore2, gbc);
+		gbc(5, 1, 1, 7);
 		detailsMatchPanel.add(btnModifierScore, gbc);
-		gbc(3, 2, 1, 7);
-		detailsMatchPanel.add(buttonRetourListMatch, gbc);
+		gbc(5, 1, 1, 9);
+		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
+		//gbc(posx, width, height, posy);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(c, "listMatch");
+			}
+		});
+		buttonRetourListMatchB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				card.show(c, "listMatch");
 			}
@@ -443,6 +453,7 @@ public class ViewCompetition extends JFrame {
 					String infoMatch = "<html><h1>" + matchTemp.equipe1.nomEquipe + " - " + matchTemp.equipe2.nomEquipe
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
 							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp) + "</p></html>";
+					labelStatsMatch.setText(infoMatch);
 					// AfficherDetailMatch(infoMatch);
 
 
