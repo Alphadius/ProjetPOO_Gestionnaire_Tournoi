@@ -1,6 +1,6 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class ControllerCompetition{
+public class controllerCompetition{
 	private ViewCompetition theView;
 	private Competition theModel;
 	private Competition origin;
