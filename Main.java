@@ -1,3 +1,5 @@
+package compMaker;
+
 public class main{
 	public static void main(String[] args){
 		Competition origin = new Competition();
