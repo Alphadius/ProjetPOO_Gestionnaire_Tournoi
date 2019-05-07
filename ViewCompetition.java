@@ -199,6 +199,7 @@ public class ViewCompetition extends JFrame {
 		// afficher le nom de l'équipe 1 du match en question
 		detailsMatchPanel.setLayout(new GridBagLayout());
 		JLabel labelNomMatch = new JLabel();
+		JLabel labelNumeroTour = new JLabel();
 		focusTextfielMenu(txtModifierScore1, "Score équipe 1");
 		focusTextfielMenu(txtModifierScore2, "Score équipe 2");
 
@@ -215,8 +216,10 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(txtModifierScore2, gbc);
 		gbc(5, 1, 1, 6);
 		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
-		detailsMatchPanel.add(new JLabel("<html>   	  Le match a eu lieu<br />Tour n°</html>" /* mettre numéro de tour*/), gbc);
+		detailsMatchPanel.add(new JLabel("<html>   	  Le match a eu lieu<br />Tour n°</html>"), gbc);
 		gbc(5, 1, 1, 7);
+		detailsMatchPanel.add(labelNumeroTour, gbc);
+		gbc(5, 1, 1, 8);
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
 		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
