@@ -1,8 +1,8 @@
 public class main{
 	public static void main(String[] args){
 		Competition origin = new Competition();
-		origin.getDataJoueur("Joueur");
-		origin.getDataEquipe("Equipe",16);
+		origin.getDataJoueur("BDDJoueur");
+		origin.getDataEquipe("BDDEquipe",16);
 		origin.writeDataJoueur("origin");
 		origin.writeDataEquipe("origin");
         
