@@ -183,7 +183,7 @@ FRANCE
 MATUIDI
 blaise
 1987
-11
+Attaquant Gauche
 77
 66
 78
@@ -274,3 +274,26 @@ FRANCE
 FEKIR
 nabil
 1993
+Milieu Droit
+67
+79
+74
+69
+87
+82
+FRANCE
+18
+0
+THAUVIN
+florien
+1993
+Milieu Droit
+67
+54
+98
+83
+46
+87
+FRANCE
+20
+0
