@@ -5,7 +5,7 @@ public class ControllerCompetition{
 	private Competition theModel;
 	private Competition origin;
 
-	public ControllerCompetition(ViewCompetition theView, Competition theModel,Competition origin){
+	public controllerCompetition(ViewCompetition theView, Competition theModel,Competition origin){
 		this.theView = theView;
 		this.theModel = theModel;
 		this.origin = origin;
