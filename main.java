@@ -1,9 +1,10 @@
 public class main{
 	public static void main(String[] args){
 		Competition origin = new Competition();
-		origin.getDataJoueur("BDDJoueur");
-		origin.getDataEquipe("BDDEquipe",16);
-		
+		origin.getDataJoueur("Joueur");
+		origin.getDataEquipe("Equipe",16);
+		origin.writeDataJoueur("origin");
+		origin.writeDataEquipe("origin");
         
     	Competition theModel = new Competition();
 		theModel.getDataJoueur("BDDJoueur");

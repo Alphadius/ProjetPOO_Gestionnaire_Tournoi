@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class Competition {
 
@@ -311,4 +312,59 @@ public class Competition {
     // joueurs.get(i).afficherStats(annee);
     // }
   }
+
+
+
+
+  public void writeDataJoueur(String file) {
+
+    PrintWriter writer = null;
+    try{
+      writer = new PrintWriter(file+"Joueur.txt");
+          //on va transformer nos objet en fichier txt avec des boucle for ... 
+    //et les mettres en page de manière à etre lisible pour le buffer
+    for(int i = 0; i < this.joueurs.size(); i++){
+      Joueur temp = this.joueurs.get(i);
+      writer.println(temp.nom);
+      writer.println(temp.prenom);
+      writer.println(temp.dateNaissance);
+      writer.println(temp.position);
+      writer.println(temp.vitesse);
+      writer.println(temp.tirs);
+      writer.println(temp.passes);
+      writer.println(temp.dribbles);
+      writer.println(temp.defense);
+      writer.println(temp.physique);
+      writer.println(temp.equipe);
+      writer.println(temp.numeroJoueur);
+      if(temp.titulaire == true){
+        writer.println(1);
+      }else{
+        writer.println(0);
+      }
+      
+    }
+    }catch(FileNotFoundException e){
+      //sortie erreur
+      e.printStackTrace();
+    }
+    writer.close(); 
+  }
+    public void writeDataEquipe(String file) {
+    PrintWriter writer = null;
+    try{
+      writer = new PrintWriter(file+"Equipe.txt");
+          //on va transformer nos objet en fichier txt avec des boucle for ... 
+    //et les mettres en page de manière à etre lisible pour le buffer
+    for(int i = 0; i < this.equipes.size(); i++){
+      Equipes temp = this.equipes.get(i);
+      writer.println(temp.nomEquipe);  
+    }
+    }catch(FileNotFoundException e){
+      //sortie erreur
+      e.printStackTrace();
+    }
+    writer.close();
+  }
+
 }
