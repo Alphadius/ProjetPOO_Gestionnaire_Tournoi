@@ -31,7 +31,7 @@ public class ViewCompetition extends JFrame {
 	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
 	public JButton creerComp = new JButton("Créer");
-	public JButton chargerCompetition = new JButton("Charger compétition");
+	public JButton buttonChargerCompetition = new JButton("Charger compétition");
 	public JButton choixEquipeButton = new JButton("valider");
 	public JComboBox boxEquipe = new JComboBox();
 	public JButton buttonAfficherStats = new JButton("Afficher statistiques");
@@ -62,8 +62,32 @@ public class ViewCompetition extends JFrame {
 		gbc(0, 1, 1, 0);
 		boutonStart.add(start, gbc);
 		gbc(0, 1, 1, 2);
-		boutonStart.add(chargerCompetition, gbc);
+
+		boutonStart.add(buttonChargerCompetition, gbc);
+
+		buttonChargerCompetition.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				card.show(c, "loadCompetition");
+			}
+		});
 		c.add("menu", boutonStart);
+
+		//////////////////////////
+		// PANEL loadCompetition
+		//////////////////////////
+		JPanel loadCompetitionPanel = new JPanel(new BorderLayout());
+		JButton btnLoadCompetition = new JButton("Charger");
+		loadCompetitionPanel.setLayout(new GridBagLayout());
+		//gbc.fill = GridBagConstraints.BOTH;
+		JTextField txtLoadCompetition = new JTextField(20);
+		gbc.weightx = 1;
+		gbc.weighty = 1;
+		gbc(0, 1, 1, 0);
+		loadCompetitionPanel.add(txtLoadCompetition, gbc);
+		gbc(0, 1, 1, 1);
+		loadCompetitionPanel.add(btnLoadCompetition, gbc);
+		c.add("loadCompetition", loadCompetitionPanel);
+
 
 		//////////////////////////
 		// PANEL CREER NOM COMPETITION
@@ -73,7 +97,6 @@ public class ViewCompetition extends JFrame {
 
 		// Cellule contenant le LABEL "CRÉER UNE NOUVELLE COMPÉTITION"
 		gbc(0, 6, 2, 0);
-		gbc.fill = GridBagConstraints.BOTH;
 		creerCompetitionPanel.add(new JLabel("<html><h2>Créer une nouvelle compétition</h2></html>"), gbc);
 
 		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
