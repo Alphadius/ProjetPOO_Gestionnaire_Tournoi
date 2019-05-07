@@ -12,11 +12,11 @@ public class ViewCompetition extends JFrame {
 	Competition origin;
 
 	// Elements divers de panels
-	public JTextField textfieldNomCompetition = new JTextField(20);
-	public JTextField textfieldNbEquipes = new JTextField(20);
-	public JTextField textfieldJour = new JTextField(1);
-	public JTextField textfieldMois = new JTextField(1);
-	public JTextField textfieldAnnee = new JTextField(1);
+	public JTextField textfieldNomCompetition = new JTextField(21);
+	public JTextField textfieldNbEquipes = new JTextField(21);
+	public JTextField textfieldJour = new JTextField(7);
+	public JTextField textfieldMois = new JTextField(7);
+	public JTextField textfieldAnnee = new JTextField(7);
 	public JTextField txtModifierScore1 = new JTextField(3);
 	public JTextField txtModifierScore2 = new JTextField(3);
 	public JButton btnModifierScore = new JButton("Modifier le score");
@@ -60,6 +60,8 @@ public class ViewCompetition extends JFrame {
 		JPanel boutonStart = new JPanel(new BorderLayout());
 		boutonStart.setLayout(new GridBagLayout());
 		JButton start = new JButton("Nouveau Tournoi");
+		// gbc.weightx = 1;
+		// gbc.weighty = 1;
 		gbc(0, 1, 1, 0);
 		boutonStart.add(start, gbc);
 		gbc(0, 1, 1, 2);
@@ -74,23 +76,6 @@ public class ViewCompetition extends JFrame {
 		c.add("menu", boutonStart);
 
 		//////////////////////////
-		// PANEL loadCompetition
-		//////////////////////////
-		JPanel loadCompetitionPanel = new JPanel(new BorderLayout());
-		JButton btnLoadCompetition = new JButton("Charger");
-		loadCompetitionPanel.setLayout(new GridBagLayout());
-		//gbc.fill = GridBagConstraints.BOTH;
-		JTextField txtLoadCompetition = new JTextField(20);
-		gbc.weightx = 1;
-		gbc.weighty = 1;
-		gbc(0, 1, 1, 0);
-		loadCompetitionPanel.add(txtLoadCompetition, gbc);
-		gbc(0, 1, 1, 1);
-		loadCompetitionPanel.add(btnLoadCompetition, gbc);
-		c.add("loadCompetition", loadCompetitionPanel);
-
-
-		//////////////////////////
 		// PANEL CREER NOM COMPETITION
 		//////////////////////////
 		JPanel creerCompetitionPanel = new JPanel(new BorderLayout());
@@ -102,8 +87,6 @@ public class ViewCompetition extends JFrame {
 
 		// Cellule contenant le TEXTFIELD du NOM DE LA COMPÉTITION
 
-		gbc.weightx = 1;
-		gbc.weighty = 1;
 		gbc(0, 6, 1, 3);
 		focusTextfielMenu(textfieldNomCompetition, "Entrer le nom de la compétition");
 		creerCompetitionPanel.add(textfieldNomCompetition, gbc);
@@ -123,7 +106,7 @@ public class ViewCompetition extends JFrame {
 		focusTextfielMenu(textfieldMois, "Mois");
 		creerCompetitionPanel.add(textfieldMois, gbc);
 		// Année
-		gbc(3, 2, 1, 7);
+		gbc(2, 1, 1, 7);
 		focusTextfielMenu(textfieldAnnee, "Année");
 		creerCompetitionPanel.add(textfieldAnnee, gbc);
 
@@ -149,6 +132,20 @@ public class ViewCompetition extends JFrame {
 		choixEquipePanel.add(choixEquipeButton);
 
 		c.add("choixEquipe", choixEquipePanel);
+
+		//////////////////////////
+		// PANEL loadCompetition
+		//////////////////////////
+		JPanel loadCompetitionPanel = new JPanel(new BorderLayout());
+		JButton btnLoadCompetition = new JButton("Charger");
+		loadCompetitionPanel.setLayout(new GridBagLayout());
+		//gbc.fill = GridBagConstraints.BOTH;
+		JTextField txtLoadCompetition = new JTextField(20);
+		gbc(0, 1, 1, 0);
+		loadCompetitionPanel.add(txtLoadCompetition, gbc);
+		gbc(0, 1, 1, 1);
+		loadCompetitionPanel.add(btnLoadCompetition, gbc);
+		c.add("loadCompetition", loadCompetitionPanel);
 
 		//////////////////////////
 		// PANEL N°2 : AFFICHAGE DES MATCHS
@@ -214,12 +211,12 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(new JLabel("<html><center> - </center></html>"), gbc);
 		gbc(3, 1, 1, 6);
 		detailsMatchPanel.add(txtModifierScore2, gbc);
-		gbc(5, 1, 1, 6);
-		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
-		detailsMatchPanel.add(new JLabel("<html>   	  Le match a eu lieu<br />Tour n°</html>"), gbc);
 		gbc(5, 1, 1, 7);
-		detailsMatchPanel.add(labelNumeroTour, gbc);
-		gbc(5, 1, 1, 8);
+		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
+		gbc(6, 1, 1, 7);
+		detailsMatchPanel.add(new JLabel("<html>Le match a eu lieu"), gbc);
+		//detailsMatchPanel.add(labelNumeroTour, gbc);
+		gbc(5, 1, 1, 6);
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
 		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
@@ -232,16 +229,29 @@ public class ViewCompetition extends JFrame {
 				a= Integer.valueOf(txtModifierScore1.getText());
 				b= Integer.valueOf(txtModifierScore2.getText());
 				temp.putScore(a,b);
+
+				String infoMatch = "<html><h1>" + temp.equipe1.nomEquipe + " - " + temp.equipe2.nomEquipe
+				+ "</h1><h2>Score : " + temp.scoreEquipe1 + " - " + temp.scoreEquipe2
+				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(comp) + "</p></html>";
+				labelStatsMatch.setText(infoMatch);
+				//refresh jlabel
 			}
 		});
 		//gbc(posx, width, height, posy);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				sendMatch(comp);
+				table.repaint();
 				card.show(c, "listMatch");
 			}
 		});
 		buttonRetourListMatchB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Refresh table data et score
+				sendMatch(comp);
+				table.repaint();
+				txtModifierScore1.setText("");
+				txtModifierScore2.setText("");
 				card.show(c, "listMatch");
 			}
 		});
@@ -302,6 +312,7 @@ public class ViewCompetition extends JFrame {
 		detailsEquipePanel.add(stat, gbc);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				stat.setText("");
 				card.show(c, "listMatch");
 			}
 		});
@@ -395,9 +406,10 @@ public class ViewCompetition extends JFrame {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
 
-	public void retourListMatch() {
-		card.show(c, "listMatch");
-	}
+	// public void retourListMatch() {
+	// 	stat.setText("");
+	// 	card.show(c, "listMatch");
+	// }
 
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { // Renommer ; permet de récupérer le nom de la competition depuis la
