@@ -215,7 +215,7 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(txtModifierScore2, gbc);
 		gbc(5, 1, 1, 6);
 		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
-		detailsMatchPanel.add(new JLabel("    	  Le match a eu lieu"), gbc);
+		detailsMatchPanel.add(new JLabel("<html>   	  Le match a eu lieu<br />Tour n°</html>" /* mettre numéro de tour*/), gbc);
 		gbc(5, 1, 1, 7);
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
