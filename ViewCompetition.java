@@ -26,6 +26,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelnomEquipe = new JLabel();
 	public JLabel labelStatsMatch = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
+	public JCheckBox matchAEuLieu = new JCheckBox();
 	public JLabel stat = new JLabel();
 	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
@@ -184,6 +185,9 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(new JLabel("<html><center> - </center></html>"), gbc);
 		gbc(3, 1, 1, 6);
 		detailsMatchPanel.add(txtModifierScore2, gbc);
+		gbc(5, 1, 1, 6);
+		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
+		detailsMatchPanel.add(new JLabel("    	  Le match a eu lieu"), gbc);
 		gbc(5, 1, 1, 7);
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
