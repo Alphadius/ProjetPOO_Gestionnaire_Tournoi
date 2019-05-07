@@ -339,7 +339,7 @@ ANGLETERRE
 WALKER
 KYLE
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -352,7 +352,7 @@ ANGLETERRE
 ROSE
 DANNY
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -365,7 +365,7 @@ ANGLETERRE
 STONES
 JOHN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -378,7 +378,7 @@ ANGLETERRE
 MAGUIRE
 HARRY
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -391,7 +391,7 @@ ANGLETERRE
 TRIPPIER
 KIERAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -404,7 +404,7 @@ ANGLETERRE
 CAHILL
 GARY
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -417,7 +417,7 @@ ANGLETERRE
 JONES
 PHIL
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -430,7 +430,7 @@ ANGLETERRE
 DELPH
 FABIAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -443,7 +443,7 @@ ANGLETERRE
 YOUNG
 ASHLEY
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -456,7 +456,7 @@ ANGLETERRE
 ALEXANDER-ARNOLD
 TRENT
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -638,7 +638,7 @@ BELGIQUE
 ALDERWEIRELD
 TOBY 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -651,7 +651,7 @@ BELGIQUE
 VERMAELEN
 THOMAS 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -664,7 +664,7 @@ BELGIQUE
 KOMPANY
 VINCENT 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -677,7 +677,7 @@ BELGIQUE
 VERTONGHEN
 JAN 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -690,7 +690,7 @@ BELGIQUE
 MEUNIER
 THOMAS 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -703,7 +703,7 @@ BELGIQUE
 BOYATA
 DEDRYCK 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -716,7 +716,7 @@ BELGIQUE
 DENDONCKER
 LEANDER 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -937,7 +937,7 @@ BRESIL
 SILVA
 THIAGO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -950,7 +950,7 @@ BRESIL
 MIRANDA
 MIRANDA
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -963,7 +963,7 @@ BRESIL
 GEROMEL
 PEDRO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -976,7 +976,7 @@ BRESIL
 LUIS
 FILIPE
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -989,7 +989,7 @@ BRESIL
 MACRELO
 MARCELO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1002,7 +1002,7 @@ BRESIL
 CACA
 MARQUINHOS
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1015,7 +1015,7 @@ BRESIL
 LERUSSE
 DANILO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1028,7 +1028,7 @@ BRESIL
 WEST
 FAGNER
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1236,7 +1236,7 @@ COLOMBIE
 ZAPATA
 CRISTIAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1249,7 +1249,7 @@ COLOMBIE
 MURILLO
 OSCAR
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1262,7 +1262,7 @@ COLOMBIE
 ARIAS
 SANTIAGO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1275,7 +1275,7 @@ COLOMBIE
 MINA
 YERRY
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1288,7 +1288,7 @@ COLOMBIE
 MOJICA
 JOHAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1301,7 +1301,7 @@ COLOMBIE
 DIAZ
 FARID
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1314,7 +1314,7 @@ COLOMBIE
 SANCHEZ
 DAVINSON
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -1535,7 +1535,7 @@ CROATIE
 VRSALJKO
 SIME
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1548,7 +1548,7 @@ CROATIE
 STRINIC
 IVAN
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1561,7 +1561,7 @@ CROATIE
 CORLUKA
 VEDRAN
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1574,7 +1574,7 @@ CROATIE
 LOVREN
 DEJAN
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1587,7 +1587,7 @@ CROATIE
 JEDVAJ
 TIN
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1600,7 +1600,7 @@ CROATIE
 CALETA-CAR
 DUJE
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1613,7 +1613,7 @@ CROATIE
 VIDA
 DOMAGOJ
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1626,7 +1626,7 @@ CROATIE
 PIVARIC
 JOSIP
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1834,7 +1834,7 @@ DANEMARK
 VESTERGAARD
 JANNIK
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1847,7 +1847,7 @@ DANEMARK
 KJAER
 SIMON
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1860,7 +1860,7 @@ DANEMARK
 KNUDSEN
 JONAS
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1873,7 +1873,7 @@ DANEMARK
 CHRISTENSEN
 ANDREAS
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1886,7 +1886,7 @@ DANEMARK
 JORGENSEN
 MATHIAS
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1899,7 +1899,7 @@ DANEMARK
 DALSGAARD
 HENRIK
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -1912,7 +1912,7 @@ DANEMARK
 STRYGER LARSEN
 JENS
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2133,7 +2133,7 @@ ESPAGNE
 CARVAJAL
 DANI
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2146,7 +2146,7 @@ ESPAGNE
 PIQUE
 GERARD
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2159,7 +2159,7 @@ ESPAGNE
 NACHO
 NACHO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2172,7 +2172,7 @@ ESPAGNE
 ODRIOZOLA
 ALVARO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2185,7 +2185,7 @@ ESPAGNE
 AZPILICUETA
 CESAR
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2198,7 +2198,7 @@ ESPAGNE
 RAMOS
 SERGIO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2211,7 +2211,7 @@ ESPAGNE
 MONREAL
 NACHO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2224,7 +2224,7 @@ ESPAGNE
 ALBA
 JORDI
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -2432,7 +2432,7 @@ JAPON
 NAOMICHI
 UEDA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2445,7 +2445,7 @@ JAPON
 GEN
 SHOJI
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2458,7 +2458,7 @@ JAPON
 YUTO
 NAGATOMO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2471,7 +2471,7 @@ JAPON
 WATARU
 ENDO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2484,7 +2484,7 @@ JAPON
 HIROKI
 SAKAI
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2497,7 +2497,7 @@ JAPON
 TOMOAKI
 MAKINO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2510,7 +2510,7 @@ JAPON
 GOTOKU
 SAKAI
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2523,7 +2523,7 @@ JAPON
 MAYA
 YOSHIDA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2731,7 +2731,7 @@ MEXIQUE
 AYALA
 HUGO 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2744,7 +2744,7 @@ MEXIQUE
 SALCEDO
 CARLOS 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2757,7 +2757,7 @@ MEXIQUE
 MARQUEZ
 RAFAEL 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2770,7 +2770,7 @@ MEXIQUE
 MORENO
 HECTOR 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2783,7 +2783,7 @@ MEXIQUE
 HERRERA
 HECTOR 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -2796,7 +2796,7 @@ MEXIQUE
 ALVAREZ
 EDSON 
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3030,7 +3030,7 @@ RUSSIE
 FERNANDES
 MARIO
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3043,7 +3043,7 @@ RUSSIE
 KUTEPOV
 ILYA
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3056,7 +3056,7 @@ RUSSIE
 IGNASHEVICH
 SERGEY
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3069,7 +3069,7 @@ RUSSIE
 SEMENOV
 ANDREY
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3082,7 +3082,7 @@ RUSSIE
 KUDRIASHOV
 FEDOR
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3095,7 +3095,7 @@ RUSSIE
 GRANAT
 VLADIMIR
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3108,7 +3108,7 @@ RUSSIE
 SMOLNIKOV
 IGOR
 1990
-Défenseur
+Defenseur
 50
 50
 50
@@ -3329,7 +3329,7 @@ SUEDE
 MIKAEL 
 LUSTIG
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3342,7 +3342,7 @@ SUEDE
 VICTOR 
 LINDELOF
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3355,7 +3355,7 @@ SUEDE
 ANDREAS 
 GRANQVIST
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3368,7 +3368,7 @@ SUEDE
 MARTIN 
 OLSSON
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3381,7 +3381,7 @@ SUEDE
 LUDWIG 
 AUGUSTINSSON
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3394,7 +3394,7 @@ SUEDE
 FILIP 
 HELANDER
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3407,7 +3407,7 @@ SUEDE
 EMIL 
 KRAFTH
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3420,7 +3420,7 @@ SUEDE
 PONTUS 
 JANSSON
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3628,7 +3628,7 @@ SUISSE
 LICHTSTEINER
 STEPHAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3641,7 +3641,7 @@ SUISSE
 MOUBANDJE
 FRANCOIS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3654,7 +3654,7 @@ SUISSE
 ELVEDI
 NICO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3667,7 +3667,7 @@ SUISSE
 AKANJI
 MANUEL
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3680,7 +3680,7 @@ SUISSE
 LANG
 MICHAEL
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3693,7 +3693,7 @@ SUISSE
 RODRIGUEZ
 RICARDO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3706,7 +3706,7 @@ SUISSE
 DJOUROU
 JOHAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3719,7 +3719,7 @@ SUISSE
 SCHAER
 FABIAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3927,7 +3927,7 @@ ARGENTINE
 MERCADO
 GABRIEL
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3940,7 +3940,7 @@ ARGENTINE
 TAGLIAFICO
 NICOLAS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3953,7 +3953,7 @@ ARGENTINE
 ANSALDI
 CRISTIAN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3966,7 +3966,7 @@ ARGENTINE
 FAZIO
 FEDERICO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3979,7 +3979,7 @@ ARGENTINE
 ACUNA
 MARCOS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -3992,7 +3992,7 @@ ARGENTINE
 MASCHERANO
 JAVIER
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4005,7 +4005,7 @@ ARGENTINE
 ROJO
 MARCOS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4018,7 +4018,7 @@ ARGENTINE
 OTAMENDI
 NICOLAS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4031,7 +4031,7 @@ ARGENTINE
 SALVIO
 EDUARDO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4226,7 +4226,7 @@ URUGUAY
 JOSE
 GIMENEZ
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4239,7 +4239,7 @@ URUGUAY
 DIEGO
 GODIN
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4252,7 +4252,7 @@ URUGUAY
 GUILLERMO
 VARELA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4265,7 +4265,7 @@ URUGUAY
 GASTON
 SILVA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4278,7 +4278,7 @@ URUGUAY
 MAXIMILIANO
 PEREIRA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4291,7 +4291,7 @@ URUGUAY
 SEBASTIAN
 COATES
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4304,7 +4304,7 @@ URUGUAY
 MARTIN
 CACERES
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4525,7 +4525,7 @@ PORTUGAL
 BRUNO
 ALVES
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4538,7 +4538,7 @@ PORTUGAL
 PEPE
 RONI
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4551,7 +4551,7 @@ PORTUGAL
 RAPHAEL
 GUERREIRO
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4564,7 +4564,7 @@ PORTUGAL
 JOSE
 FONTE
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4577,7 +4577,7 @@ PORTUGAL
 RUBEN
 DIAS
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4590,7 +4590,7 @@ PORTUGAL
 RICARDO
 LEVIOSSSAAAA
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4603,7 +4603,7 @@ PORTUGAL
 MARIO
 RUI
 1993
-Défenseur
+Defenseur
 50
 50
 50
@@ -4616,7 +4616,7 @@ PORTUGAL
 CEDRIC
 DIGORI
 1993
-Défenseur
+Defenseur
 50
 50
 50
