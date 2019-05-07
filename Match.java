@@ -1,3 +1,4 @@
+package compMaker.model;
 public class Match {
 
   int scoreEquipe1;
@@ -23,11 +24,11 @@ public class Match {
     this.scoreEquipe2 = b;
   }
 
-  public String afficherDate(Competition comp) { // permet de calculer la date d'un match
-    int jourTemp = comp.jDebut;
-    int moisTemp = comp.mDebut;
-    int anneeTemp = comp.aDebut;
-    int i = this.tour + comp.jDebut;
+  public String afficherDate(int a, int b, int c) { // permet de calculer la date d'un match
+    int jourTemp = a;
+    int moisTemp = b;
+    int anneeTemp = c;
+    int i = this.tour + a;
     int maxjour = 30;
     int jourAnnee = 365;
     // System.out.println(i);

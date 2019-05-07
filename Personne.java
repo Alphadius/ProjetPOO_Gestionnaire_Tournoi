@@ -1,3 +1,4 @@
+package compMaker.model;
 public class Personne {
 
     String prenom;

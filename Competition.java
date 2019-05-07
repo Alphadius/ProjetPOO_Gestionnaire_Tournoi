@@ -1,3 +1,4 @@
+package compMaker.model;
 import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;
@@ -290,7 +291,7 @@ public class Competition {
     BufferedReader br = null;
     String line;
     int count = 0;
-    List<Equipe> equipeTemp = new ArrayList<Equipe>();
+    List<Equipes> equipeTemp = new ArrayList<Equipes>();
     try {
       // va chercher le fichier demandé
       br = new BufferedReader(new FileReader(file + ".txt"));

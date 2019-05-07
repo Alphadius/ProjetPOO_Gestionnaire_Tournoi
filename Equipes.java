@@ -1,3 +1,4 @@
+package compMaker.model;
 import java.util.*;
 
 public class Equipes {

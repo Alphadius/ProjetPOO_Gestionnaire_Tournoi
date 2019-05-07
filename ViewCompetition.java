@@ -1,3 +1,4 @@
+package compMaker.view;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -232,7 +233,7 @@ public class ViewCompetition extends JFrame {
 
 				String infoMatch = "<html><h1>" + temp.equipe1.nomEquipe + " - " + temp.equipe2.nomEquipe
 				+ "</h1><h2>Score : " + temp.scoreEquipe1 + " - " + temp.scoreEquipe2
-				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(comp) + "</p></html>";
+				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(comp.jDebut, comp.mDebut, comp.aDebut) + "</p></html>";
 				labelStatsMatch.setText(infoMatch);
 				//refresh jlabel
 			}
