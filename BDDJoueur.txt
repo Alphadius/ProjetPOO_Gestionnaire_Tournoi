@@ -1,7 +1,7 @@
 LLORIS
 hugo
 1986
-01
+Gardien
 68
 16
 38
@@ -14,7 +14,7 @@ FRANCE
 MANDANDA
 steve
 1985
-01
+Gardien
 53
 14
 30
@@ -27,7 +27,7 @@ FRANCE
 AREOLA
 alphonse
 1993
-01
+Gardien
 52
 18
 35
@@ -40,7 +40,7 @@ FRANCE
 PAVARD
 benjamin
 1996
-02
+Defenseur Lateral Droit
 73
 55
 74
@@ -53,7 +53,7 @@ FRANCE
 KIMPEMBE
 presnel
 1995
-05
+Defenseur Centre Gauche
 78
 53
 72
@@ -66,7 +66,7 @@ FRANCE
 VARANE
 raphael
 1993
-04
+Defenseur Centre Droit
 85
 53
 62
@@ -79,7 +79,7 @@ FRANCE
 UMTITI
 samuel
 1993
-05
+Defenseur Centre Gauche
 73
 69
 74
@@ -92,7 +92,7 @@ FRANCE
 RAMI 
 adil
 1985
-04
+Defenseur Centre Droit
 67
 55
 55
@@ -105,7 +105,7 @@ FRANCE
 SIDIBE
 djibril
 1992
-03
+Defenseur Lateral Gauche
 79
 63
 75
@@ -118,7 +118,7 @@ FRANCE
 HERNANDEZ
 lucas
 1996
-03
+Defenseur Lateral Gauche
 84
 54
 74
@@ -131,7 +131,7 @@ FRANCE
 MENDY
 benjamin
 1994
-03
+Defenseur Lateral Gauche
 86
 55
 79
@@ -144,7 +144,7 @@ FRANCE
 POGBA
 paul
 1993
-08
+Milieu Droit
 79
 82
 85
@@ -157,7 +157,7 @@ FRANCE
 TOLISSO
 corentin
 1994
-08
+Milieu Droit
 66
 74
 79
@@ -170,7 +170,7 @@ FRANCE
 KANTE
 ngolo
 1991
-06
+Milieu Gauche
 77
 58
 78
@@ -196,7 +196,7 @@ FRANCE
 NZONZI
 steven
 1988
-08
+Milieu Droit
 50
 58
 71
@@ -209,7 +209,7 @@ FRANCE
 GRIEZMANN
 antoine
 1991
-10
+Attaquant Meneur
 85
 85
 81
@@ -222,7 +222,7 @@ FRANCE
 LEMAR
 thomas
 1995
-10
+Attaquant Meneur
 84
 75
 81
@@ -235,7 +235,7 @@ FRANCE
 GIROUD
 olivier
 1986
-09
+Avant Centre 
 50
 79
 67
@@ -248,7 +248,7 @@ FRANCE
 MBAPPE
 kylian
 1998
-08
+Milieu Droit
 96
 77
 77
@@ -261,7 +261,7 @@ FRANCE
 DEMBELE
 ousama
 1997
-11
+Attaquant Gauche
 93
 72
 76

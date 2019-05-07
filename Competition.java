@@ -192,7 +192,7 @@ public class Competition {
     String nom = "";
     String prenom = "";
     int dateNaissance = 0;
-    int position = 0;
+    String position = "";
     boolean titulaire = false;
     int numeroJoueur = 0;
     int vitesse = 0;
@@ -234,7 +234,7 @@ public class Competition {
           dateNaissance = Integer.valueOf(line);
           break;
         case 3:
-          position = Integer.valueOf(line);
+          position = line;
           break;
         case 4:
           vitesse = Integer.valueOf(line);
