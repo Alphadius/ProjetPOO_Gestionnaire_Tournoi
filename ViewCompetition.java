@@ -45,7 +45,7 @@ public class ViewCompetition extends JFrame {
 	private JButton boutonDetailsEquipe = new JButton();
 
 	// Tableau Match
-	Object[][] data = new Object[120][7];
+	Object[][] data = new Object[125][7];
 	String columnHeaders[] = { "Équipe 1", "détails", "Équipe 2", "détails", "Score", "Date", "Modifier" };
 	public JTable table = new JTable(data, columnHeaders);
 
