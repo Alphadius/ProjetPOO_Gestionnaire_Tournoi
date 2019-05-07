@@ -30,7 +30,8 @@ public class ViewCompetition extends JFrame {
 	public JLabel stat = new JLabel();
 	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
-	private JButton creerComp = new JButton("Créer");
+	public JButton creerComp = new JButton("Créer");
+	public JButton chargerCompetition = new JButton("Charger compétition");
 	public JButton choixEquipeButton = new JButton("valider");
 	public JComboBox boxEquipe = new JComboBox();
 	public JButton buttonAfficherStats = new JButton("Afficher statistiques");
@@ -55,9 +56,13 @@ public class ViewCompetition extends JFrame {
 		c.setLayout(card);
 
 		// PANEL DE LA PAGE INITIALE "NOUVEAU TOURNOI"
-		JPanel boutonStart = new JPanel();
+		JPanel boutonStart = new JPanel(new BorderLayout());
+		boutonStart.setLayout(new GridBagLayout());
 		JButton start = new JButton("Nouveau Tournoi");
-		boutonStart.add(start);
+		gbc(0, 1, 1, 0);
+		boutonStart.add(start, gbc);
+		gbc(0, 1, 1, 2);
+		boutonStart.add(chargerCompetition, gbc);
 		c.add("menu", boutonStart);
 
 		//////////////////////////
