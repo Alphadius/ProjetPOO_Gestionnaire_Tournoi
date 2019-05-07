@@ -1,5 +1,7 @@
 package compMaker;
-
+import compMaker.view.*;
+import compMaker.model.*;
+import compMaker.controller.*;
 public class main{
 	public static void main(String[] args){
 		Competition origin = new Competition();
