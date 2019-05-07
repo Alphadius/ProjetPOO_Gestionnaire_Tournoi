@@ -17,7 +17,7 @@ public class Match {
     this.equipe2 = equipe2;
   }
 
-  public void afficherScore(int a, int b) {
+  public void putScore(int a, int b) {
     //System.out.println(this.scoreEquipe1 + " - " + this.scoreEquipe2);
     this.scoreEquipe1 = a; 
     this.scoreEquipe2 = b;

@@ -220,6 +220,16 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
 		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
+		
+		btnModifierScore.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int a , b;
+				Match temp= new Match();
+				a= Integer.valueOf(txtModifierScore1.getText());
+				b= Integer.valueOf(txtModifierScore2.getText());
+				putScore(a,b);
+			}
+		});
 		//gbc(posx, width, height, posy);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
