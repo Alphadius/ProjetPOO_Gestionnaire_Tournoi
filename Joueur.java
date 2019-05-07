@@ -8,7 +8,7 @@ public class Joueur extends Personne {
   String prenom;
   public boolean titulaire;
   public int numeroJoueur;
-  public float vitesse;
+  public int vitesse;
   public int tirs;
   public int passes;
   public int dribbles;
@@ -69,7 +69,7 @@ public class Joueur extends Personne {
     System.out.println("Physique : " + this.physique);
   }
   public String stat(){ // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
-    String text = "Nom : "+this.nom +"<BR>Prenom : "+this.prenom+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position;
+    String text = "Nom : "+this.nom +"<BR>Prenom : "+this.prenom+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position+"<BR>Vitesse : "+this.vitesse+"<BR> Tirs : "+this.tirs+"<BR> Passes : "+this.passes+"<BR>Dribbles : "+this.dribbles+"<BR>Defense : "+this.defense+"<BR>Physique : "+this.physique;
     return text;
   }
 
