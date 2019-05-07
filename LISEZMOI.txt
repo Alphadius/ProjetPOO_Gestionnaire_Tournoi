@@ -1,0 +1,8 @@
+
+
+
+-en console écrire<<  java compMaker.main  >>
+
+-il faut entrer un nombre d'équipe inférieur à 16
+
+-il faut cliquer sur le nombre d'équipe exacte pour le bon fonctionnement du programme sinon ça casse
