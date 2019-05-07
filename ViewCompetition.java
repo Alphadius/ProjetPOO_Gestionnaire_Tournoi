@@ -406,10 +406,10 @@ public class ViewCompetition extends JFrame {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
 
-	// public void retourListMatch() {
-	// 	stat.setText("");
-	// 	card.show(c, "listMatch");
-	// }
+	public void retourListMatch() {
+		stat.setText("");
+		card.show(c, "listMatch");
+	}
 
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { // Renommer ; permet de récupérer le nom de la competition depuis la
