@@ -25,6 +25,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
 	public JLabel labelStatsMatch = new JLabel();
+	public JLabel labelNumeroTour = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
 	public JCheckBox matchAEuLieu = new JCheckBox();
 	public JLabel stat = new JLabel();
@@ -199,7 +200,6 @@ public class ViewCompetition extends JFrame {
 		// afficher le nom de l'équipe 1 du match en question
 		detailsMatchPanel.setLayout(new GridBagLayout());
 		JLabel labelNomMatch = new JLabel();
-		JLabel labelNumeroTour = new JLabel();
 		focusTextfielMenu(txtModifierScore1, "Score équipe 1");
 		focusTextfielMenu(txtModifierScore2, "Score équipe 2");
 
@@ -228,9 +228,10 @@ public class ViewCompetition extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int a , b;
 				Match temp= new Match();
+				temp = comp.matchs.get(Integer.valueOf(labelNumeroTour.getText()));
 				a= Integer.valueOf(txtModifierScore1.getText());
 				b= Integer.valueOf(txtModifierScore2.getText());
-				putScore(a,b);
+				temp.putScore(a,b);
 			}
 		});
 		//gbc(posx, width, height, posy);
@@ -499,6 +500,7 @@ public class ViewCompetition extends JFrame {
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
 							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp) + "</p></html>";
 					labelStatsMatch.setText(infoMatch);
+					labelNumeroTour.setText(""+matchTemp.tour);
 					// AfficherDetailMatch(infoMatch);
 
 
