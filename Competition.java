@@ -454,42 +454,38 @@ public class Competition {
       // objet
       line = br.readLine();
       this.jDebut = Integer.valueOf(line);
-      System.out.println(line);
       line = br.readLine();
       this.mDebut = Integer.valueOf(line);
-      System.out.println(line);
       line = br.readLine();
       this.aDebut = Integer.valueOf(line);
-      System.out.println(line);
       while((line = br.readLine()) != null) {
         switch (count) {
         case 0:
           nomEquipe1 = this.equipeDe(line);
-          System.out.println(line);
           break;
         case 1:
           nomEquipe2 = this.equipeDe(line);
-          System.out.println(line);
           break;
         case 2:
           score1 = Integer.valueOf(line);
           break;
         case 3:
           score2 = Integer.valueOf(line);
-          System.out.println(line);
           break;
         case 4:
           tour = Integer.valueOf(line);
-          System.out.println(line);
           Match temp;
           temp = new Match(nomEquipe1,nomEquipe2,score1,score2,tour);
           matchTemp.add(temp);
-          System.out.println(temp.equipe1.nomEquipe);
           break;
         // System.out.println(equipe1.nomEquipe+""+i);
         }
+        count = (count +1)%5;
       }
       this.matchs = matchTemp;
+      for(int i = 0; i < this.matchs.size(); i++){
+        System.out.println(this.matchs.get(i).equipe1.nomEquipe);
+      }
       // System.out.println(this.matchs.get(1).equipe1.nomEquipe);
     } catch (IOException e) {
       // si ya une erreur
