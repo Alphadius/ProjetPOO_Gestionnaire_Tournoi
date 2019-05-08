@@ -26,6 +26,7 @@ public class controllerCompetition{
 		this.theView.addRetourListBlistener(new listenForRetourButtonB());
 		this.theView.addModifScoreListener(new listenModifScore());
 		this.theView.addAfficherStatListener(new listenStat());
+		this.theView.addClassementListener(new listenclassement());
 	}
 
 	class ValidListener implements ActionListener{
@@ -96,6 +97,7 @@ public class controllerCompetition{
 			sendMatch();
 			theModel.trierParEquipe();
 			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
+			theModel.btnClassement.requestFocus();
 			theView.goListMatch();
 		}
 	}
@@ -122,6 +124,12 @@ public class controllerCompetition{
 			}
 
 		}
+		class listenclassement implements ActionListener{
+			public void actionPerformed(ActionEvent e){
+
+			}
+		}
+		
 	class listenForRetourButtonB implements ActionListener{
 
 			public void actionPerformed(ActionEvent e) {

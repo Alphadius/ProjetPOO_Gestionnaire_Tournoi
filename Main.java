@@ -9,12 +9,11 @@ public class main{
 		origin.getDataEquipe("BDDEquipe",16);
 		origin.writeDataJoueur("origin");
 		origin.writeDataEquipe("origin");
-        
-    	Competition theModel = new Competition();
-		theModel.getDataJoueur("BDDJoueur");
 		// theModel.getDataEquipe("BDDEquipe",16);
-		theModel.trierParEquipe();
-		System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
+					theModel.getDataJoueur("BDDJoueur");
+					theModel.trierParEquipe();
+					System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());		
+    	Competition theModel = new Competition();
 		ViewCompetition theView = new ViewCompetition(origin, theModel);
         controllerCompetition theController = new controllerCompetition(theView,theModel,origin);
         

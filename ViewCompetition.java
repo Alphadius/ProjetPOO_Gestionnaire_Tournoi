@@ -346,6 +346,9 @@ public class ViewCompetition extends JFrame {
 	public void addRetourListlistener(ActionListener listenForRetourButton){
 		buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
+	public void addClassementListener(ActionListener listenclassement){
+		btnClassementP.addActionListener(listenclassement);
+	}
 	public void addModifScoreListener(ActionListener listenModifScore){
 			btnModifierScore.addActionListener(listenModifScore);
 		}
