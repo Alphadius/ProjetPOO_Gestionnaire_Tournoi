@@ -29,6 +29,8 @@ public class controllerCompetition{
 		this.theView.addClassementListener(new listenclassement());
 		this.theView.addloadcompListener(new listenload());
 		this.theView.addSaveListener(new listensave());
+		this.theView.addmatchAEuLieuListener (new listenMatchLieu());
+	
 	}
 
 	class ValidListener implements ActionListener{
@@ -199,6 +201,13 @@ public class controllerCompetition{
 			}
 		}
 	}
+	class listenMatchLieu implements ActionListener{
+		public void actionPerformed (ActionEvent e){
+			if theView.
+		}
+	}
+		this.theView.addmatchAEuLieuListener (new listenMatchLieu());public void addmatchAEuLieuListener(ActionListener a) {
+		matchAEuLieu.addActionListener(a);
 	public void sendMatch() {
 		for (int i = 0; i < theModel.matchs.size(); i++) {
 			Match tempMatch = new Match();
