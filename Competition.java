@@ -440,11 +440,11 @@ public class Competition {
         BufferedReader br = null;
     String line;
     int count = 0;
-    Equipes nomEquipe1;
-    Equipes nomEquipe2;
-    int score1;
-    int score2;
-    int tour;
+    Equipes nomEquipe1 = new Equipes();
+    Equipes nomEquipe2 = new Equipes();
+    int score1 = 0;
+    int score2 = 0;
+    int tour = 0;
     List<Match> matchTemp = new ArrayList<Match>();
     try {
       // va chercher le fichier demandé

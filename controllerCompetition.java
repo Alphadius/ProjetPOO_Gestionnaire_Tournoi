@@ -136,6 +136,7 @@ public class controllerCompetition{
 				theModel.trierParEquipe();
 				theModel.getDataMatch("data/"+filename+"Match",origin);
 				System.out.println("bite");
+				theModel.nomCompetition = filename;
 				sendMatch();
 				theView.card.show(theView.c, "listMatch");
 			}
