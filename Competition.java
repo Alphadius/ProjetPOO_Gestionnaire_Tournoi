@@ -76,7 +76,6 @@ public class Competition {
     }
     return result;
   }
-
   public Equipes equipeDe(String nomEquipe) {
     Equipes truc = new Equipes();
     for (int i = 0; i < this.equipes.size(); i++) {
@@ -89,6 +88,7 @@ public class Competition {
 
   public void coachParEquipe (){
     for(int i=0;i < this.equipes.size();i++){
+      System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
       switch (this.equipes.get(i).nomEquipe.toUpperCase()){
         case "FRANCE":
         this.equipes.get(i).nomCoach="Didier DESCHAMPS";
@@ -155,6 +155,7 @@ public class Competition {
         ;
         break;
       }
+      System.out.println(this.equipes.get(i).nomCoach);
     }
   }
 

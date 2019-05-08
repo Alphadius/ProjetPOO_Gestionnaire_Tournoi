@@ -100,6 +100,7 @@ public class controllerCompetition{
 			theModel.trierParEquipe();
 			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
 			theView.btnClassementP.requestFocus();
+			theModel.coachParEquipe();
 			theView.goListMatch();
 		}
 	}
