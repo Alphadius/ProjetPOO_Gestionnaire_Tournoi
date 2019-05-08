@@ -43,13 +43,14 @@ public class Competition {
 
     public int compare(Joueur a, Joueur b) {
       int point1 = a.points;
-      String point2 = b.points;
+      int point2 = b.points;
       return point1 - point2;
     }
   }
 
   public nbButEquipe(Equipes equipeTemp){
     public int nbBut;
+    String nomEquipe=equipeTemp.nomEquipe;
     this.matchs.
   }
 

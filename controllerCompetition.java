@@ -81,7 +81,8 @@ public class controllerCompetition{
 		}
 		theView.gbc(4, 1, 1, 3);
 		theView.choixEquipePanel.add(theView.choixEquipeButton);
-
+				theModel.coachParEquipe();
+				System.out.println(theModel.equipes.get(i).nomCoach);
 				theView.goChoixEquipe();
 				
 			} catch(Exception erreur) {
