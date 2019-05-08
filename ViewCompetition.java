@@ -8,8 +8,8 @@ import javax.swing.table.TableCellRenderer;
 import java.io.*;
 
 public class ViewCompetition extends JFrame {
-	CardLayout card;
-	Container c;
+	public CardLayout card;
+	public Container c;
 	public Competition comp;
 	public Competition origin;
 
@@ -70,11 +70,7 @@ public class ViewCompetition extends JFrame {
 
 		boutonStart.add(buttonChargerCompetition, gbc);
 
-		buttonChargerCompetition.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				card.show(c, "loadCompetition");
-			}
-		});
+	
 		c.add("menu", boutonStart);
 
 		//////////////////////////
@@ -403,7 +399,9 @@ public class ViewCompetition extends JFrame {
 	public void addchoixEquipeListener(ActionListener listenForchoixEquipe) {
 		choixEquipeButton.addActionListener(listenForchoixEquipe);
 	}
-
+	public void addChargerCompListener(ActionListener listenForChargerComp){
+		buttonChargerCompetition.addActionListener (listenForChargerComp);
+	}
 	public void addRetourListener(ActionListener listenForRetourButton) {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}

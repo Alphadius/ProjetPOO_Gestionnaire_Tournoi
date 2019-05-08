@@ -16,6 +16,7 @@ public class controllerCompetition{
 		this.theView.addCompEntreeListener(new ValidListener());
 		this.theView.addRetourListener(new RetourListener());
 		this.theView.addchoixEquipeListener(new choixEquipeListener());
+		this.theView.addChargerCompListener(new listenForChargerComp());
 	}
 
 	class ValidListener implements ActionListener{
@@ -55,6 +56,11 @@ public class controllerCompetition{
 			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
 			theView.goListMatch();
 		}
+	}
+	class listenForChargerComp implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				theView.card.show(theView.c, "loadCompetition");
+			};
 	}
 	class RetourListener implements ActionListener{
 
