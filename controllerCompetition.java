@@ -98,7 +98,7 @@ public class controllerCompetition{
 			theView.goListMatch();
 		}
 	}
-class listenModifScore implements ActionListener{
+		class listenModifScore implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int a , b;
 				Match temp= new Match();

@@ -21,15 +21,17 @@ public class ViewCompetition extends JFrame {
 	public JPanel choixEquipePanel = new JPanel(new BorderLayout());
 	public JTextField textfieldMois = new JTextField(7);
 	public JTextField textfieldAnnee = new JTextField(7);
-	public JTextField txtModifierScore1 = new JTextField(3);
-	public JTextField txtModifierScore2 = new JTextField(3);
+	public JTextField txtModifierScore1 = new JTextField(10);
+	public JTextField txtModifierScore2 = new JTextField(10);
 	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
 	public JLabel labelnomEquipe = new JLabel();
+	public JLabel labelStatEquipe = new JLabel();
 	public JLabel labelStatsMatch = new JLabel();
 	public JLabel labelNumeroTour = new JLabel();
+	public JLabel titreEquipe = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
 	public JCheckBox matchAEuLieu = new JCheckBox();
 	public JLabel stat = new JLabel();
@@ -43,6 +45,7 @@ public class ViewCompetition extends JFrame {
 	public JButton buttonRetourListMatch = new JButton("Retour");
 	public JButton buttonRetourListMatchB = new JButton("Retour");
 	public GridBagConstraints gbc = new GridBagConstraints();
+	public String titreFrame = "Gestionnaire de compétition";
 
 	// test bouton dans JTable
 	private JButton boutonDetailsEquipe = new JButton();
@@ -53,7 +56,7 @@ public class ViewCompetition extends JFrame {
 
 	//////////
 	public ViewCompetition(Competition origin, Competition comp) {
-		this.setTitle("Gestionnaire de competition");
+		this.setTitle(titreFrame);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(1000, 600);
 		c = getContentPane();
@@ -150,7 +153,7 @@ public class ViewCompetition extends JFrame {
 		 * gbc.weightx = 1; gbc.weighty = 1;
 		 */
 		gbc(0, 2, 2, 0);
-		listMatchPanel.add(labelNomCompetition, gbc);
+		//listMatchPanel.add(labelNomCompetition, gbc);
 
 		// IMPORTATION DU TABLEAU JTABLE DES EQUIPES
 		// Render des boutons cliquables de la table
@@ -241,15 +244,17 @@ public class ViewCompetition extends JFrame {
 	//////////////////////////
 
 	public void AfficherDetailEquipe(String nomEquipe) {
-		
-
 		detailsEquipePanel.setLayout(new GridBagLayout());
 		labelnomEquipe.setText(nomEquipe);
+		titreEquipe.setText("<html><h2>" + nomEquipe + "</h2></html>");
+
 		// gbc.weightx = 1;
 		// gbc.weighty = 1;
 		gbc(0, 2, 2, 0);
 		gbc.ipady = 0;
-		detailsEquipePanel.add(labelnomEquipe, gbc);
+		detailsEquipePanel.add(titreEquipe, gbc);
+		gbc(0, 2, 2, 1);
+		detailsEquipePanel.add(labelStatEquipe, gbc);
 		gbc(0, 2, 1, 6);
 		boxEquipe.removeAllItems();
 		for (int i = 0; i < comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.size(); i++) {
@@ -260,7 +265,7 @@ public class ViewCompetition extends JFrame {
 		detailsEquipePanel.add(boxEquipe, gbc);
 		gbc(0, 2, 1, 7);
 		detailsEquipePanel.add(buttonAfficherStats, gbc);
-		gbc(3, 2, 1, 7);
+		gbc(0, 2, 1, 8);
 		detailsEquipePanel.add(buttonRetourListMatch, gbc);
 		gbc(4,1,3,1);
 		detailsEquipePanel.add(stat, gbc);
@@ -451,10 +456,11 @@ public class ViewCompetition extends JFrame {
 				} else {
 					Equipes equipeTemp = new Equipes();
 					equipeTemp = comp.equipeDe(lbl);
-					String infoEquipe = "<html><h2>" + equipeTemp.nomEquipe + "</h2><p>Coach : " + equipeTemp.nomCoach
+					String infoEquipe = "<html><h2> </h2><p>Coach : " + equipeTemp.nomCoach
 							+ "</p><p>" + equipeTemp.nombreJoueurs + " joueurs</p><p>" + equipeTemp.points
 							+ " points</p></html>";
 					// Afficher combobox boxEquipe
+					labelStatEquipe.setText(infoEquipe);
 					AfficherDetailEquipe(equipeTemp.nomEquipe);
 					card.show(c, "detailsEquipe");
 				}
