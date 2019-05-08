@@ -86,7 +86,6 @@ public class controllerCompetition{
 		theView.choixEquipePanel.add(theView.choixEquipeButton);
 				theModel.coachParEquipe();
 				for(int i = 0; i < theModel.equipes.size(); i++){
-				System.out.println(theModel.equipes.get(i).nomCoach);
 			}
 				theView.goChoixEquipe();
 				
@@ -100,7 +99,6 @@ public class controllerCompetition{
 			theModel.CombiMatch(theView.getNbEquipes());
 			sendMatch();
 			theModel.trierParEquipe();
-			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
 			theView.btnClassement.requestFocus();
 			theModel.coachParEquipe();
 			theView.goListMatch();
@@ -200,9 +198,7 @@ public class controllerCompetition{
 		}
 	}
 	public void sendMatch() {
-		System.out.println(theModel.matchs.size());
 		for (int i = 0; i < theModel.matchs.size(); i++) {
-			System.out.println(i);
 			Match tempMatch = new Match();
 			tempMatch = theModel.sendMatch(i);
 			theView.data[i][0] = tempMatch.equipe1.nomEquipe;

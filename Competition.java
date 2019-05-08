@@ -73,7 +73,6 @@ public class Competition {
     Collections.sort(tempEquipes, new Sortbypoints());
     for (int i = 0; i < tempEquipes.size(); i++) {
       result[i] = tempEquipes.get(i).nomEquipe + "  "+ tempEquipes.get(i).points +"<BR>"+"";
-       System.out.println(result[i]);
     }
     return result;
   }
@@ -156,7 +155,6 @@ public class Competition {
         ;
         break;
       }
-      System.out.println(this.equipes.get(i).nomCoach);
     }
   }
 
@@ -199,50 +197,7 @@ public class Competition {
   }
 
   public void CombiMatch(int nbEquipes) {
-    // Ce parti permet de verifier ce qui ce produit en Console
-    // Scanner reader = new Scanner(System.in);
-    // System.out.println("Veuillez saisir le jour de debut de la competition:");
-    // this.jDebut = reader.nextInt();
-    // System.out.println("Veuillez saisir le mois de debut de la competition:");
-    // this.mDebut = reader.nextInt();
-    // System.out.println("Veuillez saisir l'annee de debut de la competition:");
-    // this.aDebut = reader.nextInt();
-
-    // System.out.println("la date du debut de la competition est :" + this.jDebut +
-    // "/" + this.mDebut + "/" + this.aDebut);
-    // // System.out.println("le match est a quel tour?");
-    // // int tourMatch = reader.nextInt();
-    // //afficherDate(tourMatch, this);
-    // int nbEquipes = nombreEquipes;
-    // int tour = 0;
-    // // list<Match> matchs = new ArrayList<Match>();
-    // System.out.println("Quel est le nombre d'equipes ?");
-    // nbEquipes = reader.nextInt();
-    // for (int i = 0; i < nbEquipes; i++) {
-    // Scanner lire = new Scanner(System.in);
-    // System.out.println("Choisisez le nom de l'Equipe numero " + (i + 1));
-    // Equipes equipe1 = new Equipes(lire.nextLine());
-    // this.equipes.add(equipe1);
-    // System.out.println(this.equipes.get(16+i).nomEquipe);
-    // }
-    // listmatchsimple
-    // for (int i = 0; i < nbEquipes; i++) {
-    // for (int j = 1; j < nbEquipes; j++) {
-    // if (i + j < nbEquipes) {
-    // System.out.println(equipes.get(i).nomEquipe + " - " +
-    // equipes.get(i+j).nomEquipe);
-    // Match match = new Match(equipes.get(i),equipes.get(i+j));
-    // matchs.add(match);
-    // tour++;
-    // }
-    // }
-    // }
-    // for(Match temp : matchs){
-    // System.out.println(temp.equipe1.nomEquipe+ " - " +temp.equipe2.nomEquipe);
-    // }
-    // if nombre equipe paire
     int nbcombi = ((nbEquipes * nbEquipes) - nbEquipes) / 2;
-    System.out.println("Avec " + nbEquipes + " équipes tu peux faire " + nbcombi + " match ");
     // diag 1
     for (int i = 0; i < (nbEquipes / 2); i++) {
       Match match = new Match();
@@ -282,8 +237,6 @@ public class Competition {
       odd = 1;
     }
     for (int i = 0; i < nbcombi + odd; i++) {
-      // System.out.println(matchs.get(i).equipe1.nomEquipe + " - " +
-      // matchs.get(i).equipe2.nomEquipe);
     }
 
   }
@@ -399,15 +352,11 @@ public class Competition {
         Equipes equipe1 = new Equipes();
         equipe1.nomEquipe = line;
         this.equipes.add(equipe1);
-        // System.out.println(equipe1.nomEquipe+""+i);
       }
     } catch (IOException e) {
       // si ya une erreur
       e.printStackTrace();
     }
-    // for(int i = 0; i < 3; i++){
-    // joueurs.get(i).afficherStats(annee);
-    // }
   }
 
   public void getDataEquipe(String file, int nb) {
@@ -426,7 +375,6 @@ public class Competition {
         Equipes equipe1 = new Equipes();
         equipe1.nomEquipe = line;
         this.equipes.add(equipe1);
-        // System.out.println(equipe1.nomEquipe+""+i);
       }
     } catch (IOException e) {
       // si ya une erreur
@@ -468,11 +416,11 @@ public class Competition {
           break;
         case 2:
           score1 = Integer.valueOf(line);
-          System.out.println(score1);
+        
           break;
         case 3:
           score2 = Integer.valueOf(line);
-          System.out.println(score2);
+ 
           break;
         case 4:
           tour = Integer.valueOf(line);
@@ -480,15 +428,12 @@ public class Competition {
           temp = new Match(nomEquipe1,nomEquipe2,score1,score2,tour);
           matchTemp.add(temp);
           break;
-        // System.out.println(equipe1.nomEquipe+""+i);
+      
         }
         count = (count +1)%5;
       }
       this.matchs = matchTemp;
-      for(int i = 0; i < this.matchs.size(); i++){
-        System.out.println(this.matchs.get(i).scoreEquipe1 + " - "+ this.matchs.get(i).scoreEquipe2);
-      }
-      // System.out.println(this.matchs.get(1).equipe1.nomEquipe);
+     
     } catch (IOException e) {
       // si ya une erreur
       e.printStackTrace();
@@ -536,7 +481,7 @@ public class Competition {
       // et les mettres en page de manière à etre lisible pour le buffer
       for (int i = 0; i < this.equipes.size(); i++) {
         Equipes temp = this.equipes.get(i);
-        writer.println(temp.nomEquipe);
+        //writer.println(temp.nomEquipe);
       }
     } catch (FileNotFoundException e) {
       // sortie erreur
