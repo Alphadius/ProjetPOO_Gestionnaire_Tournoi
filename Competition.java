@@ -41,7 +41,7 @@ public class Competition {
   // public int nbBut;
   // for(int i = 0; i < this.)
   // }
-  class Sortbypoints implements Comparator<Equipes> {
+  public class Sortbypoints implements Comparator<Equipes> {
     // Used for sorting in ascending order of
     // roll number
 
@@ -51,52 +51,64 @@ public class Competition {
       return point2 - point1;
     }
   }
+// TRI PAR POINT 
+  // public String[] triequipeParPoint() {
+  //   Equipes equipeTemp = new Equipes();
+  //   Match matchTemp = new Match();
+  //   List<Equipes> tempEquipes = new ArrayList<Equipes>();
+  //   String result[] = new String[this.equipes.size()];
+  //   tempEquipes = this.equipes;
+  //   int sum[] = new int[this.equipes.size()];
+  //   for (int i = 0; i < this.equipes.size(); i++) {
+  //     equipeTemp = this.equipes.get(i);
+  //     for (int j = 0; j < this.matchs.size(); j++) {
+  //       matchTemp = this.matchs.get(j);
+  //       if (equipeTemp == matchTemp.equipe1) {
+  //         sum[i] += matchTemp.scoreEquipe1;
+  //       } else if (equipeTemp == matchTemp.equipe2) {
+  //         sum[i] += matchTemp.scoreEquipe2;
+  //       }
+  //     }
+  //     equipeTemp.points = sum[i];
+  //   }
+  //   Collections.sort(tempEquipes, new Sortbypoints());
+  //   for (int i = 0; i < tempEquipes.size(); i++) {
+  //     result[i] = tempEquipes.get(i).nomEquipe + "  " + tempEquipes.get(i).points + "<BR>" + "";
+  //   }
+  //   return result;
+  // }
 
-  public String[] triequipeParPoint() {
-    Equipes equipeTemp = new Equipes();
-    Match matchTemp = new Match();
-    List<Equipes> tempEquipes = new ArrayList<Equipes>();
+  public String[] triEquipeParVictoire() {
+    List<Equipes> tempEquipes= new ArrayList<Equipes>();
     String result[] = new String[this.equipes.size()];
-    tempEquipes = this.equipes;
-    int sum[] = new int[this.equipes.size()];
-    for (int i = 0; i < this.equipes.size(); i++) {
-      equipeTemp = this.equipes.get(i);
-      for (int j = 0; j < this.matchs.size(); j++) {
-        matchTemp = this.matchs.get(j);
-        if (equipeTemp == matchTemp.equipe1) {
-          sum[i] += matchTemp.scoreEquipe1;
-        } else if (equipeTemp == matchTemp.equipe2) {
-          sum[i] += matchTemp.scoreEquipe2;
+    for (int j = 0; j < this.equipes.size(); j++) {
+      // Equipe point reinitialiser a 0
+      this.equipes.get(j).points = 0;
+    }
+    for (int i = 0; i < this.matchs.size(); i++) {
+      if (this.matchs.get(i).aEuLieux) {
+        if (this.matchs.get(i).scoreEquipe1 > this.matchs.get(i).scoreEquipe2) {
+          this.matchs.get(i).equipe1.points += 3;
+          this.matchs.get(i).equipe2.points += 1;
+        }
+        if (this.matchs.get(i).scoreEquipe1 < this.matchs.get(i).scoreEquipe2) {
+          this.matchs.get(i).equipe1.points += 1;
+          this.matchs.get(i).equipe2.points += 3;
+        }
+        if (this.matchs.get(i).scoreEquipe1 == this.matchs.get(i).scoreEquipe2) {
+          this.matchs.get(i).equipe1.points += 2;
+          this.matchs.get(i).equipe2.points += 2;
         }
       }
-      equipeTemp.points = sum[i];
+    }
+    for(int i=0;i<this.equipes.size();i++){
+      tempEquipes.add(this.equipes.get(i));
     }
     Collections.sort(tempEquipes, new Sortbypoints());
     for (int i = 0; i < tempEquipes.size(); i++) {
       result[i] = tempEquipes.get(i).nomEquipe + "  " + tempEquipes.get(i).points + "<BR>" + "";
     }
     return result;
-  }
-
-  public void triEquipeParVictoire() {
-    for (int j = 0; j < this.equipes.size(); j++) {
-      // Equipe point reinitialiser a 0
-      this.equipes.get(j).points = 0;
-    }
-    for (int i = 0; i < this.matchs.size(); i++) {
-      if (this.matchs.get(i).scoreEquipe1 > this.matchs.get(i).scoreEquipe2) {
-        this.matchs.get(i).equipe1.points += 3;
-        this.matchs.get(i).equipe2.points += 1;
-      }
-      if (this.matchs.get(i).scoreEquipe1 < this.matchs.get(i).scoreEquipe2) {
-        this.matchs.get(i).equipe1.points += 1;
-        this.matchs.get(i).equipe2.points += 3;
-      }
-      if (this.matchs.get(i).scoreEquipe1 == this.matchs.get(i).scoreEquipe2) {
-        this.matchs.get(i).equipe1.points += 2;
-        this.matchs.get(i).equipe2.points += 2;
-      }
-    }
   }
 
   public Equipes equipeDe(String nomEquipe) {
