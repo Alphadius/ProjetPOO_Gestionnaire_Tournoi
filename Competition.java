@@ -45,6 +45,10 @@ public class Competition {
           return point1 - point2;
       }
     }
+  public nbButEquipe(Equipes equipeTemp){
+    public int nbBut;
+    this.matchs.
+  }
   public String[] triEquipeParPoint(){
     Equipes equipeTemp = new Equipes();
     Match matchTemp = new Match();
