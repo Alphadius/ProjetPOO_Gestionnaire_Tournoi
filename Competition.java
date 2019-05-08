@@ -38,8 +38,8 @@ public class Competition {
   }
 
   // public nbButEquipe(Equipes equipeTemp){
-  //   public int nbBut;
-  //   for(int i = 0; i < this.)
+  // public int nbBut;
+  // for(int i = 0; i < this.)
   // }
   class Sortbypoints implements Comparator<Equipes> {
     // Used for sorting in ascending order of
@@ -51,6 +51,7 @@ public class Competition {
       return point2 - point1;
     }
   }
+
   public String[] triequipeParPoint() {
     Equipes equipeTemp = new Equipes();
     Match matchTemp = new Match();
@@ -72,10 +73,32 @@ public class Competition {
     }
     Collections.sort(tempEquipes, new Sortbypoints());
     for (int i = 0; i < tempEquipes.size(); i++) {
-      result[i] = tempEquipes.get(i).nomEquipe + "  "+ tempEquipes.get(i).points +"<BR>"+"";
+      result[i] = tempEquipes.get(i).nomEquipe + "  " + tempEquipes.get(i).points + "<BR>" + "";
     }
     return result;
   }
+
+  public void triEquipeParVictoire() {
+    for (int j = 0; j < this.equipes.size(); j++) {
+      // Equipe point reinitialiser a 0
+      this.equipes.get(j).points = 0;
+    }
+    for (int i = 0; i < this.matchs.size(); i++) {
+      if (this.matchs.get(i).scoreEquipe1 > this.matchs.get(i).scoreEquipe2) {
+        this.matchs.get(i).equipe1.points += 3;
+        this.matchs.get(i).equipe2.points += 1;
+      }
+      if (this.matchs.get(i).scoreEquipe1 < this.matchs.get(i).scoreEquipe2) {
+        this.matchs.get(i).equipe1.points += 1;
+        this.matchs.get(i).equipe2.points += 3;
+      }
+      if (this.matchs.get(i).scoreEquipe1 == this.matchs.get(i).scoreEquipe2) {
+        this.matchs.get(i).equipe1.points += 2;
+        this.matchs.get(i).equipe2.points += 2;
+      }
+    }
+  }
+
   public Equipes equipeDe(String nomEquipe) {
     Equipes truc = new Equipes();
     for (int i = 0; i < this.equipes.size(); i++) {
@@ -86,72 +109,72 @@ public class Competition {
     return truc;
   }
 
-  public void coachParEquipe (){
-    for(int i=0;i < this.equipes.size();i++){
-      //System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
-      switch (this.equipes.get(i).nomEquipe.toUpperCase()){
-        case "FRANCE":
-        this.equipes.get(i).nomCoach="Didier DESCHAMPS";
+  public void coachParEquipe() {
+    for (int i = 0; i < this.equipes.size(); i++) {
+      // System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
+      switch (this.equipes.get(i).nomEquipe.toUpperCase()) {
+      case "FRANCE":
+        this.equipes.get(i).nomCoach = "Didier DESCHAMPS";
         ;
         break;
-        case "ARGENTINE":
-        this.equipes.get(i).nomCoach="Jorge SAMPAOLI";
+      case "ARGENTINE":
+        this.equipes.get(i).nomCoach = "Jorge SAMPAOLI";
         ;
         break;
-        case "URUGUAY":
-        this.equipes.get(i).nomCoach=" Oscar TABAREZ";
+      case "URUGUAY":
+        this.equipes.get(i).nomCoach = " Oscar TABAREZ";
         ;
         break;
-        case "PORTUGAL":
-        this.equipes.get(i).nomCoach="Fernando SANTOS";
+      case "PORTUGAL":
+        this.equipes.get(i).nomCoach = "Fernando SANTOS";
         ;
         break;
-        case "BRESIL":
-        this.equipes.get(i).nomCoach="TITE";
+      case "BRESIL":
+        this.equipes.get(i).nomCoach = "TITE";
         ;
         break;
-        case "RUSSIE":
-        this.equipes.get(i).nomCoach="Stanislav CHERCHESOV";
+      case "RUSSIE":
+        this.equipes.get(i).nomCoach = "Stanislav CHERCHESOV";
         ;
         break;
-        case "CROATIE":
-        this.equipes.get(i).nomCoach="Zlatko DALIC";
+      case "CROATIE":
+        this.equipes.get(i).nomCoach = "Zlatko DALIC";
         ;
         break;
-        case "DANEMARK":
-        this.equipes.get(i).nomCoach="Age HAREIDE";
+      case "DANEMARK":
+        this.equipes.get(i).nomCoach = "Age HAREIDE";
         ;
         break;
-        case "ESPAGNE":
-        this.equipes.get(i).nomCoach="Fernando HIERRO";
+      case "ESPAGNE":
+        this.equipes.get(i).nomCoach = "Fernando HIERRO";
         ;
         break;
-        case "MEXIQUE":
-        this.equipes.get(i).nomCoach="Juan Carlos OSORIO";
+      case "MEXIQUE":
+        this.equipes.get(i).nomCoach = "Juan Carlos OSORIO";
         ;
         break;
-        case "BELGIQUE":
-        this.equipes.get(i).nomCoach="Roberto MARTINEZ";
+      case "BELGIQUE":
+        this.equipes.get(i).nomCoach = "Roberto MARTINEZ";
         ;
         break;
-        case "JAPON":
-        this.equipes.get(i).nomCoach="Akira NISHINO";
+      case "JAPON":
+        this.equipes.get(i).nomCoach = "Akira NISHINO";
         ;
         break;
-        case "SUEDE":
-        this.equipes.get(i).nomCoach="Janne ANDERSSON";
+      case "SUEDE":
+        this.equipes.get(i).nomCoach = "Janne ANDERSSON";
         ;
         break;
-        case "SUISSE":
-        this.equipes.get(i).nomCoach="Vladimir PETKOVIC";
+      case "SUISSE":
+        this.equipes.get(i).nomCoach = "Vladimir PETKOVIC";
         ;
         break;
-        case "COLOMBIE":
-        this.equipes.get(i).nomCoach="Jose PEKERMAN";
+      case "COLOMBIE":
+        this.equipes.get(i).nomCoach = "Jose PEKERMAN";
         ;
         break;
-        case "ANGLETERRE":
-        this.equipes.get(i).nomCoach="Gareth SOUTHGATE";
+      case "ANGLETERRE":
+        this.equipes.get(i).nomCoach = "Gareth SOUTHGATE";
         ;
         break;
       }
@@ -240,6 +263,7 @@ public class Competition {
     }
 
   }
+
   public void getDataJoueur(String file) {
 
     String nom = "";
@@ -337,6 +361,7 @@ public class Competition {
     // joueurs.get(i).afficherStats(annee);
     // }
   }
+
   public void getDataEquipe(String file) {
     BufferedReader br = null;
     String line;
@@ -348,7 +373,7 @@ public class Competition {
 
       // cherche la liste de toute les équipes dispo dans la bdd et la transformer en
       // objet
-      while((line = br.readLine()) != null) {
+      while ((line = br.readLine()) != null) {
         Equipes equipe1 = new Equipes();
         equipe1.nomEquipe = line;
         this.equipes.add(equipe1);
@@ -384,8 +409,9 @@ public class Competition {
     // joueurs.get(i).afficherStats(annee);
     // }
   }
-    public void getDataMatch(String file,Competition origin){
-        BufferedReader br = null;
+
+  public void getDataMatch(String file, Competition origin) {
+    BufferedReader br = null;
     String line;
     int count = 0;
     Equipes nomEquipe1 = new Equipes();
@@ -406,7 +432,7 @@ public class Competition {
       this.mDebut = Integer.valueOf(line);
       line = br.readLine();
       this.aDebut = Integer.valueOf(line);
-      while((line = br.readLine()) != null) {
+      while ((line = br.readLine()) != null) {
         switch (count) {
         case 0:
           nomEquipe1 = this.equipeDe(line);
@@ -416,29 +442,30 @@ public class Competition {
           break;
         case 2:
           score1 = Integer.valueOf(line);
-        
+
           break;
         case 3:
           score2 = Integer.valueOf(line);
- 
+
           break;
         case 4:
           tour = Integer.valueOf(line);
           Match temp;
-          temp = new Match(nomEquipe1,nomEquipe2,score1,score2,tour);
+          temp = new Match(nomEquipe1, nomEquipe2, score1, score2, tour);
           matchTemp.add(temp);
           break;
-      
+
         }
-        count = (count +1)%5;
+        count = (count + 1) % 5;
       }
       this.matchs = matchTemp;
-     
+
     } catch (IOException e) {
       // si ya une erreur
       e.printStackTrace();
     }
   }
+
   public void writeDataJoueur(String file) {
 
     PrintWriter writer = null;
@@ -473,6 +500,7 @@ public class Competition {
     }
     writer.close();
   }
+
   public void writeDataEquipe(String file) {
     PrintWriter writer = null;
     try {
@@ -481,7 +509,7 @@ public class Competition {
       // et les mettres en page de manière à etre lisible pour le buffer
       for (int i = 0; i < this.equipes.size(); i++) {
         Equipes temp = this.equipes.get(i);
-        //writer.println(temp.nomEquipe);
+        // writer.println(temp.nomEquipe);
       }
     } catch (FileNotFoundException e) {
       // sortie erreur
@@ -489,7 +517,8 @@ public class Competition {
     }
     writer.close();
   }
-    public void writeDataMatch(String file) {
+
+  public void writeDataMatch(String file) {
 
     PrintWriter writer = null;
     try {
