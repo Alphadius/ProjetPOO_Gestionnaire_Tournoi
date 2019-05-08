@@ -99,7 +99,7 @@ public class controllerCompetition{
 			sendMatch();
 			theModel.trierParEquipe();
 			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
-			theView.btnClassementP.requestFocus();
+			theView.btnClassement.requestFocus();
 			theModel.coachParEquipe();
 			theView.goListMatch();
 		}
@@ -129,7 +129,14 @@ public class controllerCompetition{
 		}
 		class listenclassement implements ActionListener{
 			public void actionPerformed(ActionEvent e){
-
+				JDialog d = new JDialog(theView, "classement");
+				String classement = "";
+				for(int i = 0; i < theModel.equipes.size(); i++){
+					classement = classement + theModel.triequipeParPoint()[i]+ "<BR>";
+				}
+				d.add( new JLabel ("<html>"+classement+"</html>"));
+				d.setSize(1000,1000);
+				d.setVisible(true);
 			}
 		}
 		

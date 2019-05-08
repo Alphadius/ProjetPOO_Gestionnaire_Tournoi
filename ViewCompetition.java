@@ -331,7 +331,6 @@ public class ViewCompetition extends JFrame {
 	public void addCompEntreeListener(ActionListener listenForvalidButton) {
 		creerComp.addActionListener(listenForvalidButton);
 	}
-
 	public void addchoixEquipeListener(ActionListener listenForchoixEquipe) {
 		choixEquipeButton.addActionListener(listenForchoixEquipe);
 	}
@@ -360,13 +359,11 @@ public class ViewCompetition extends JFrame {
 		stat.setText("");
 		card.show(c, "listMatch");
 	}
-
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { // Renommer ; permet de récupérer le nom de la competition depuis la
 													// class etc.
 		labelNomCompetition.setText("<html><h2>" + nomComp + "</h2></html>");
 	}
-
 	public void setNbEquipes(int nbEquipes) {
 		labelNbEquipes.setText(String.valueOf(nbEquipes));
 	}

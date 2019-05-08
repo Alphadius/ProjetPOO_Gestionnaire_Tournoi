@@ -15,6 +15,7 @@ public class main{
 					theModel.trierParEquipe();
 					origin.trierParEquipe();
 					origin.coachParEquipe();
+					origin.triequipeParPoint();
 					System.out.println(origin.equipeDe("france").nomCoach);
 					System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());		
 		ViewCompetition theView = new ViewCompetition(origin, theModel);

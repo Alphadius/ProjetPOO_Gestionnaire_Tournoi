@@ -48,10 +48,10 @@ public class Competition {
     public int compare(Equipes a, Equipes b) {
       int point1 = a.points;
       int point2 = b.points;
-      return point1 - point2;
+      return point2 - point1;
     }
   }
-  public String[] triquipeParPoint() {
+  public String[] triequipeParPoint() {
     Equipes equipeTemp = new Equipes();
     Match matchTemp = new Match();
     List<Equipes> tempEquipes = new ArrayList<Equipes>();
@@ -72,7 +72,8 @@ public class Competition {
     }
     Collections.sort(tempEquipes, new Sortbypoints());
     for (int i = 0; i < tempEquipes.size(); i++) {
-      result[i] = tempEquipes.get(i).nomEquipe;
+      result[i] = tempEquipes.get(i).nomEquipe + "  "+ tempEquipes.get(i).points +"<BR>"+"";
+       System.out.println(result[i]);
     }
     return result;
   }
