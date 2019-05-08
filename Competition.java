@@ -1,4 +1,5 @@
 package compMaker.model;
+
 import java.util.*;
 import java.io.FileNotFoundException;
 import java.io.BufferedReader;
@@ -35,45 +36,49 @@ public class Competition {
     nomCompetition = nom;
 
   }
-  class Sortbypoints implements Comparator<Equipes> { 
-      // Used for sorting in ascending order of 
-      // roll number 
-        
-      public int compare(Joueur a, Joueur b) { 
-        int point1 = a.points;
-          String point2 = b.points;
-          return point1 - point2;
-      }
+
+  class Sortbypoints implements Comparator<Equipes> {
+    // Used for sorting in ascending order of
+    // roll number
+
+    public int compare(Joueur a, Joueur b) {
+      int point1 = a.points;
+      String point2 = b.points;
+      return point1 - point2;
     }
+  }
+
   public nbButEquipe(Equipes equipeTemp){
     public int nbBut;
     this.matchs.
   }
-  public String[] triEquipeParPoint(){
+
+  public String[] triquipeParPoint() {
     Equipes equipeTemp = new Equipes();
     Match matchTemp = new Match();
     List<Equipes> tempEquipes = new ArrayList<Equipes>();
     String result[] = new String[comp.equipes.size()];
     tempEquipes = comp.equipes;
     int sum[] = new int[comp.equipes.size()];
-    for(int i = 0; i < comp.equipes.size(); i++){
+    for (int i = 0; i < comp.equipes.size(); i++) {
       equipeTemp = comp.equipes.get(i);
-      for(int j = 0; j < comp.matchs.size(); j++){
+      for (int j = 0; j < comp.matchs.size(); j++) {
         matchTemp = comp.matchs.get(j);
-        if(equipeTemp == matchTemp.equipe1){
+        if (equipeTemp == matchTemp.equipe1) {
           sum[i] += matchTemp.equipe1.score;
-        }else if(equipeTemp == matchTemp.equipe2){
+        } else if (equipeTemp == matchTemp.equipe2) {
           sum[i] += matchTemp.equipe2.score;
         }
       }
       equipeTemp.points = sum[i];
-    } 
-      Collections.sort(tempEquipes, new sortbyscore());
-      for(int i = 0; i < tempEquipes.size(); i++){
-        result[i] = tempEquipes.get(i);
-      }
-      return result;
     }
+    Collections.sort(tempEquipes, new sortbyscore());
+    for (int i = 0; i < tempEquipes.size(); i++) {
+      result[i] = tempEquipes.get(i);
+    }
+    return result;
+  }
+
   public Equipes equipeDe(String nomEquipe) {
     Equipes truc = new Equipes();
     for (int i = 0; i < this.equipes.size(); i++) {
@@ -82,6 +87,77 @@ public class Competition {
       }
     }
     return truc;
+  }
+
+  public void coachParEquipe (){
+    for(i=0;i < this.equipes.size();i++){
+      switch (this.equipes.get(i).nomEquipe.toUpperCase()){
+        case "FRANCE":
+        this.equipes.get(i).nomCoach="Didier DESCHAMPS";
+        ;
+        break;
+        case "ARGENTINE":
+        this.equipes.get(i).nomCoach="Jorge SAMPAOLI";
+        ;
+        break;
+        case "URUGUAY":
+        this.equipes.get(i).nomCoach=" Oscar TABAREZ";
+        ;
+        break;
+        case "PORTUGAL":
+        this.equipes.get(i).nomCoach="Fernando SANTOS";
+        ;
+        break;
+        case "BRESIL":
+        this.equipes.get(i).nomCoach="TITE";
+        ;
+        break;
+        case "RUSSIE":
+        this.equipes.get(i).nomCoach="Stanislav CHERCHESOV";
+        ;
+        break;
+        case "CROATIE":
+        this.equipes.get(i).nomCoach="Zlatko DALIC";
+        ;
+        break;
+        case "DANEMARK":
+        this.equipes.get(i).nomCoach="Age HAREIDE";
+        ;
+        break;
+        case "ESPAGNE":
+        this.equipes.get(i).nomCoach="Fernando HIERRO";
+        ;
+        break;
+        case "MEXIQUE":
+        this.equipes.get(i).nomCoach="Juan Carlos OSORIO";
+        ;
+        break;
+        case "BELGIQUE":
+        this.equipes.get(i).nomCoach="Roberto MARTINEZ";
+        ;
+        break;
+        case "JAPON":
+        this.equipes.get(i).nomCoach="Akira NISHINO";
+        ;
+        break;
+        case "SUEDE":
+        this.equipes.get(i).nomCoach="Janne ANDERSSON";
+        ;
+        break;
+        case "SUISSE":
+        this.equipes.get(i).nomCoach="Vladimir PETKOVIC";
+        ;
+        break;
+        case "COLOMBIE":
+        this.equipes.get(i).nomCoach="Jose PEKERMAN";
+        ;
+        break;
+        case "ANGLETERRE":
+        this.equipes.get(i).nomCoach="Gareth SOUTHGATE";
+        ;
+        break;
+      }
+    }
   }
 
   public void trierParEquipe() {
@@ -121,8 +197,9 @@ public class Competition {
     String date = "(" + jDebut + "/" + mDebut + "/" + aDebut + ")";
     return date;
   }
+
   public void CombiMatch(int nbEquipes) {
-// Ce parti permet de verifier ce qui ce produit en Console
+    // Ce parti permet de verifier ce qui ce produit en Console
     // Scanner reader = new Scanner(System.in);
     // System.out.println("Veuillez saisir le jour de debut de la competition:");
     // this.jDebut = reader.nextInt();
@@ -336,55 +413,53 @@ public class Competition {
     // }
   }
 
-
-
-
   public void writeDataJoueur(String file) {
 
     PrintWriter writer = null;
-    try{
-      writer = new PrintWriter(file+"Joueur.txt");
-          //on va transformer nos objet en fichier txt avec des boucle for ... 
-    //et les mettres en page de manière à etre lisible pour le buffer
-    for(int i = 0; i < this.joueurs.size(); i++){
-      Joueur temp = this.joueurs.get(i);
-      writer.println(temp.nom);
-      writer.println(temp.prenom);
-      writer.println(temp.dateNaissance);
-      writer.println(temp.position);
-      writer.println(temp.vitesse);
-      writer.println(temp.tirs);
-      writer.println(temp.passes);
-      writer.println(temp.dribbles);
-      writer.println(temp.defense);
-      writer.println(temp.physique);
-      writer.println(temp.equipe);
-      writer.println(temp.numeroJoueur);
-      if(temp.titulaire == true){
-        writer.println(1);
-      }else{
-        writer.println(0);
+    try {
+      writer = new PrintWriter(file + "Joueur.txt");
+      // on va transformer nos objet en fichier txt avec des boucle for ...
+      // et les mettres en page de manière à etre lisible pour le buffer
+      for (int i = 0; i < this.joueurs.size(); i++) {
+        Joueur temp = this.joueurs.get(i);
+        writer.println(temp.nom);
+        writer.println(temp.prenom);
+        writer.println(temp.dateNaissance);
+        writer.println(temp.position);
+        writer.println(temp.vitesse);
+        writer.println(temp.tirs);
+        writer.println(temp.passes);
+        writer.println(temp.dribbles);
+        writer.println(temp.defense);
+        writer.println(temp.physique);
+        writer.println(temp.equipe);
+        writer.println(temp.numeroJoueur);
+        if (temp.titulaire == true) {
+          writer.println(1);
+        } else {
+          writer.println(0);
+        }
+
       }
-      
-    }
-    }catch(FileNotFoundException e){
-      //sortie erreur
+    } catch (FileNotFoundException e) {
+      // sortie erreur
       e.printStackTrace();
     }
-    writer.close(); 
+    writer.close();
   }
-    public void writeDataEquipe(String file) {
+
+  public void writeDataEquipe(String file) {
     PrintWriter writer = null;
-    try{
-      writer = new PrintWriter(file+"Equipe.txt");
-          //on va transformer nos objet en fichier txt avec des boucle for ... 
-    //et les mettres en page de manière à etre lisible pour le buffer
-    for(int i = 0; i < this.equipes.size(); i++){
-      Equipes temp = this.equipes.get(i);
-      writer.println(temp.nomEquipe);  
-    }
-    }catch(FileNotFoundException e){
-      //sortie erreur
+    try {
+      writer = new PrintWriter(file + "Equipe.txt");
+      // on va transformer nos objet en fichier txt avec des boucle for ...
+      // et les mettres en page de manière à etre lisible pour le buffer
+      for (int i = 0; i < this.equipes.size(); i++) {
+        Equipes temp = this.equipes.get(i);
+        writer.println(temp.nomEquipe);
+      }
+    } catch (FileNotFoundException e) {
+      // sortie erreur
       e.printStackTrace();
     }
     writer.close();
