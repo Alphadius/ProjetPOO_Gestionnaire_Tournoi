@@ -24,6 +24,7 @@ public class ViewCompetition extends JFrame {
 	public JTextField txtModifierScore1 = new JTextField(10);
 	public JTextField txtModifierScore2 = new JTextField(10);
 	public JButton btnModifierScore = new JButton("Modifier le score");
+	public JButton btnClassement = new JButton("Classement");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
@@ -146,14 +147,6 @@ public class ViewCompetition extends JFrame {
 		//////////////////////////
 		JPanel listMatchPanel = new JPanel(new BorderLayout()); // Panel pour le label
 		JPanel listMatchTablePanel = new JPanel(new BorderLayout()); // Panel pour le tableau
-		// JScrollPane scroll = new JScrollPane();
-		listMatchPanel.setLayout(new GridBagLayout());
-
-		/*
-		 * gbc.weightx = 1; gbc.weighty = 1;
-		 */
-		gbc(0, 2, 2, 0);
-		//listMatchPanel.add(labelNomCompetition, gbc);
 
 		// IMPORTATION DU TABLEAU JTABLE DES EQUIPES
 		// Render des boutons cliquables de la table
@@ -169,16 +162,12 @@ public class ViewCompetition extends JFrame {
 		;
 		table.getColumnModel().getColumn(6).setCellEditor(new ButtonEditor(new JTextField()));
 
-		////
-		//gbc.weightx = 1; gbc.weighty = 1;
-		gbc(0, 2, 2, 2);
-		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		// JScrollBar bar = scrollPane.getVerticalScrollBar();
-		// bar.setPreferredSize(new Dimension(40, 0));
-		listMatchPanel.add(scrollPane, gbc);
-		// REMPLIR LE CHOIX DES EQUIPES INTERFACE
-		//c.add("listMatch", listMatchPanel);
-		c.add("listMatch", scrollPane);
+		// JScrollPane de la table
+		JScrollPane scrollPane = new JScrollPane(table);
+		listMatchPanel.add(scrollPane, BorderLayout.CENTER);
+		listMatchPanel.add(btnClassement, BorderLayout.SOUTH);
+		c.add("listMatch", listMatchPanel);
+		//c.add("listMatch", scrollPane);
 
 		// ACTION DU BOUTON START DE LA PREMIERE PAGE
 		start.addActionListener(new ActionListener() {
