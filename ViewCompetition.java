@@ -25,6 +25,7 @@ public class ViewCompetition extends JFrame {
 	public JTextField txtModifierScore2 = new JTextField(10);
 	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JButton btnClassement = new JButton("Classement");
+	public JButton btnSaveListMatch = new JButton("Sauvegarder");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
 	public JLabel labelDateStart = new JLabel();
@@ -165,7 +166,13 @@ public class ViewCompetition extends JFrame {
 		// JScrollPane de la table
 		JScrollPane scrollPane = new JScrollPane(table);
 		listMatchPanel.add(scrollPane, BorderLayout.CENTER);
-		listMatchPanel.add(btnClassement, BorderLayout.SOUTH);
+		JPanel btnClassementP = new JPanel(new BorderLayout());
+		JPanel btnSaveP = new JPanel(new BorderLayout());
+		
+		btnClassementP.add(btnClassement, BorderLayout.WEST);
+		btnClassementP.add(btnSaveListMatch, BorderLayout.EAST);
+		listMatchPanel.add(btnClassementP, BorderLayout.SOUTH);
+		//listMatchPanel.add(btnSaveP, BorderLayout.SOUTH);
 		c.add("listMatch", listMatchPanel);
 		//c.add("listMatch", scrollPane);
 
@@ -273,10 +280,13 @@ public class ViewCompetition extends JFrame {
 		// boxEquipe=new JComboBox(listJParEquipe);
 	}
 
+	//////////////////////////
+	// PANEL : CLASSEMENT
+	//////////////////////////
 
 
 
-
+	//////
 	public int getNbEquipes() {
 		int machin = 0;
 		if (textfieldNbEquipes.getText().equals("")) {
