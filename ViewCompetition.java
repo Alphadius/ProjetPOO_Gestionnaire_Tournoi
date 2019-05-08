@@ -166,6 +166,7 @@ public class ViewCompetition extends JFrame {
 
 		// JScrollPane de la table
 		JScrollPane scrollPane = new JScrollPane(table);
+		listMatchPanel.add(labelNomCompetition, BorderLayout.NORTH);
 		listMatchPanel.add(scrollPane, BorderLayout.CENTER);
 		btnClassementP = new JPanel(new BorderLayout());
 		JPanel btnSaveP = new JPanel(new BorderLayout());
