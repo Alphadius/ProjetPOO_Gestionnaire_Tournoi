@@ -39,7 +39,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel labelNumeroTour = new JLabel();
 	public JLabel titreEquipe = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
-	public JCheckBox matchAEuLieu = new JCheckBox();
+	public JButton matchAEuLieu = new JButton("Le match a eu lieu");
 	public JLabel stat = new JLabel();
 	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
@@ -208,9 +208,16 @@ public class ViewCompetition extends JFrame {
 		gbc(3, 1, 1, 6);
 		detailsMatchPanel.add(txtModifierScore2, gbc);
 		gbc(5, 1, 1, 7);
-		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
-		gbc(6, 1, 1, 7);
-		detailsMatchPanel.add(new JLabel("<html>Le match a eu lieu"), gbc);
+		detailsMatchPanel.add(matchAEuLieu, gbc);
+		matchAEuLieu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(matchAEuLieu.getText() == "Le match a eu lieu") {
+					matchAEuLieu.setText("Le match n'a pas eu lieu");
+				} else {
+					matchAEuLieu.setText("Le match a eu lieu");
+				}
+			}
+		});
 		//detailsMatchPanel.add(labelNumeroTour, gbc);
 		gbc(5, 1, 1, 6);
 		detailsMatchPanel.add(btnModifierScore, gbc);
