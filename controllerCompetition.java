@@ -130,9 +130,11 @@ public class controllerCompetition{
 		}
 		class listenload implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
+				theView.comp = theModel;
 				String filename = theView.txtLoadCompetition.getText();
 				theModel.getDataJoueur("data/"+filename+"Joueur");
 				theModel.getDataEquipe("data/"+filename+"Equipe");
+				theModel.coachParEquipe();
 				theModel.trierParEquipe();
 				theModel.getDataMatch("data/"+filename+"Match",origin);
 				System.out.println("bite");

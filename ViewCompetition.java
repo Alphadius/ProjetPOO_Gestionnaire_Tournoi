@@ -445,7 +445,9 @@ public class ViewCompetition extends JFrame {
 				// CLIC SUR DETAILS
 				if (lbl.matches(".*\\d.*")) {
 					Match matchTemp = new Match();
+					System.out.println("lbl c'est : "+lbl);
 					matchTemp = comp.matchs.get(Integer.parseInt(lbl));
+					System.out.println(matchTemp.equipe1.nomEquipe);
 					String infoMatch = "<html><h1>" + matchTemp.equipe1.nomEquipe + " - " + matchTemp.equipe2.nomEquipe
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
 							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp.jDebut,comp.mDebut,comp.aDebut) + "</p></html>";
@@ -462,6 +464,7 @@ public class ViewCompetition extends JFrame {
 					card.show(c, "detailsMatch");
 				} else {
 					Equipes equipeTemp = new Equipes();
+					System.out.println("lbl c'est détailsEquipe : "+lbl);
 					equipeTemp = comp.equipeDe(lbl);
 					String infoEquipe = "<html><h2> </h2><p>Coach : " + equipeTemp.nomCoach
 							+ "</p><p>" + equipeTemp.nombreJoueurs + " joueurs</p><p>" + equipeTemp.points
