@@ -14,9 +14,11 @@ public class ViewCompetition extends JFrame {
 	public Competition origin;
 
 	// Elements divers de panels
+	public Object[][] data = new Object[130][7];
 	public JTextField textfieldNomCompetition = new JTextField(21);
 	public JTextField textfieldNbEquipes = new JTextField(21);
 	public JTextField textfieldJour = new JTextField(7);
+	public JPanel choixEquipePanel = new JPanel(new BorderLayout());
 	public JTextField textfieldMois = new JTextField(7);
 	public JTextField textfieldAnnee = new JTextField(7);
 	public JTextField txtModifierScore1 = new JTextField(3);
@@ -45,7 +47,6 @@ public class ViewCompetition extends JFrame {
 	private JButton boutonDetailsEquipe = new JButton();
 
 	// Tableau Match
-	Object[][] data = new Object[130][7];
 	String columnHeaders[] = { "Équipe 1", "détails", "Équipe 2", "détails", "Score", "Date", "Modifier" };
 	public JTable table = new JTable(data, columnHeaders);
 
@@ -116,16 +117,7 @@ public class ViewCompetition extends JFrame {
 		c.add("competition", creerCompetitionPanel);
 
 		// CHOIX DES EQUIPES
-		JPanel choixEquipePanel = new JPanel(new BorderLayout());
 		choixEquipePanel.setLayout(new GridBagLayout());
-		for (int i = 0; i < 16; i++) {
-			int a = i % 4;
-			int b = i / 4;
-			JButton buttonTemp = new JButton(origin.equipes.get(i).nomEquipe);
-			gbc(a, 1, 1, b);
-			onClickDrapeau(buttonTemp, buttonTemp.getText());
-			choixEquipePanel.add(buttonTemp, gbc);
-		}
 		gbc(4, 1, 1, 3);
 		choixEquipePanel.add(choixEquipeButton);
 
@@ -236,17 +228,10 @@ public class ViewCompetition extends JFrame {
 			}
 		});
 		//gbc(posx, width, height, posy);
-		buttonRetourListMatch.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				sendMatch(comp);
-				table.repaint();
-				card.show(c, "listMatch");
-			}
-		});
 		buttonRetourListMatchB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Refresh table data et score
-				sendMatch(comp);
+				//sendMatch(comp);
 				table.repaint();
 				txtModifierScore1.setText("");
 				txtModifierScore2.setText("");
@@ -341,31 +326,6 @@ public class ViewCompetition extends JFrame {
 		return Integer.parseInt(textfieldJour.getText());
 	}
 
-	public void onClickDrapeau(JButton bouton, String nomPays) {
-		bouton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Color actualcolor = bouton.getBackground();
-				if (actualcolor.equals(Color.GREEN)) {
-					countFlag--;
-					for (int i = 0; i < comp.equipes.size(); i++) {
-						if (comp.equipes.get(i).nomEquipe == bouton.getText()) {
-							comp.equipes.remove(i);
-						}
-					}
-					bouton.setBackground(new JButton().getBackground());
-					bouton.setOpaque(true);
-				} else {
-					countFlag++;
-					comp.equipes.add(origin.equipeDe(bouton.getText()));
-					bouton.setBackground(Color.GREEN);
-				}
-				if (countFlag == comp.sendNbEquipe()) {
-					JOptionPane.showMessageDialog(null, "Vous avez selectionné " + comp.sendNbEquipe() + " Equipes");
-				}
-			}
-		});
-	}
-
 	public int getMois() {
 		return Integer.parseInt(textfieldMois.getText());
 	}
@@ -405,6 +365,9 @@ public class ViewCompetition extends JFrame {
 	public void addRetourListener(ActionListener listenForRetourButton) {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
+	public void addRetourListlistener(ActionListener listenForRetourButton){
+		buttonRetourListMatch.addActionListener(listenForRetourButton);
+	}
 
 	public void retourListMatch() {
 		stat.setText("");
@@ -436,21 +399,6 @@ public class ViewCompetition extends JFrame {
 
 	public void afficherErreur(Exception erreur) {
 		JOptionPane.showMessageDialog(null, erreur);
-	}
-
-	public void sendMatch(Competition comp) {
-		for (int i = 0; i < comp.matchs.size(); i++) {
-			Match tempMatch = new Match();
-			tempMatch = comp.sendMatch(i);
-			data[i][0] = tempMatch.equipe1.nomEquipe;
-			data[i][1] = tempMatch.equipe1.nomEquipe;
-			data[i][2] = tempMatch.equipe2.nomEquipe;
-			data[i][3] = tempMatch.equipe2.nomEquipe;
-			data[i][4] = tempMatch.scoreEquipe1 + " - " + tempMatch.scoreEquipe2;
-			tempMatch.tour = i;
-			data[i][5] = tempMatch.afficherDate(comp.jDebut,comp.mDebut,comp.aDebut);
-			data[i][6] = i;
-		}
 	}
 
 	// BOUTONS CLIQUABLES DANS LA JTABLE DES MATCHS
