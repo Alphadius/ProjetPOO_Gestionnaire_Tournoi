@@ -384,6 +384,31 @@ public class Competition {
     // joueurs.get(i).afficherStats(annee);
     // }
   }
+  public void getDataEquipe(String file) {
+    BufferedReader br = null;
+    String line;
+    int count = 0;
+    List<Equipes> equipeTemp = new ArrayList<Equipes>();
+    try {
+      // va chercher le fichier demandé
+      br = new BufferedReader(new FileReader(file + ".txt"));
+
+      // cherche la liste de toute les équipes dispo dans la bdd et la transformer en
+      // objet
+      while((line = br.readLine()) != null) {
+        Equipes equipe1 = new Equipes();
+        equipe1.nomEquipe = line;
+        this.equipes.add(equipe1);
+        // System.out.println(equipe1.nomEquipe+""+i);
+      }
+    } catch (IOException e) {
+      // si ya une erreur
+      e.printStackTrace();
+    }
+    // for(int i = 0; i < 3; i++){
+    // joueurs.get(i).afficherStats(annee);
+    // }
+  }
 
   public void getDataEquipe(String file, int nb) {
     BufferedReader br = null;
@@ -411,7 +436,66 @@ public class Competition {
     // joueurs.get(i).afficherStats(annee);
     // }
   }
+    public void getDataMatch(String file,Competition origin){
+        BufferedReader br = null;
+    String line;
+    int count = 0;
+    Equipes nomEquipe1;
+    Equipes nomEquipe2;
+    int score1;
+    int score2;
+    int tour;
+    List<Match> matchTemp = new ArrayList<Match>();
+    try {
+      // va chercher le fichier demandé
+      br = new BufferedReader(new FileReader(file + ".txt"));
 
+      // cherche la liste de toute les équipes dispo dans la bdd et la transformer en
+      // objet
+      line = br.readLine();
+      this.jDebut = Integer.valueOf(line);
+      System.out.println(line);
+      line = br.readLine();
+      this.mDebut = Integer.valueOf(line);
+      System.out.println(line);
+      line = br.readLine();
+      this.aDebut = Integer.valueOf(line);
+      System.out.println(line);
+      while((line = br.readLine()) != null) {
+        switch (count) {
+        case 0:
+          nomEquipe1 = this.equipeDe(line);
+          System.out.println(line);
+          break;
+        case 1:
+          nomEquipe2 = this.equipeDe(line);
+          System.out.println(line);
+          break;
+        case 2:
+          score1 = Integer.valueOf(line);
+          break;
+        case 3:
+          score2 = Integer.valueOf(line);
+          System.out.println(line);
+          break;
+        case 4:
+          tour = Integer.valueOf(line);
+          System.out.println(line);
+          Match temp;
+          temp = new Match(nomEquipe1,nomEquipe2,score1,score2,tour);
+          matchTemp.add(temp);
+          System.out.println(temp.equipe1.nomEquipe);
+          break;
+        // System.out.println(equipe1.nomEquipe+""+i);
+        }
+      }
+      this.matchs = matchTemp;
+      // System.out.println(this.matchs.get(1).equipe1.nomEquipe);
+    } catch (IOException e) {
+      // si ya une erreur
+      e.printStackTrace();
+    }
+  }
   public void writeDataJoueur(String file) {
 
     PrintWriter writer = null;
@@ -446,7 +530,6 @@ public class Competition {
     }
     writer.close();
   }
-
   public void writeDataEquipe(String file) {
     PrintWriter writer = null;
     try {
@@ -456,6 +539,30 @@ public class Competition {
       for (int i = 0; i < this.equipes.size(); i++) {
         Equipes temp = this.equipes.get(i);
         writer.println(temp.nomEquipe);
+      }
+    } catch (FileNotFoundException e) {
+      // sortie erreur
+      e.printStackTrace();
+    }
+    writer.close();
+  }
+    public void writeDataMatch(String file) {
+
+    PrintWriter writer = null;
+    try {
+      writer = new PrintWriter(file + "Match.txt");
+      // on va transformer nos objet en fichier txt avec des boucle for ...
+      // et les mettres en page de manière à etre lisible pour le buffer
+      writer.println(this.jDebut);
+      writer.println(this.mDebut);
+      writer.println(this.aDebut);
+      for (int i = 0; i < this.matchs.size(); i++) {
+        Match temp = this.matchs.get(i);
+        writer.println(temp.equipe1.nomEquipe);
+        writer.println(temp.equipe2.nomEquipe);
+        writer.println(temp.scoreEquipe1);
+        writer.println(temp.scoreEquipe2);
+        writer.println(i);
       }
     } catch (FileNotFoundException e) {
       // sortie erreur

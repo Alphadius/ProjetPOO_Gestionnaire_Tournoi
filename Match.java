@@ -13,9 +13,12 @@ public class Match {
     this.equipe2 = null;
   }
 
-  public Match(Equipes equipe1, Equipes equipe2) {
+  public Match(Equipes equipe1, Equipes equipe2,int score1, int score2, int tour) {
+    this.scoreEquipe1 = scoreEquipe1;
+    this.scoreEquipe2 = scoreEquipe2;
     this.equipe1 = equipe1;
     this.equipe2 = equipe2;
+    this.tour = tour;
   }
 
   public void putScore(int a, int b) {
@@ -23,7 +26,6 @@ public class Match {
     this.scoreEquipe1 = a; 
     this.scoreEquipe2 = b;
   }
-
   public String afficherDate(int a, int b, int c) { // permet de calculer la date d'un match
     int jourTemp = a;
     int moisTemp = b;

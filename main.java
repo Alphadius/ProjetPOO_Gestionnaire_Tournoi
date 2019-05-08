@@ -9,13 +9,14 @@ public class main{
 		origin.getDataEquipe("data/BDDEquipe",16);
 		origin.writeDataJoueur("data/origin");
 		origin.writeDataEquipe("data/origin");
+		origin.CombiMatch(origin.equipes.size());
+		origin.writeDataMatch("data/origin");
 		Competition theModel = new Competition();
 		// theModel.getDataEquipe("BDDEquipe",16);
 					theModel.getDataJoueur("data/BDDJoueur");
 					theModel.trierParEquipe();
 					origin.trierParEquipe();
 					origin.coachParEquipe();
-					origin.triequipeParPoint();
 					System.out.println(origin.equipeDe("france").nomCoach);
 					System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());		
 		ViewCompetition theView = new ViewCompetition(origin, theModel);

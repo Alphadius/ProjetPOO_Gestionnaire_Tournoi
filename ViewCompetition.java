@@ -14,6 +14,8 @@ public class ViewCompetition extends JFrame {
 	public Competition origin;
 
 	// Elements divers de panels
+	public JPanel loadCompetitionPanel = new JPanel(new BorderLayout());
+	public JButton btnLoadCompetition = new JButton("Charger");
 	public Object[][] data = new Object[130][7];
 	public JTextField textfieldNomCompetition = new JTextField(21);
 	public JTextField textfieldNbEquipes = new JTextField(21);
@@ -23,6 +25,7 @@ public class ViewCompetition extends JFrame {
 	public JTextField textfieldAnnee = new JTextField(7);
 	public JTextField txtModifierScore1 = new JTextField(10);
 	public JTextField txtModifierScore2 = new JTextField(10);
+	public JTextField txtLoadCompetition = new JTextField(20);
 	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JButton btnClassement = new JButton("Classement");
 	public JPanel btnClassementP;
@@ -133,11 +136,8 @@ public class ViewCompetition extends JFrame {
 		//////////////////////////
 		// PANEL loadCompetition
 		//////////////////////////
-		JPanel loadCompetitionPanel = new JPanel(new BorderLayout());
-		JButton btnLoadCompetition = new JButton("Charger");
 		loadCompetitionPanel.setLayout(new GridBagLayout());
 		//gbc.fill = GridBagConstraints.BOTH;
-		JTextField txtLoadCompetition = new JTextField(20);
 		gbc(0, 1, 1, 0);
 		loadCompetitionPanel.add(txtLoadCompetition, gbc);
 		gbc(0, 1, 1, 1);
@@ -337,11 +337,17 @@ public class ViewCompetition extends JFrame {
 	public void addChargerCompListener(ActionListener listenForChargerComp){
 		buttonChargerCompetition.addActionListener (listenForChargerComp);
 	}
+	public void addSaveListener(ActionListener a){
+		btnSaveListMatch.addActionListener(a);
+	}
 	public void addRetourListBlistener(ActionListener listenForRetourButtonB){
 		buttonRetourListMatchB.addActionListener(listenForRetourButtonB);
 	}
 	public void addRetourListener(ActionListener listenForRetourButton) {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
+	}
+	public void addloadcompListener(ActionListener a){
+		btnLoadCompetition.addActionListener(a);
 	}
 	public void addRetourListlistener(ActionListener listenForRetourButton){
 		buttonRetourListMatch.addActionListener(listenForRetourButton);

@@ -27,6 +27,8 @@ public class controllerCompetition{
 		this.theView.addModifScoreListener(new listenModifScore());
 		this.theView.addAfficherStatListener(new listenStat());
 		this.theView.addClassementListener(new listenclassement());
+		this.theView.addloadcompListener(new listenload());
+		this.theView.addSaveListener(new listensave());
 	}
 
 	class ValidListener implements ActionListener{
@@ -104,6 +106,13 @@ public class controllerCompetition{
 			theView.goListMatch();
 		}
 	}
+	class listensave implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			theModel.writeDataJoueur("data/"+theModel.nomCompetition);
+			theModel.writeDataEquipe("data/"+theModel.nomCompetition);
+			theModel.writeDataMatch("data/"+theModel.nomCompetition);
+		}
+	}
 		class listenModifScore implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				int a , b;
@@ -117,6 +126,18 @@ public class controllerCompetition{
 				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(theModel.jDebut, theModel.mDebut, theModel.aDebut) + "</p></html>";
 				theView.labelStatsMatch.setText(infoMatch);
 				//refresh jlabel
+			}
+		}
+		class listenload implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				String filename = theView.txtLoadCompetition.getText();
+				theModel.getDataJoueur("data/"+filename+"Joueur");
+				theModel.getDataEquipe("data/"+filename+"Equipe");
+				theModel.trierParEquipe();
+				theModel.getDataMatch("data/"+filename+"Match",origin);
+				System.out.println("bite");
+				sendMatch();
+				theView.card.show(theView.c, "listMatch");
 			}
 		}
 		class listenStat implements ActionListener{
@@ -177,7 +198,9 @@ public class controllerCompetition{
 		}
 	}
 	public void sendMatch() {
+		System.out.println(theModel.matchs.size());
 		for (int i = 0; i < theModel.matchs.size(); i++) {
+			System.out.println(i);
 			Match tempMatch = new Match();
 			tempMatch = theModel.sendMatch(i);
 			theView.data[i][0] = tempMatch.equipe1.nomEquipe;
