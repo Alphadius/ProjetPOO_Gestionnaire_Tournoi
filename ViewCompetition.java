@@ -167,10 +167,15 @@ public class ViewCompetition extends JFrame {
 		table.getColumnModel().getColumn(6).setCellEditor(new ButtonEditor(new JTextField()));
 
 		////
+		//gbc.weightx = 1; gbc.weighty = 1;
 		gbc(0, 2, 2, 2);
-		listMatchPanel.add(new JScrollPane(table), gbc);
+		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		// JScrollBar bar = scrollPane.getVerticalScrollBar();
+		// bar.setPreferredSize(new Dimension(40, 0));
+		listMatchPanel.add(scrollPane, gbc);
 		// REMPLIR LE CHOIX DES EQUIPES INTERFACE
-		c.add("listMatch", listMatchPanel);
+		//c.add("listMatch", listMatchPanel);
+		c.add("listMatch", scrollPane);
 
 		// ACTION DU BOUTON START DE LA PREMIERE PAGE
 		start.addActionListener(new ActionListener() {
