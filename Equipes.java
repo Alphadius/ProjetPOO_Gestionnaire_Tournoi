@@ -27,13 +27,4 @@ public Equipes() {
     System.out.println("Nombre de Joueurs : " + nombreJoueurs);
     // Faire pareil pour les autres stats
   }
-
-  public void changementFormation() {
-
-  }
-
-  public void afficherMatchEquipe() {
-    
-  }
-
 }
