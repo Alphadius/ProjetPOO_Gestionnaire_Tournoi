@@ -1,5 +1,5 @@
 package compMaker.model;
-import java.util.Vector;
+import java.util.*;
 
 public class Joueur extends Personne {
 
@@ -16,6 +16,8 @@ public class Joueur extends Personne {
   public int defense;
   public int physique;
   public int dateNaissance;
+  Calendar c = Calendar.getInstance();
+  int annee = c.get(Calendar.YEAR);
 
   public Joueur(String nom, String prenom,int dateNaissance, String position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
@@ -70,7 +72,7 @@ public class Joueur extends Personne {
     System.out.println("Physique : " + this.physique);
   }
   public String stat(){ // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
-    String text = "Nom : "+this.nom +"<BR>Prenom : "+"<BR>Age : "+this.age+this.prenom+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position+"<BR>Vitesse : "+this.vitesse+"<BR> Tirs : "+this.tirs+"<BR> Passes : "+this.passes+"<BR>Dribbles : "+this.dribbles+"<BR>Defense : "+this.defense+"<BR>Physique : "+this.physique +"<BR> Titulaire : "+this.titulaire ;
+    String text = "Nom : "+this.nom +"<BR>Prenom :"+this.prenom+"<BR>Age : "+(annee-this.dateNaissance)+" ans"+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position+"<BR>Vitesse : "+this.vitesse+"<BR> Tirs : "+this.tirs+"<BR> Passes : "+this.passes+"<BR>Dribbles : "+this.dribbles+"<BR>Defense : "+this.defense+"<BR>Physique : "+this.physique +"<BR> Titulaire : "+this.titulaire ;
     return text;
   }
 
