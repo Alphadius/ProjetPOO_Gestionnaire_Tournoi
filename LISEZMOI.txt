@@ -6,3 +6,5 @@
 -il faut entrer un nombre d'équipe inférieur à 16
 
 -il faut cliquer sur le nombre d'équipe exacte pour le bon fonctionnement du programme sinon ça casse
+
+-pour charger la competition il faut aller dans "charger Competition" et entrer le nom de la competition;
