@@ -88,7 +88,7 @@ public class Competition {
 
   public void coachParEquipe (){
     for(int i=0;i < this.equipes.size();i++){
-      System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
+      //System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
       switch (this.equipes.get(i).nomEquipe.toUpperCase()){
         case "FRANCE":
         this.equipes.get(i).nomCoach="Didier DESCHAMPS";
