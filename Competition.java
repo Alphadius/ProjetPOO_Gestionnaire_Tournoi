@@ -521,7 +521,7 @@ public class Competition {
       // et les mettres en page de manière à etre lisible pour le buffer
       for (int i = 0; i < this.equipes.size(); i++) {
         Equipes temp = this.equipes.get(i);
-        // writer.println(temp.nomEquipe);
+        writer.println(temp.nomEquipe);
       }
     } catch (FileNotFoundException e) {
       // sortie erreur
