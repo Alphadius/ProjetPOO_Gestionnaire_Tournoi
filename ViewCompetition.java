@@ -466,9 +466,7 @@ public class ViewCompetition extends JFrame {
 					Equipes equipeTemp = new Equipes();
 					System.out.println("lbl c'est détailsEquipe : "+lbl);
 					equipeTemp = comp.equipeDe(lbl);
-					String infoEquipe = "<html><h2> </h2><p>Coach : " + equipeTemp.nomCoach
-							+ "</p><p>" + equipeTemp.nombreJoueurs + " joueurs</p><p>" + equipeTemp.points
-							+ " points</p></html>";
+					String infoEquipe = "<html><h2> </h2><p>Coach : " + equipeTemp.nomCoach + "</p></html>";
 					// Afficher combobox boxEquipe
 					labelStatEquipe.setText(infoEquipe);
 					AfficherDetailEquipe(equipeTemp.nomEquipe);
