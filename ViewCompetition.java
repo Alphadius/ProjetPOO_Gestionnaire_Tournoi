@@ -41,6 +41,7 @@ public class ViewCompetition extends JFrame {
 	public JComboBox boxEquipe = new JComboBox();
 	public JButton buttonAfficherStats = new JButton("Afficher statistiques");
 	public JButton buttonRetourListMatch = new JButton("Retour");
+	public JButton buttonRetourListMatchB = new JButton("Retour");
 	public GridBagConstraints gbc = new GridBagConstraints();
 
 	// test bouton dans JTable
@@ -183,7 +184,6 @@ public class ViewCompetition extends JFrame {
 		// PANEL N°4 : DETAILS MATCH
 		//////////////////////////
 		JPanel detailsMatchPanel = new JPanel(new BorderLayout());
-		JButton buttonRetourListMatchB = new JButton("Retour");
 		// afficher le nom de l'équipe 1 du match en question
 		detailsMatchPanel.setLayout(new GridBagLayout());
 		JLabel labelNomMatch = new JLabel();
@@ -210,41 +210,7 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
 		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
-		
-		btnModifierScore.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int a , b;
-				Match temp= new Match();
-				temp = comp.matchs.get(Integer.valueOf(labelNumeroTour.getText()));
-				a= Integer.valueOf(txtModifierScore1.getText());
-				b= Integer.valueOf(txtModifierScore2.getText());
-				temp.putScore(a,b);
-
-				String infoMatch = "<html><h1>" + temp.equipe1.nomEquipe + " - " + temp.equipe2.nomEquipe
-				+ "</h1><h2>Score : " + temp.scoreEquipe1 + " - " + temp.scoreEquipe2
-				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(comp.jDebut, comp.mDebut, comp.aDebut) + "</p></html>";
-				labelStatsMatch.setText(infoMatch);
-				//refresh jlabel
-			}
-		});
 		//gbc(posx, width, height, posy);
-		buttonRetourListMatchB.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Refresh table data et score
-				//sendMatch(comp);
-				table.repaint();
-				txtModifierScore1.setText("");
-				txtModifierScore2.setText("");
-				card.show(c, "listMatch");
-			}
-		});
-		buttonAfficherStats.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Joueur temp = new Joueur();
-				temp = comp.equipeDe(labelnomEquipe.getText()).JoueursInEquipe.get(boxEquipe.getSelectedIndex());
-				stat.setText("<html>"+temp.stat()+"</html>");
-			}
-		});
 		
 		c.add("detailsMatch", detailsMatchPanel);
 	}
@@ -362,13 +328,21 @@ public class ViewCompetition extends JFrame {
 	public void addChargerCompListener(ActionListener listenForChargerComp){
 		buttonChargerCompetition.addActionListener (listenForChargerComp);
 	}
+	public void addRetourListBlistener(ActionListener listenForRetourButtonB){
+		buttonRetourListMatchB.addActionListener(listenForRetourButtonB);
+	}
 	public void addRetourListener(ActionListener listenForRetourButton) {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
 	public void addRetourListlistener(ActionListener listenForRetourButton){
 		buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
-
+	public void addModifScoreListener(ActionListener listenModifScore){
+			btnModifierScore.addActionListener(listenModifScore);
+		}
+	public void addAfficherStatListener(ActionListener listenStat){
+		buttonAfficherStats.addActionListener(listenStat);
+	}
 	public void retourListMatch() {
 		stat.setText("");
 		card.show(c, "listMatch");

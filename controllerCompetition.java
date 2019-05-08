@@ -23,6 +23,9 @@ public class controllerCompetition{
 		this.theView.addchoixEquipeListener(new choixEquipeListener());
 		this.theView.addChargerCompListener(new listenForChargerComp());
 		this.theView.addRetourListlistener(new listenForretourlist());
+		this.theView.addRetourListBlistener(new listenForRetourButtonB());
+		this.theView.addModifScoreListener(new listenModifScore());
+		this.theView.addAfficherStatListener(new listenStat());
 	}
 
 	class ValidListener implements ActionListener{
@@ -95,6 +98,41 @@ public class controllerCompetition{
 			theView.goListMatch();
 		}
 	}
+class listenModifScore implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				int a , b;
+				Match temp= new Match();
+				temp =theModel.matchs.get(Integer.valueOf(theView.labelNumeroTour.getText()));
+				a= Integer.valueOf(theView.txtModifierScore1.getText());
+				b= Integer.valueOf(theView.txtModifierScore2.getText());
+				temp.putScore(a,b);
+				String infoMatch = "<html><h1>" + temp.equipe1.nomEquipe + " - " + temp.equipe2.nomEquipe
+				+ "</h1><h2>Score : " + temp.scoreEquipe1 + " - " + temp.scoreEquipe2
+				+ "</h2><p><strong>Date : </strong>" + temp.afficherDate(theModel.jDebut, theModel.mDebut, theModel.aDebut) + "</p></html>";
+				theView.labelStatsMatch.setText(infoMatch);
+				//refresh jlabel
+			}
+		}
+		class listenStat implements ActionListener{
+			public void actionPerformed(ActionEvent e) {
+				Joueur temp = new Joueur();
+				temp = theModel.equipeDe(theView.labelnomEquipe.getText()).JoueursInEquipe.get(theView.boxEquipe.getSelectedIndex());
+				theView.stat.setText("<html>"+temp.stat()+"</html>");
+			}
+
+		}
+	class listenForRetourButtonB implements ActionListener{
+
+			public void actionPerformed(ActionEvent e) {
+				// Refresh table data et score
+				sendMatch();
+				theView.table.repaint();
+				theView.txtModifierScore1.setText("");
+				theView.txtModifierScore2.setText("");
+				theView.card.show(theView.c, "listMatch");
+			}
+		}
+
 	class listenForretourlist implements ActionListener{
 		public void actionPerformed(ActionEvent e) {		
 			sendMatch();
