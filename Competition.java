@@ -117,24 +117,8 @@ public class Competition {
     String date = "(" + jDebut + "/" + mDebut + "/" + aDebut + ")";
     return date;
   }
-
-  public void afficherMatchAll() {
-
-  }
-
-  public void afficherMatchSpe() {
-  }
-
-  public void creationEquipe() {
-  }
-  // public void creationDateDebut() { // demande a lutilisateur de rentrer la
-  // date de debut de la compete
-
-  // }
-
-  // public void creationCompetition() {
   public void CombiMatch(int nbEquipes) {
-
+// Ce parti permet de verifier ce qui ce produit en Console
     // Scanner reader = new Scanner(System.in);
     // System.out.println("Veuillez saisir le jour de debut de la competition:");
     // this.jDebut = reader.nextInt();
