@@ -14,8 +14,8 @@ public class Match {
   }
 
   public Match(Equipes equipe1, Equipes equipe2,int score1, int score2, int tour) {
-    this.scoreEquipe1 = scoreEquipe1;
-    this.scoreEquipe2 = scoreEquipe2;
+    this.scoreEquipe1 = score1;
+    this.scoreEquipe2 = score2;
     this.equipe1 = equipe1;
     this.equipe2 = equipe2;
     this.tour = tour;

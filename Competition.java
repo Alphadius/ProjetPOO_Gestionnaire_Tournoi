@@ -468,9 +468,11 @@ public class Competition {
           break;
         case 2:
           score1 = Integer.valueOf(line);
+          System.out.println(score1);
           break;
         case 3:
           score2 = Integer.valueOf(line);
+          System.out.println(score2);
           break;
         case 4:
           tour = Integer.valueOf(line);
@@ -484,7 +486,7 @@ public class Competition {
       }
       this.matchs = matchTemp;
       for(int i = 0; i < this.matchs.size(); i++){
-        System.out.println(this.matchs.get(i).equipe1.nomEquipe);
+        System.out.println(this.matchs.get(i).scoreEquipe1 + " - "+ this.matchs.get(i).scoreEquipe2);
       }
       // System.out.println(this.matchs.get(1).equipe1.nomEquipe);
     } catch (IOException e) {
