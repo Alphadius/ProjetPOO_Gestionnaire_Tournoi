@@ -37,45 +37,42 @@ public class Competition {
 
   }
 
+  // public nbButEquipe(Equipes equipeTemp){
+  //   public int nbBut;
+  //   for(int i = 0; i < this.)
+  // }
   class Sortbypoints implements Comparator<Equipes> {
     // Used for sorting in ascending order of
     // roll number
 
-    public int compare(Joueur a, Joueur b) {
+    public int compare(Equipes a, Equipes b) {
       int point1 = a.points;
       int point2 = b.points;
       return point1 - point2;
     }
   }
-
-  public nbButEquipe(Equipes equipeTemp){
-    public int nbBut;
-    String nomEquipe=equipeTemp.nomEquipe;
-    this.matchs.
-  }
-
   public String[] triquipeParPoint() {
     Equipes equipeTemp = new Equipes();
     Match matchTemp = new Match();
     List<Equipes> tempEquipes = new ArrayList<Equipes>();
-    String result[] = new String[comp.equipes.size()];
-    tempEquipes = comp.equipes;
-    int sum[] = new int[comp.equipes.size()];
-    for (int i = 0; i < comp.equipes.size(); i++) {
-      equipeTemp = comp.equipes.get(i);
-      for (int j = 0; j < comp.matchs.size(); j++) {
-        matchTemp = comp.matchs.get(j);
+    String result[] = new String[this.equipes.size()];
+    tempEquipes = this.equipes;
+    int sum[] = new int[this.equipes.size()];
+    for (int i = 0; i < this.equipes.size(); i++) {
+      equipeTemp = this.equipes.get(i);
+      for (int j = 0; j < this.matchs.size(); j++) {
+        matchTemp = this.matchs.get(j);
         if (equipeTemp == matchTemp.equipe1) {
-          sum[i] += matchTemp.equipe1.score;
+          sum[i] += matchTemp.scoreEquipe1;
         } else if (equipeTemp == matchTemp.equipe2) {
-          sum[i] += matchTemp.equipe2.score;
+          sum[i] += matchTemp.scoreEquipe2;
         }
       }
       equipeTemp.points = sum[i];
     }
-    Collections.sort(tempEquipes, new sortbyscore());
+    Collections.sort(tempEquipes, new Sortbypoints());
     for (int i = 0; i < tempEquipes.size(); i++) {
-      result[i] = tempEquipes.get(i);
+      result[i] = tempEquipes.get(i).nomEquipe;
     }
     return result;
   }
@@ -91,7 +88,7 @@ public class Competition {
   }
 
   public void coachParEquipe (){
-    for(i=0;i < this.equipes.size();i++){
+    for(int i=0;i < this.equipes.size();i++){
       switch (this.equipes.get(i).nomEquipe.toUpperCase()){
         case "FRANCE":
         this.equipes.get(i).nomCoach="Didier DESCHAMPS";
@@ -288,7 +285,6 @@ public class Competition {
     }
 
   }
-
   public void getDataJoueur(String file) {
 
     String nom = "";

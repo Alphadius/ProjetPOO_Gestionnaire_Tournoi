@@ -25,6 +25,7 @@ public class ViewCompetition extends JFrame {
 	public JTextField txtModifierScore2 = new JTextField(10);
 	public JButton btnModifierScore = new JButton("Modifier le score");
 	public JButton btnClassement = new JButton("Classement");
+	public JPanel btnClassementP;
 	public JButton btnSaveListMatch = new JButton("Sauvegarder");
 	public JLabel labelNomCompetition = new JLabel();
 	public JLabel labelNbEquipes = new JLabel();
@@ -166,7 +167,7 @@ public class ViewCompetition extends JFrame {
 		// JScrollPane de la table
 		JScrollPane scrollPane = new JScrollPane(table);
 		listMatchPanel.add(scrollPane, BorderLayout.CENTER);
-		JPanel btnClassementP = new JPanel(new BorderLayout());
+		btnClassementP = new JPanel(new BorderLayout());
 		JPanel btnSaveP = new JPanel(new BorderLayout());
 		
 		btnClassementP.add(btnClassement, BorderLayout.WEST);
@@ -347,7 +348,7 @@ public class ViewCompetition extends JFrame {
 		buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
 	public void addClassementListener(ActionListener listenclassement){
-		btnClassementP.addActionListener(listenclassement);
+		btnClassement.addActionListener(listenclassement);
 	}
 	public void addModifScoreListener(ActionListener listenModifScore){
 			btnModifierScore.addActionListener(listenModifScore);
@@ -454,6 +455,7 @@ public class ViewCompetition extends JFrame {
 					//txtModifierScore.setPreferredSize(new Dimension(50,10));
 					//c.add("detailsEquipe", txtModifierScore);
 					//buttonAfficherStats.setText("Modifier score");
+					btnModifierScore.requestFocus();
 					card.show(c, "detailsMatch");
 				} else {
 					Equipes equipeTemp = new Equipes();
@@ -464,6 +466,7 @@ public class ViewCompetition extends JFrame {
 					// Afficher combobox boxEquipe
 					labelStatEquipe.setText(infoEquipe);
 					AfficherDetailEquipe(equipeTemp.nomEquipe);
+					buttonAfficherStats.requestFocus();
 					card.show(c, "detailsEquipe");
 				}
 			}

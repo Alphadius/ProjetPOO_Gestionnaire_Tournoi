@@ -5,15 +5,15 @@ import compMaker.controller.*;
 public class main{
 	public static void main(String[] args){
 		Competition origin = new Competition();
-		origin.getDataJoueur("BDDJoueur");
-		origin.getDataEquipe("BDDEquipe",16);
-		origin.writeDataJoueur("origin");
-		origin.writeDataEquipe("origin");
+		origin.getDataJoueur("data/BDDJoueur");
+		origin.getDataEquipe("data/BDDEquipe",16);
+		origin.writeDataJoueur("data/origin");
+		origin.writeDataEquipe("data/origin");
+		Competition theModel = new Competition();
 		// theModel.getDataEquipe("BDDEquipe",16);
-					theModel.getDataJoueur("BDDJoueur");
+					theModel.getDataJoueur("data/BDDJoueur");
 					theModel.trierParEquipe();
 					System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());		
-    	Competition theModel = new Competition();
 		ViewCompetition theView = new ViewCompetition(origin, theModel);
         controllerCompetition theController = new controllerCompetition(theView,theModel,origin);
         

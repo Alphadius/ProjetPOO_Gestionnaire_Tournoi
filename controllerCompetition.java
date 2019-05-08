@@ -83,7 +83,9 @@ public class controllerCompetition{
 		theView.gbc(4, 1, 1, 3);
 		theView.choixEquipePanel.add(theView.choixEquipeButton);
 				theModel.coachParEquipe();
+				for(int i = 0; i < theModel.equipes.size(); i++){
 				System.out.println(theModel.equipes.get(i).nomCoach);
+			}
 				theView.goChoixEquipe();
 				
 			} catch(Exception erreur) {
@@ -97,7 +99,7 @@ public class controllerCompetition{
 			sendMatch();
 			theModel.trierParEquipe();
 			System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());
-			theModel.btnClassement.requestFocus();
+			theView.btnClassementP.requestFocus();
 			theView.goListMatch();
 		}
 	}
