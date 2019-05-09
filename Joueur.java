@@ -1,4 +1,5 @@
 package compMaker.model;
+
 import java.util.*;
 
 public class Joueur extends Personne {
@@ -19,7 +20,8 @@ public class Joueur extends Personne {
   Calendar c = Calendar.getInstance();
   int annee = c.get(Calendar.YEAR);
 
-  public Joueur(String nom, String prenom,int dateNaissance, String position, int vitesse, int tirs, int passes, int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
+  public Joueur(String nom, String prenom, int dateNaissance, String position, int vitesse, int tirs, int passes,
+      int dribbles, int defense, int physique, String equipe, int numeroJoueur, boolean titulaire) {
     this.nom = nom;
     this.prenom = prenom;
     this.age = age;
@@ -35,6 +37,7 @@ public class Joueur extends Personne {
     this.defense = defense;
     this.physique = physique;
   }
+
   public Joueur() {
     this.nom = "";
     this.prenom = "";
@@ -52,15 +55,16 @@ public class Joueur extends Personne {
     this.physique = 0;
   }
 
-  public void afficherStats(int annee) { // AFFICHAGE DES STATS VERSION CONSOLE
+  public void afficherStats(int annee) {
+    // AFFICHAGE DES STATS VERSION CONSOLE
     // System.out.println(this.nom + " " + this.prenom);
     // System.out.println((annee-this.dateNaissance) + " ans");
     // System.out.println("Date de naissance : " + this.dateNaissance);
     // System.out.println("Equipe : " + this.equipe);
     // if(this.titulaire) {
-    //   System.out.println("Titulaire");
+    // System.out.println("Titulaire");
     // } else {
-    //   System.out.println("Non-titulaire");
+    // System.out.println("Non-titulaire");
     // }
     // System.out.println("Numero : " + this.numeroJoueur);
     // System.out.println("Position : " + this.position);
@@ -71,18 +75,13 @@ public class Joueur extends Personne {
     // System.out.println("Defense : " + this.defense);
     // System.out.println("Physique : " + this.physique);
   }
-  public String stat(){ // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
-    String text = "Nom : "+this.nom +"<BR>Prenom :"+this.prenom+"<BR>Age : "+(annee-this.dateNaissance)+" ans"+"<BR>Equipe : "+this.equipe+"<BR>Numero : "+this.numeroJoueur+"<BR>Position : "+this.position+"<BR>Vitesse : "+this.vitesse+"<BR> Tirs : "+this.tirs+"<BR> Passes : "+this.passes+"<BR>Dribbles : "+this.dribbles+"<BR>Defense : "+this.defense+"<BR>Physique : "+this.physique +"<BR> Titulaire : "+this.titulaire ;
+
+  public String stat() { // AFFICHAGE DES STATS VERSION INTERFACE GRAPHIQUE
+    String text = "Nom : " + this.nom + "<BR>Prenom :" + this.prenom + "<BR>Age : " + (annee - this.dateNaissance)
+        + " ans" + "<BR>Equipe : " + this.equipe + "<BR>Numero : " + this.numeroJoueur + "<BR>Position : "
+        + this.position + "<BR>Vitesse : " + this.vitesse + "<BR> Tirs : " + this.tirs + "<BR> Passes : " + this.passes
+        + "<BR>Dribbles : " + this.dribbles + "<BR>Defense : " + this.defense + "<BR>Physique : " + this.physique
+        + "<BR> Titulaire : " + this.titulaire;
     return text;
-  }
-
-  public void modifierStats() {
-    /* Affiche un textfield qui contient toutes les stats du joueur en question
-    Telles qu'elles le sont actuellement
-
-    Et renvoie les résultats du textfield comme nouveaux attributs/stats
-    qui remplaceront alors les anciennes si elles sont correctes (types etc)
-    */
-
   }
 }

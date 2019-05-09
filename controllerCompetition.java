@@ -51,9 +51,6 @@ public class controllerCompetition {
 				theModel.putCompName(compName);
 				theModel.putNbEquipe(nbEquipe);
 				theModel.putDate(theView.getJour(), theView.getMois(), theView.getAnnee());
-				// theView.setNomCompetition("<html> nom Competition : "+theModel.compName() +
-				// "<BR> Date début : " + theModel.sendDateStart()+"<BR> NombreEquipe :
-				// "+theModel.sendNbEquipe()+"</html>");
 
 				//// **** Séparation des différentes variables/attributs à réutiliser dans la
 				//// vue
@@ -171,7 +168,7 @@ public class controllerCompetition {
 			JDialog d = new JDialog(theView, "classement");
 			String classement = "";
 			for (int i = 0; i < theModel.equipes.size(); i++) {
-				classement = classement +theModel.triEquipeParVictoire()[i] + "<BR>";
+				classement = classement + theModel.triEquipeParVictoire()[i] + "<BR>";
 			}
 			d.add(new JLabel("<html>" + classement + "</html>"));
 			d.setSize(1000, 1000);
@@ -227,10 +224,9 @@ public class controllerCompetition {
 			} else {
 				theModel.matchs.get(num).aEuLieux = true;
 			}
-			if (theModel.matchs.get(num).aEuLieux){
+			if (theModel.matchs.get(num).aEuLieux) {
 				theView.labelMatchAEulieu.setText("Ce match a eu lieu !");
-			}
-			else {
+			} else {
 				theView.labelMatchAEulieu.setText("Ce match n'a pas eu lieu !");
 			}
 		}

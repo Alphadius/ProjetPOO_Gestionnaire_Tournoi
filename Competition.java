@@ -18,18 +18,9 @@ public class Competition {
 
   public int nombreEquipes;
 
-  // int dateDeDebut;
-
   public int jDebut = 0;
   public int mDebut = 0;
   public int aDebut = 0;
-  // public Vector myMatch;public Match 1. n;public Vector 1. n;
-  // public Vector myMatch;
-  // /**
-  // *
-  // * @element-type Match
-  // */
-  // public Vector participe;
 
   public void putCompName(String nom) {
 
@@ -37,10 +28,6 @@ public class Competition {
 
   }
 
-  // public nbButEquipe(Equipes equipeTemp){
-  // public int nbBut;
-  // for(int i = 0; i < this.)
-  // }
   public class Sortbypoints implements Comparator<Equipes> {
     // Used for sorting in ascending order of
     // roll number
@@ -51,35 +38,36 @@ public class Competition {
       return point2 - point1;
     }
   }
-// TRI PAR POINT 
+  // TRI PAR POINT
   // public String[] triequipeParPoint() {
-  //   Equipes equipeTemp = new Equipes();
-  //   Match matchTemp = new Match();
-  //   List<Equipes> tempEquipes = new ArrayList<Equipes>();
-  //   String result[] = new String[this.equipes.size()];
-  //   tempEquipes = this.equipes;
-  //   int sum[] = new int[this.equipes.size()];
-  //   for (int i = 0; i < this.equipes.size(); i++) {
-  //     equipeTemp = this.equipes.get(i);
-  //     for (int j = 0; j < this.matchs.size(); j++) {
-  //       matchTemp = this.matchs.get(j);
-  //       if (equipeTemp == matchTemp.equipe1) {
-  //         sum[i] += matchTemp.scoreEquipe1;
-  //       } else if (equipeTemp == matchTemp.equipe2) {
-  //         sum[i] += matchTemp.scoreEquipe2;
-  //       }
-  //     }
-  //     equipeTemp.points = sum[i];
-  //   }
-  //   Collections.sort(tempEquipes, new Sortbypoints());
-  //   for (int i = 0; i < tempEquipes.size(); i++) {
-  //     result[i] = tempEquipes.get(i).nomEquipe + "  " + tempEquipes.get(i).points + "<BR>" + "";
-  //   }
-  //   return result;
+  // Equipes equipeTemp = new Equipes();
+  // Match matchTemp = new Match();
+  // List<Equipes> tempEquipes = new ArrayList<Equipes>();
+  // String result[] = new String[this.equipes.size()];
+  // tempEquipes = this.equipes;
+  // int sum[] = new int[this.equipes.size()];
+  // for (int i = 0; i < this.equipes.size(); i++) {
+  // equipeTemp = this.equipes.get(i);
+  // for (int j = 0; j < this.matchs.size(); j++) {
+  // matchTemp = this.matchs.get(j);
+  // if (equipeTemp == matchTemp.equipe1) {
+  // sum[i] += matchTemp.scoreEquipe1;
+  // } else if (equipeTemp == matchTemp.equipe2) {
+  // sum[i] += matchTemp.scoreEquipe2;
+  // }
+  // }
+  // equipeTemp.points = sum[i];
+  // }
+  // Collections.sort(tempEquipes, new Sortbypoints());
+  // for (int i = 0; i < tempEquipes.size(); i++) {
+  // result[i] = tempEquipes.get(i).nomEquipe + " " + tempEquipes.get(i).points +
+  // "<BR>" + "";
+  // }
+  // return result;
   // }
 
   public String[] triEquipeParVictoire() {
-    List<Equipes> tempEquipes= new ArrayList<Equipes>();
+    List<Equipes> tempEquipes = new ArrayList<Equipes>();
     String result[] = new String[this.equipes.size()];
     for (int j = 0; j < this.equipes.size(); j++) {
       // Equipe point reinitialiser a 0
@@ -101,7 +89,7 @@ public class Competition {
         }
       }
     }
-    for(int i=0;i<this.equipes.size();i++){
+    for (int i = 0; i < this.equipes.size(); i++) {
       tempEquipes.add(this.equipes.get(i));
     }
     Collections.sort(tempEquipes, new Sortbypoints());
@@ -123,7 +111,6 @@ public class Competition {
 
   public void coachParEquipe() {
     for (int i = 0; i < this.equipes.size(); i++) {
-      // System.out.println(this.equipes.get(i).nomEquipe.toUpperCase());
       switch (this.equipes.get(i).nomEquipe.toUpperCase()) {
       case "FRANCE":
         this.equipes.get(i).nomCoach = "Didier DESCHAMPS";
@@ -303,11 +290,6 @@ public class Competition {
 
       // cherche la liste de toute les équipes dispo dans la bdd et la transformer en
       // objet
-      // for(int i = 0; i < nbEquipe; i++){
-      // line = br.readLine();
-      // Equipe equipe1 = new Equipe;
-      // this.equipes.add(equipe1);
-      // }
 
       while ((line = br.readLine()) != null) {
         // on va choper toute les données ligne par ligne et les transformer en objets
@@ -358,7 +340,6 @@ public class Competition {
           Joueur joueur1 = new Joueur(nom, prenom, dateNaissance, position, vitesse, tirs, passes, dribbles, defense,
               physique, equipe, numeroJoueur, titulaire);
           joueursTemp.add(joueur1);
-          // joueur1.afficherStats(annee);
           break;
         }
         count = (count + 1) % 13;
@@ -369,9 +350,6 @@ public class Competition {
       e.printStackTrace();
     }
     this.joueurs = joueursTemp;
-    // for(int i = 0; i < 3; i++){
-    // joueurs.get(i).afficherStats(annee);
-    // }
   }
 
   public void getDataEquipe(String file) {
@@ -417,9 +395,6 @@ public class Competition {
       // si ya une erreur
       e.printStackTrace();
     }
-    // for(int i = 0; i < 3; i++){
-    // joueurs.get(i).afficherStats(annee);
-    // }
   }
 
   public void getDataMatch(String file, Competition origin) {
@@ -464,10 +439,10 @@ public class Competition {
         case 4:
           tour = Integer.valueOf(line);
           break;
-          case 5:
-          if(Integer.valueOf(line) == 0){
+        case 5:
+          if (Integer.valueOf(line) == 0) {
             bool = false;
-          }else{
+          } else {
             bool = true;
           }
           Match temp;
@@ -555,9 +530,9 @@ public class Competition {
         writer.println(temp.scoreEquipe1);
         writer.println(temp.scoreEquipe2);
         writer.println(i);
-        if(temp.aEuLieux){
+        if (temp.aEuLieux) {
           writer.println(1);
-        }else{
+        } else {
           writer.println(0);
         }
       }

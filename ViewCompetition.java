@@ -1,4 +1,5 @@
 package compMaker.view;
+
 import compMaker.model.*;
 import java.util.*;
 import java.awt.*;
@@ -41,7 +42,7 @@ public class ViewCompetition extends JFrame {
 	public JLabel numMatch = new JLabel();
 	public JPanel detailsEquipePanel = new JPanel(new BorderLayout());
 	public JButton matchAEuLieu = new JButton();
-	public JLabel labelMatchAEulieu= new JLabel();
+	public JLabel labelMatchAEulieu = new JLabel();
 	public JLabel stat = new JLabel();
 	public String[] listJParEquipe = new String[23];
 	public int countFlag = 0;
@@ -83,7 +84,6 @@ public class ViewCompetition extends JFrame {
 
 		boutonStart.add(buttonChargerCompetition, gbc);
 
-	
 		c.add("menu", boutonStart);
 
 		//////////////////////////
@@ -139,7 +139,7 @@ public class ViewCompetition extends JFrame {
 		// PANEL loadCompetition
 		//////////////////////////
 		loadCompetitionPanel.setLayout(new GridBagLayout());
-		//gbc.fill = GridBagConstraints.BOTH;
+		// gbc.fill = GridBagConstraints.BOTH;
 		gbc(0, 1, 1, 0);
 		loadCompetitionPanel.add(txtLoadCompetition, gbc);
 		gbc(0, 1, 1, 1);
@@ -172,13 +172,13 @@ public class ViewCompetition extends JFrame {
 		listMatchPanel.add(scrollPane, BorderLayout.CENTER);
 		btnClassementP = new JPanel(new BorderLayout());
 		JPanel btnSaveP = new JPanel(new BorderLayout());
-		
+
 		btnClassementP.add(btnClassement, BorderLayout.WEST);
 		btnClassementP.add(btnSaveListMatch, BorderLayout.EAST);
 		listMatchPanel.add(btnClassementP, BorderLayout.SOUTH);
-		//listMatchPanel.add(btnSaveP, BorderLayout.SOUTH);
+		// listMatchPanel.add(btnSaveP, BorderLayout.SOUTH);
 		c.add("listMatch", listMatchPanel);
-		//c.add("listMatch", scrollPane);
+		// c.add("listMatch", scrollPane);
 
 		// ACTION DU BOUTON START DE LA PREMIERE PAGE
 		start.addActionListener(new ActionListener() {
@@ -213,13 +213,13 @@ public class ViewCompetition extends JFrame {
 		detailsMatchPanel.add(matchAEuLieu, gbc); // CheckBox à cocher si le match a eu lieu
 		gbc(6, 1, 1, 7);
 		detailsMatchPanel.add(labelMatchAEulieu, gbc);
-		//detailsMatchPanel.add(labelNumeroTour, gbc);
+		// detailsMatchPanel.add(labelNumeroTour, gbc);
 		gbc(5, 1, 1, 6);
 		detailsMatchPanel.add(btnModifierScore, gbc);
 		gbc(5, 1, 1, 9);
 		detailsMatchPanel.add(buttonRetourListMatchB, gbc);
-		//gbc(posx, width, height, posy);
-		
+		// gbc(posx, width, height, posy);
+
 		c.add("detailsMatch", detailsMatchPanel);
 	}
 
@@ -235,9 +235,6 @@ public class ViewCompetition extends JFrame {
 	public String getNomCompetition() {
 		return textfieldNomCompetition.getText();
 	}
-
-
-
 
 	//////////////////////////
 	// PANEL N°3 : DETAILS EQUIPE
@@ -267,7 +264,7 @@ public class ViewCompetition extends JFrame {
 		detailsEquipePanel.add(buttonAfficherStats, gbc);
 		gbc(0, 2, 1, 8);
 		detailsEquipePanel.add(buttonRetourListMatch, gbc);
-		gbc(4,1,3,1);
+		gbc(4, 1, 3, 1);
 		detailsEquipePanel.add(stat, gbc);
 		buttonRetourListMatch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -287,8 +284,6 @@ public class ViewCompetition extends JFrame {
 	//////////////////////////
 	// PANEL : CLASSEMENT
 	//////////////////////////
-
-
 
 	//////
 	public int getNbEquipes() {
@@ -334,48 +329,62 @@ public class ViewCompetition extends JFrame {
 	public void addCompEntreeListener(ActionListener listenForvalidButton) {
 		creerComp.addActionListener(listenForvalidButton);
 	}
+
 	public void addchoixEquipeListener(ActionListener listenForchoixEquipe) {
 		choixEquipeButton.addActionListener(listenForchoixEquipe);
 	}
-	public void addChargerCompListener(ActionListener listenForChargerComp){
-		buttonChargerCompetition.addActionListener (listenForChargerComp);
+
+	public void addChargerCompListener(ActionListener listenForChargerComp) {
+		buttonChargerCompetition.addActionListener(listenForChargerComp);
 	}
-	public void addSaveListener(ActionListener a){
+
+	public void addSaveListener(ActionListener a) {
 		btnSaveListMatch.addActionListener(a);
 	}
-	public void addRetourListBlistener(ActionListener listenForRetourButtonB){
+
+	public void addRetourListBlistener(ActionListener listenForRetourButtonB) {
 		buttonRetourListMatchB.addActionListener(listenForRetourButtonB);
 	}
+
 	public void addRetourListener(ActionListener listenForRetourButton) {
 		// buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
+
 	public void addmatchAEuLieuListener(ActionListener a) {
 		matchAEuLieu.addActionListener(a);
 	}
-	public void addloadcompListener(ActionListener a){
+
+	public void addloadcompListener(ActionListener a) {
 		btnLoadCompetition.addActionListener(a);
 	}
-	public void addRetourListlistener(ActionListener listenForRetourButton){
+
+	public void addRetourListlistener(ActionListener listenForRetourButton) {
 		buttonRetourListMatch.addActionListener(listenForRetourButton);
 	}
-	public void addClassementListener(ActionListener listenclassement){
+
+	public void addClassementListener(ActionListener listenclassement) {
 		btnClassement.addActionListener(listenclassement);
 	}
-	public void addModifScoreListener(ActionListener listenModifScore){
-			btnModifierScore.addActionListener(listenModifScore);
-		}
-	public void addAfficherStatListener(ActionListener listenStat){
+
+	public void addModifScoreListener(ActionListener listenModifScore) {
+		btnModifierScore.addActionListener(listenModifScore);
+	}
+
+	public void addAfficherStatListener(ActionListener listenStat) {
 		buttonAfficherStats.addActionListener(listenStat);
 	}
+
 	public void retourListMatch() {
 		stat.setText("");
 		card.show(c, "listMatch");
 	}
+
 	// MÉTHODES SET
 	public void setNomCompetition(String nomComp) { // Renommer ; permet de récupérer le nom de la competition depuis la
 													// class etc.
 		labelNomCompetition.setText("<html><h2>" + nomComp + "</h2></html>");
 	}
+
 	public void setNbEquipes(int nbEquipes) {
 		labelNbEquipes.setText(String.valueOf(nbEquipes));
 	}
@@ -454,21 +463,21 @@ public class ViewCompetition extends JFrame {
 					matchTemp = comp.matchs.get(Integer.parseInt(lbl));
 					String infoMatch = "<html><h1>" + matchTemp.equipe1.nomEquipe + " - " + matchTemp.equipe2.nomEquipe
 							+ "</h1><h2>Score : " + matchTemp.scoreEquipe1 + " - " + matchTemp.scoreEquipe2
-							+ "</h2><p><strong>Date : </strong>" + matchTemp.afficherDate(comp.jDebut,comp.mDebut,comp.aDebut) + "</p></html>";
+							+ "</h2><p><strong>Date : </strong>"
+							+ matchTemp.afficherDate(comp.jDebut, comp.mDebut, comp.aDebut) + "</p></html>";
 					labelStatsMatch.setText(infoMatch);
-					labelNumeroTour.setText(""+matchTemp.tour);
+					labelNumeroTour.setText("" + matchTemp.tour);
 					// AfficherDetailMatch(infoMatch);
-					if (matchTemp.aEuLieux){
+					if (matchTemp.aEuLieux) {
 						labelMatchAEulieu.setText("Ce match a eu lieu !");
-					}
-					else {
+					} else {
 						labelMatchAEulieu.setText("Ce match n'a pas eu lieu !");
 					}
-					
+
 					/// ADD textfield et bouton valider
-					//txtModifierScore.setPreferredSize(new Dimension(50,10));
-					//c.add("detailsEquipe", txtModifierScore);
-					//buttonAfficherStats.setText("Modifier score");
+					// txtModifierScore.setPreferredSize(new Dimension(50,10));
+					// c.add("detailsEquipe", txtModifierScore);
+					// buttonAfficherStats.setText("Modifier score");
 					btnModifierScore.requestFocus();
 					numMatch.setText(lbl);
 					card.show(c, "detailsMatch");

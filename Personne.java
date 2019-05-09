@@ -1,12 +1,11 @@
 public class Personne {
 
-    String prenom;
-  
-    String nom;
+  String prenom;
 
-    int age;
-  
-    String dateNaissance;
-  
-      
-  }
+  String nom;
+
+  int age;
+
+  String dateNaissance;
+
+}
