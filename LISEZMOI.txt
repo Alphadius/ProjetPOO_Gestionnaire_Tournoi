@@ -3,8 +3,18 @@
 
 -en console écrire<<  java compMaker.main  >>
 
--il faut entrer un nombre d'équipe inférieur à 16
+-si vous n'avez pas encore crée de competition cliquez sur "créer"
+
+-il faut entrer un nombre d'équipe inférieur à 16 et supérieur à 0 sinon ça casse
 
 -il faut cliquer sur le nombre d'équipe exacte pour le bon fonctionnement du programme sinon ça casse
 
--pour charger la competition il faut aller dans "charger Competition" et entrer le nom de la competition;
+-pour charger la competition il faut aller dans "charger Competition" et entrer le nom de la competition
+
+-pour informer que le match à bien u lieux cliquer sur le petit bouton applati dans détailMatch sinon il ne sera pas comptabilisé dans le classement
+
+-le classement calcul des points se fait de cette manière; victoire 3points;défaite 1points; nul 2points
+
+
+
+
