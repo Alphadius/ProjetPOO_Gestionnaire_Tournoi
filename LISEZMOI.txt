@@ -1,7 +1,7 @@
 
 
 
--en console écrire<<  java compMaker.main  >> pour lancer le programme
+-en console écrire<<  java compMaker.main  >> pour lancer le programme depuis le dossier ProjetPOO
 
 -si vous n'avez pas encore crée de competition cliquez sur "créer"
 
