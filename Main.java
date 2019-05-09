@@ -16,9 +16,7 @@ public class main{
 					theModel.getDataJoueur("data/BDDJoueur");
 					theModel.trierParEquipe();
 					origin.trierParEquipe();
-					origin.coachParEquipe();
-					System.out.println(origin.equipeDe("france").nomCoach);
-					System.out.println(theModel.equipeDe("france").JoueursInEquipe.size());		
+					origin.coachParEquipe();	
 		ViewCompetition theView = new ViewCompetition(origin, theModel);
         controllerCompetition theController = new controllerCompetition(theView,theModel,origin);
         
