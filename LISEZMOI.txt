@@ -11,9 +11,11 @@
 
 -pour charger la competition il faut aller dans "charger Competition" et entrer le nom de la competition
 
+-certaine Competition on déjà été implémenté comme  COMP8  et COMP16 n'hésitez pas à les charger 
+
 -pour informer que le match à bien u lieux cliquer sur le petit bouton applati dans détailMatch sinon il ne sera pas comptabilisé dans le classement
 
--le classement calcul des points se fait de cette manière; victoire 3points;défaite 1points; nul 2points
+-le classement calcul des points se fait de cette manière; victoire 3points;défaite 1points; nulle 2points
 
 
 
