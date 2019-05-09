@@ -13,12 +13,13 @@ public class Match {
     this.equipe2 = null;
   }
 
-  public Match(Equipes equipe1, Equipes equipe2,int score1, int score2, int tour) {
+  public Match(Equipes equipe1, Equipes equipe2,int score1, int score2, int tour, boolean bool) {
     this.scoreEquipe1 = score1;
     this.scoreEquipe2 = score2;
     this.equipe1 = equipe1;
     this.equipe2 = equipe2;
     this.tour = tour;
+    this.aEuLieux = bool;
   }
 
   public void putScore(int a, int b) {

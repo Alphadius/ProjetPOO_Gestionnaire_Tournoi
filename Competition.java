@@ -431,6 +431,7 @@ public class Competition {
     int score1 = 0;
     int score2 = 0;
     int tour = 0;
+    boolean bool = false;
     List<Match> matchTemp = new ArrayList<Match>();
     try {
       // va chercher le fichier demandé
@@ -462,13 +463,20 @@ public class Competition {
           break;
         case 4:
           tour = Integer.valueOf(line);
+          break;
+          case 5:
+          if(Integer.valueOf(line) == 0){
+            bool = false;
+          }else{
+            bool = true;
+          }
           Match temp;
-          temp = new Match(nomEquipe1, nomEquipe2, score1, score2, tour);
+          temp = new Match(nomEquipe1, nomEquipe2, score1, score2, tour, bool);
           matchTemp.add(temp);
           break;
 
         }
-        count = (count + 1) % 5;
+        count = (count + 1) % 6;
       }
       this.matchs = matchTemp;
 
@@ -547,6 +555,11 @@ public class Competition {
         writer.println(temp.scoreEquipe1);
         writer.println(temp.scoreEquipe2);
         writer.println(i);
+        if(temp.aEuLieux){
+          writer.println(1);
+        }else{
+          writer.println(0);
+        }
       }
     } catch (FileNotFoundException e) {
       // sortie erreur
